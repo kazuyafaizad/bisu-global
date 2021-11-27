@@ -4,21 +4,27 @@ import Nav from '../components/Nav.astro';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 
+
 ---
 <html lang="en">
   <BaseHead title="Bi-Su Official Global Website" description="Bi-Su Official Global Website―company,brands,sustainability,birdnest"/>
 
   <body>
-    <Nav />
+    <Nav DIR="."/>
     <section class="relative">
-      <h1 class=" absolute top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[2rem]">The Secret of Health and Beauty</h1>
-      <img src="./assets/images/1.jpg" alt="Koyuki-san" class="min-h-screen object-cover lg:object-fill">
+      <!--h1 class=" absolute top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[2rem]">The Secret of Health and Beauty</h1-->
+      <!--img src="./assets/images/1.jpg" alt="Koyuki-san" class="min-h-screen object-cover lg:object-fill"-->
+
+                        <video width="100%" poster="./koyuki/img/mod/BI-SU-KOYUKI-cover-img.jpg"  playsinline autoplay muted loop>
+                            <source src="./assets/movie/BI-SU-KOYUKI.mp4">
+                        Your browser does not support the video tag.
+                        </video>
     </section>
     <section>
       <div class="my-20 block mx-auto w-2/4">
         <h1 class="text-3xl text-center py-5 border-t border-b block border-golden">About Bird Nest</h1>
       </div>
-      <a href="#">
+      <a href="/about-bird-nest">
        <div class="h-max overflow-hidden">
       <picture>
           <source media="(max-width:480px)" srcset="">

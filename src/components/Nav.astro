@@ -1,4 +1,10 @@
+---
+const {about = "",brand = "",sustain = "",global = "",contact = ""}  = Astro.props;
+const URL = import.meta.env.PUBLIC_URL || ".";
 
+const { DIR = '.'} = Astro.props;
+
+---
 <!-- Navbar goes here -->
 		<nav class="bg-lighten shadow-lg">
 			<div class="max-w-7xl mx-auto px-4">
@@ -6,23 +12,23 @@
 					<div class="flex justify-between">
 						<div>
 							<!-- Website Logo -->
-							<a href="./" class="flex items-center py-4 px-2">
-                     <img class="block h-12 w-auto mr-2" src="./assets/images/logo.png" alt="Logo bi-su">
+							<a href="${DIR}" class="flex items-center py-4 px-2">
+                     <img class="block h-12 w-auto mr-2" src="${DIR}/assets/images/logo.png" alt="Logo bi-su">
 							</a>
 						</div>
 						<!-- Primary Navbar items -->
 						<div class="hidden md:flex items-center space-x-1">
-							<a href="" class="my-4 px-2 text-black border-r border-black transition duration-300 hover:text-golden">About Bird Nest</a>
-							<a href="" class="my-4 px-2 text-black border-r border-black transition duration-300 hover:text-golden">Brand</a>
-							<a href="" class="my-4 px-2 text-black border-r border-black transition duration-300 hover:text-golden">Sustainability</a>
-							<a href="" class="my-4 px-2 text-black border-r border-black transition duration-300 hover:text-golden">Global</a>
-							<a href="" class="my-4 px-2 text-black transition duration-300 hover:text-golden">Contact</a>
+							<a href="${DIR}/about-bird-nest" class="${about} my-4 px-2 text-black border-r border-black transition duration-300 hover:text-golden">About Bird Nest</a>
+							<a href="${DIR}/brand" class="${brand} my-4 px-2 text-black border-r border-black transition duration-300 hover:text-golden">Brand</a>
+							<a href="${DIR}/sustainability" class="${sustain} my-4 px-2 text-black border-r border-black transition duration-300 hover:text-golden">Sustainability</a>
+							<a href="${DIR}/global" class="${global} my-4 px-2 text-black border-r border-black transition duration-300 hover:text-golden">Global</a>
+							<a href="${DIR}/contact-us" class="${contact} my-4 px-2 text-black transition duration-300 hover:text-golden">Contact</a>
 						</div>
 
             	<!-- Mobile menu button -->
 					<div class="md:hidden flex items-center justify-center flex-col">
 						<button class="outline-none mobile-menu-button">
-						<svg class=" w-6 h-6 text-black hover:text-green-500 "
+						<svg class=" w-6 h-6 text-black {} hover:text-golden "
 							x-show="!showMenu"
 							fill="none"
 							stroke-linecap="round"
@@ -42,12 +48,12 @@
 			</div>
 			<!-- mobile menu -->
 			<div class="hidden mobile-menu bg-white position-absolute w-full h-screen transition-all duration-1000">
-				<ul class="">
-					<li class="active"><a href="index.html" class="flex border-b border-t px-2 py-4 text-white bg-green-500 font-semibold">About Bird Nest</a></li>
-					<li><a href="#services" class="flex border-b  px-2 py-4 hover:bg-green-500 transition duration-300">Brand</a></li>
-					<li><a href="#about" class="flex border-b  px-2 py-4 hover:bg-green-500 transition duration-300">Sustainability</a></li>
-					<li><a href="#contact" class="flex border-b  px-2 py-4 hover:bg-green-500 transition duration-300">Global</a></li>
-          <li><a href="#contact" class="flex border-b  px-2 py-4 hover:bg-green-500 transition duration-300">Contact</a></li>
+				<ul >
+					<li class="${about}"><a href="${DIR}/about-bird-nest" class="flex border-b  px-2 py-4 hover:bg-golden transition duration-300">About Bird Nest</a></li>
+					<li class="${brand}"><a href="${DIR}/brand" class="flex border-b  px-2 py-4 hover:bg-golden transition duration-300">Brand</a></li>
+					<li class="${sustain}"><a href="${DIR}/sustainability" class="flex border-b  px-2 py-4 hover:bg-golden transition duration-300">Sustainability</a></li>
+					<li class="${global}"><a href="${DIR}/global" class="flex border-b  px-2 py-4 hover:bg-golden transition duration-300">Global</a></li>
+          			<li class="${contact}"><a href="${DIR}/contact-us" class="flex border-b  px-2 py-4 hover:bg-golden transition duration-300">Contact</a></li>
 				</ul>
 			</div>
 			<script>

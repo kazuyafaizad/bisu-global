@@ -1,0 +1,54 @@
+---
+// Component Imports
+import Nav from '../components/Nav.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+
+---
+<html lang="en">
+  <BaseHead title="Bi-Su Official Global Website | Global" description="Bi-Su Official Global Website―company,brands,sustainability,birdnest">
+    <script src="../assets/js/point-map.js" crossorigin></script>
+
+</BaseHead>
+  <body>
+    <Nav global="active" DIR=".."/>
+
+      <section >
+        <div id="map"></div>
+        <h1 class="text-3xl my-10 block text-center">Deliver the value to the world</h1>
+      </section>
+
+
+    <Footer />
+     <script type="text/javascript">
+
+      // Create an instance
+      let map = new PointMap('map');
+
+      map.config.eventPointColor = "#333";
+      map.config.mapBgColor = "#B8A273";
+      map.config.activePointColor = '#333';
+      map.config.mapActiveBgColor ='#B8A273';
+      // Add event points
+
+     map.addEvents([{
+        name: 'Singapore',
+        coordinate: [103.8198, 1.3521 ]
+    }, {
+        name: 'Japan',
+        coordinate: [130.4017, 33.5902 ]
+    },{
+        name: 'USA',
+        coordinate: [77.0369, 38.9072 ]
+    },{
+        name: 'China',
+        coordinate: [116.4074, 39.9042 ]
+    }]);
+
+      // regiest events
+      map.on('mousemove', function(e, data) {
+        console.log(data);
+      })
+    </script>
+  </body>
+</html>

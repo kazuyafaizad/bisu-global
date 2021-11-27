@@ -1,9 +1,9 @@
 :root {
-  --main-font-jp: "æ¸¸æ˜Žæœ", "æ¸¸æ˜Žæœä½“", "Yu Mincho", YuMincho, serif;
+  --main-font-jp: "游明朝", "游明朝体", "Yu Mincho", YuMincho, serif;
   --main-font-latin: "Lora", serif;
 }
 html {
-  font-family: "Hiragino Mincho ProN";
+  font-family: "Yu Mincho";
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -13,6 +13,7 @@ h1 {
 }
 h2 {
   font-weight: normal;
+  font-size: 1.5rem;
 }
 h3 {
   font-weight: normal;
@@ -26,6 +27,11 @@ h5 {
 h6 {
   font-weight: normal;
 }
+p {
+  line-height: 1.5;
+  margin: 10px;
+  // font-size: clamp(16px, 4vw, 22px);
+}
 footer {
   > div {
     > small {
@@ -37,4 +43,13 @@ footer {
 }
 small {
   font-size: inherit;
+}
+a.active {
+  color: #b8a273;
+}
+li.active {
+  a {
+    color: white;
+    background-color: #b8a273;
+  }
 }
