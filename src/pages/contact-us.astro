@@ -11,63 +11,59 @@ import Footer from '../components/Footer.astro';
   <body>
     <Nav contact="active" DIR=".."/>
 
-      <section class="relative">
-            <h1 class=" absolute top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black text-[2rem]">White Gem for Humanity</h1>
-             <img src="../assets/images/6.jpg" alt="Swallow nest" class="object-cover lg:object-fill">
+      <section class="relative ">
+            <h1 class=" absolute top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[2rem]">Contact Us</h1>
+             <img src="../assets/images/19.jpg" alt="Contact Us" class="object-cover lg:object-fill">
       </section>
 
-      <section class="flex p-20 justify-evenly bg-yellowish">
-        <div class="w-1/3">
-            <img src="../assets/images/7.jpg" alt="">
-        </div>
-
-        <div class="w-1/3">
-            <h2 class="block text-center mb-5">From Jungles & Nature</h2>
-            <article class="text-justify border-b border-golden pb-5">
-                <p>At BI-SU, all our products are made from naturally-occurring swiftlet nests from caves deep in the tropical jungles of East Malaysia, noted as having some of the highest quality bird’s nests in the world.</p>
-                <p>Legend has it that Admiral Zheng He survived on bird’s nest when his ship was marooned on an island in the Malay Archipelago. Surprised by the nests’ miraculous energy-restoring effects, Zheng He would return home with this wondrous discovery and gift it to the Emperor.</p>
-                <p>Since then, the natural bounty of the nests has been prized and valued for their miraculous rejuvenating qualities for over four centuries. And like Zheng He, we pick the nests ourselves, while taking the utmost care to preserve and honor the natural environment that it comes from, in order to deliver the best of its treasures to you.</p>
-            </article>
-        </div>
+      <section class="flex p-20 justify-center border-b-2 border-golden">
+      <h3 class="block text-center ">Please fill out the form below and click “Confirm”. Fields marked with * are required.</h3>
       </section>
+      <form class="w-full max-w-4xl mt-24 mx-auto">
 
-      <section class="flex p-20 justify-evenly">
-       <div class="w-1/3">
-            <h2 class="block text-center mb-5">Superfood for Beauty & Health</h2>
-            <article class="text-justify border-b border-golden pb-5">
-                <p>Although Chinese culture has long believed in the power of edible bird’s nests to preserve skin and heal the body, this belief has scientific merit. Research done by scientists in Hong Kong in 1987 found the nests to be rich in Epidermal Growth Factors (EGFs), a glycoprotein that contributes to skin preservation.</p>
-                <p>Japanese, Malaysian and US researchers also found that nests contain sialic acid, crucial in brain and nervous system formation as well as antiviral properties, capable of helping the body resist influenza. Modern science seems to agree that that bird’s nests can help keep skin youthful and smooth, and the body healthy and fortified against illness.</p>
-            </article>
-        </div>
-        <div class="w-1/3">
-            <img src="../assets/images/8.jpg" alt="">
-        </div>
-      </section>
+    <div class="flex w-full px-3 mb-6 md:mb-0 items-center">
+      <label class="w-2/6 uppercase tracking-wide mb-2" for="grid-first-name">
+        Full Name
+      </label>
+      <input class="w-4/6 appearance-none border border-black py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="">
+    </div>
 
-       <section class="flex p-20 justify-evenly bg-yellowish">
-        <div class="w-1/3">
-            <img src="../assets/images/9.jpg" alt="">
-        </div>
+    <div class="flex w-full px-3 mb-6 md:mb-0 items-center">
+      <label class="w-2/6 uppercase tracking-wide mb-2" for="grid-email">
+        Email
+      </label>
+      <input class="w-4/6 appearance-none border border-black py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-email" type="email" placeholder="">
+    </div>
 
-        <div class="w-1/3">
-            <h2 class="block text-center mb-5">Perfect for All Women</h2>
-            <article class="text-justify border-b border-golden pb-5">
-                <p>For the women, bird’s nests are especially beneficial. Being rich in EGFs, bird’s nest is known to work well with the unique properties of female skin, keeping it smooth and bright. More crucially, it is an incredibly useful pre- and post-partum recovery supplement, allowing ready adsorption of healing nutrients into a new mother’s body.</p>
-                <p>As such, in the past having birds nest was a privilege only accessible to the wealthy. But BI-SU aims to make the healing powers of bird’s nests widely available to all women worldwide.</p>
-            </article>
-        </div>
-      </section>
+    <div class="flex w-full px-3 mb-6 md:mb-0 items-center">
+      <label class="w-2/6 uppercase tracking-wide mb-2" for="message">
+        Message
+      </label>
+      <textarea class="w-4/6 no-resize appearance-none block w-full  border border-black py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none" id="message"></textarea>
+    </div>
 
-      <section>
+    <div class="flex w-full px-3 mb-6 md:mb-0 items-center">
+      <label class="w-2/6 uppercase tracking-wide mb-2" for="message">
+      </label>
+      <p class="w-4/6  block w-full  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 resize-none" >※Please note that it may take a few days for us to reply to you depending on the contents ofyour inquiry. If you do not receive a reply within a few days, please call us. <br>In addition, if you do not receive a reply within a few days, please call us for confirmation.</p>
+    </div>
 
-        <h2 class="block text-center mb-5 mt-10">Study of Science</h2>
-       <article class="px-32 pb-5">
-        <p>However, further research continues and BI-SU has taken the initiative to establish the Swiftlet Nest Research Center, which aims to reveal this substance’s true potential. The nutritional make-up of bird’s nests is incredibly complex and there is so much more potential to discover. </p>
-        <p>In light of this, we are also conducting joint research initiatives with universities and hospitals, in the hope that in addition to the fields of beauty and general wellness, we may share the wondrous benefits of birds’ nests with various other healthcare fields as well.</p>
-      </article>
-        <img src="../assets/images/10.jpg" alt="">
-      </section>
+     <div class="flex w-full px-3 mb-6 md:mb-0 items-center">
+      <p class="w-full uppercase tracking-wide mb-2" >*I agree to the protection of my personal information.
+      </p>
+    </div>
 
+    <div class="flex w-full px-3 mb-2 md:mb-0 items-center">
+      <p class="w-full uppercase tracking-wide mb-2 text-dark-golden" >Protection of Personal Information *Customer’s personal information will be handled in accordance with the personal information protection policy specified by our company. This is a promise between the customer and our company regarding the handling of personal information disclosed by our company.
+      </p>
+    </div>
+
+  <div class="md:flex md:items-center justify-center mt-12 mb-10">
+      <button class="md:w-1/2 shadow bg-dark-golden hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white py-2 px-4 block" type="button">
+        Send
+      </button>
+  </div>
+</form>
     <Footer />
   </body>
 </html>

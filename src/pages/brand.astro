@@ -21,7 +21,7 @@ import Footer from '../components/Footer.astro';
       }
       .grid-2 {
         grid-template-columns: 0.5fr 0.5fr 100px;
-        grid-template-rows: 100px repeat(2, 1fr) 100px;
+        grid-template-rows: 50px repeat(2, 1fr) 70px;
         grid-column-gap: 0px;
         grid-row-gap: 0px;
           div:nth-child(1) { grid-area: 2 / 1 / 5 / 3; }
@@ -30,7 +30,7 @@ import Footer from '../components/Footer.astro';
       }
       .grid-3 {
         grid-template-columns: 1fr 100px 1fr;
-        grid-template-rows: 50px 1fr 100px;
+        grid-template-rows: 50px 1fr 70px;
         grid-column-gap: 0px;
         grid-row-gap: 0px;
         div:nth-child(1){ grid-area: 1 / 2 / 4 / 4; }
@@ -76,14 +76,14 @@ import Footer from '../components/Footer.astro';
 
       <h1 class="px-20 py-10 block text-center text-4xl">Brand Story</h1>
 
-      <section class="block lg:grid grid-2 lg:px-20">
+      <section class="block lg:grid grid-2 lg:px-28">
         <div class="bg-yellowish w-full"/>
 
         <div>
              <img src="../assets/images/13.jpg" alt="" class="">
         </div>
 
-        <div class="pl-10 pt-10 text-justify">
+        <div class="px-8 pt-10 text-justify">
             <h2 class="text-center mb-10">Encounter</h2>
             <p>Mr. Inatomi's first experience with a swiftlet's nest was in 2009, at a dinner in Malaysia. He was surprised to learn that locals in Malaysia consumed the nests as both a defense against and a remedy for serious illness, and was fascinated by the accounts of the various other benefits of this wild product.</p>
             <p>"Don't swiftlets' nests originate from China? Why is it consumed here as a preventative and a cure? Numerous questions emerged in his mind and he thought, Isn't this what I want to devote myself to... for the rest of my life?" </p>
@@ -91,7 +91,7 @@ import Footer from '../components/Footer.astro';
         </div>
       </section>
 
-      <section class="block lg:grid grid-3 lg:px-20 mt-20">
+      <section class="block lg:grid grid-3 lg:px-28 mt-20">
            <div class="bg-yellowish w-full"/>
 
           <div>
