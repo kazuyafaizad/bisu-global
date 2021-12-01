@@ -6,6 +6,7 @@ import Footer from '../components/Footer.astro';
 
 
 ---
+
 <html lang="en">
   <BaseHead title="Bi-Su Official Global Website" description="Bi-Su Official Global Website―company,brands,sustainability,birdnest"/>
 
@@ -20,7 +21,7 @@ import Footer from '../components/Footer.astro';
                         Your browser does not support the video tag.
                         </video>
     </section>
-    <section>
+    <section class="gs_reveal">
       <div class="my-20 block mx-auto w-2/4">
         <h1 class="text-3xl text-center py-5 border-t border-b block border-golden">About Bird Nest</h1>
       </div>
@@ -30,9 +31,11 @@ import Footer from '../components/Footer.astro';
           <source media="(max-width:480px)" srcset="">
           <img src="./assets/images/2.jpg" alt="About Bird Nest" class="max-h-[480px] min-w-full object-cover ">
       </picture>
-      <a href="/about-bird-nest" class="link"><span class="linkInner">Learn more >>></span></a>
+      <a href="./about-bird-nest" class="link">
+        <span class="linkInner">Learn More</span>
+      </a>
       </div>
-    <section >
+    <section class="gs_reveal">
       <div class="my-20 block mx-auto w-2/4">
         <h1 class="text-3xl text-center py-5 border-t border-b block border-golden">Brand</h1>
       </div>
@@ -41,11 +44,13 @@ import Footer from '../components/Footer.astro';
             <source media="(max-width:480px)" srcset="">
             <img src="./assets/images/3.jpg" alt="Brand" class="max-h-[480px] min-w-full object-cover ">
       </picture>
-      <a href="/brand" class="link"><span class="linkInner">Learn more >>></span></a>
+      <a href="./brand" class="link">
+        <span class="linkInner">Learn More</span>
+      </a>
       </div>
     </section>
 
-    <section>
+    <section class="gs_reveal">
       <div class="my-20 block mx-auto w-2/4">
         <h1 class="text-3xl text-center py-5 border-t border-b block border-golden">Sustainability</h1>
       </div>
@@ -54,11 +59,13 @@ import Footer from '../components/Footer.astro';
             <source media="(max-width:480px)" srcset="">
             <img src="./assets/images/4.jpg" alt="Sustainability" class="max-h-[480px] min-w-full object-cover ">
       </picture>
-       <a href="/sustainability" class="link"><span class="linkInner">Learn more >>></span></a>
+       <a href="./sustainability" class="link">
+        <span class="linkInner">Learn More</span>
+       </a>
       </div>
     </section>
 
-    <section>
+    <section class="gs_reveal">
       <div class="my-20 block mx-auto w-2/4">
         <h1 class="text-3xl text-center py-5 border-t border-b block border-golden">Global</h1>
       </div>
@@ -67,9 +74,13 @@ import Footer from '../components/Footer.astro';
             <source media="(max-width:480px)" srcset="">
             <img src="./assets/images/5.jpg" alt="Global" class="max-h-[480px] min-w-full object-cover ">
       </picture>
-       <a href="/global" class="link"><span class="linkInner">Learn more >>></span></a>
+       <a href="./global" class="link">
+       <span class="linkInner">Learn More</span>
+       </a>
       </div>
     </section>
     <Footer/>
+     <script src="../app.js" type = "text/javascript">
+    </script>
   </body>
 </html>
