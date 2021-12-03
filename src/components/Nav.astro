@@ -6,10 +6,10 @@ const { DIR = '.'} = Astro.props;
 
 ---
 <!-- Navbar goes here -->
-		<nav class="bg-lighten shadow-lg">
-			<div class="max-w-7xl mx-auto px-4">
+		<nav class="bg-lighten shadow-lg z-20 top-0 h-20 w-full sticky">
+			<div class="max-w-7xl mx-auto px-4 ">
 
-					<div class="flex justify-between">
+					<div class="flex justify-between items-center">
 						<div>
 							<!-- Website Logo -->
 							<a href="${DIR}" class="flex items-center py-4 px-2">
@@ -22,46 +22,48 @@ const { DIR = '.'} = Astro.props;
 							<a href="${DIR}/brand" class="${brand} my-4 px-2 text-black border-r border-black transition duration-300 hover:text-golden">Brand</a>
 							<a href="${DIR}/sustainability" class="${sustain} my-4 px-2 text-black border-r border-black transition duration-300 hover:text-golden">Sustainability</a>
 							<a href="${DIR}/global" class="${global} my-4 px-2 text-black border-r border-black transition duration-300 hover:text-golden">Global</a>
-							<a href="${DIR}/contact-us" class="${contact} my-4 px-2 text-black transition duration-300 hover:text-golden">Contact</a>
+							<a href="${DIR}/contact-us" class="${contact} my-4 px-2 text-black border-r transition duration-300 hover:text-golden">Contact</a>
 						</div>
 
             	<!-- Mobile menu button -->
 					<div class="md:hidden flex items-center justify-center flex-col">
-						<button class="outline-none mobile-menu-button">
-						<svg class=" w-6 h-6 text-black {} hover:text-golden "
-							x-show="!showMenu"
-							fill="none"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="2"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-						>
-							<path d="M4 6h16M4 12h16M4 18h16"></path>
+						<svg version="1.1" id="nav" class=" w-6 h-6 text-black hover:text-golden" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="85.387 0 671.116 595.281" enable-background="new 85.387 0 671.116 595.281" xml:space="preserve">
+						<rect id="burger1" x="85.387" y="0" fill="#A5977D" width="671.116" height="119.459"/>
+						<rect id="burger2" x="85.387" y="236.233" fill="#A5977D" width="671.116" height="119.459"/>
+						<rect id="burger3" x="85.387" y="475.822" fill="#A5977D" width="671.116" height="119.459"/>
+						<span class="text-dark-golden">Menu</span>
 						</svg>
-					</button>
-          <span>Menu</span>
+
 					</div>
 					</div>
 
 
 			</div>
 			<!-- mobile menu -->
-			<div class="hidden mobile-menu bg-white position-absolute w-full h-screen transition-all duration-1000">
-				<ul >
+				<ul class=" mobile-menu bg-white w-full h-screen overflow-hidden">
 					<li class="${about}"><a href="${DIR}/about-bird-nest" class="flex border-b  px-2 py-4 hover:bg-golden transition duration-300">About Bird Nest</a></li>
 					<li class="${brand}"><a href="${DIR}/brand" class="flex border-b  px-2 py-4 hover:bg-golden transition duration-300">Brand</a></li>
 					<li class="${sustain}"><a href="${DIR}/sustainability" class="flex border-b  px-2 py-4 hover:bg-golden transition duration-300">Sustainability</a></li>
 					<li class="${global}"><a href="${DIR}/global" class="flex border-b  px-2 py-4 hover:bg-golden transition duration-300">Global</a></li>
           			<li class="${contact}"><a href="${DIR}/contact-us" class="flex border-b  px-2 py-4 hover:bg-golden transition duration-300">Contact</a></li>
 				</ul>
-			</div>
 			<script>
-				const btn = document.querySelector("button.mobile-menu-button");
-				const menu = document.querySelector(".mobile-menu");
+				var menu = new TimelineMax({paused:true, reversed:true})
 
-				btn.addEventListener("click", () => {
-					menu.classList.toggle("hidden");
-				});
+				menu
+				.to("#burger1", .2, {rotation: 45, transformOrigin: "left 50%", ease:Power2.easeInOut}, "cross")
+				.to("#burger2", .2, {autoAlpha: 0}, "cross")
+				.to("#burger3", .2, {rotation: -45, transformOrigin: "left 50%", ease:Power2.easeInOut}, "cross")
+				.from(".mobile-menu", 0.6, {height: "0%", ease:Power2.easeInOut})
+
+				function menuIn() {
+						menu.reversed() ? menu.play() : menu.reverse();
+				}
+
+				$('#nav').click(function(){
+					menuIn();
+
+				})
+
 			</script>
 		</nav>

@@ -12,9 +12,10 @@ import Footer from '../components/Footer.astro';
   <body>
     <Nav about="active" DIR=".."/>
     <div class="page-top">
-      <section class="relative">
-            <h1 class=" absolute top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black text-[2rem]">White Gem for Humanity</h1>
-             <img src="../assets/images/6.jpg" alt="Swallow nest" class="object-cover lg:object-fill">
+      <section class="relative h-[28rem] overflow-hidden hero" >
+            <h1 class="text-center absolute top-3/4 left-1/2 w-4/5 lg:w-auto lg:top-1/2 lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black text-[1.5rem] lg:text-[2rem]">White Gem for Humanity</h1>
+            <div class="bg" style="background-image:url('../assets/images/6.jpg');position:absolute;background-size:cover;background-position:center;z-index:-1;height:28rem;width:100%;background-repeat:no-repeat;"/>
+             <!--img src="../assets/images/6.jpg" alt="Swallow nest" class=" object-cover w-full h-[28rem]" -->
       </section>
 
       <section class="p-5 flex flex-col-reverse lg:flex-row lg:p-20 justify-evenly bg-yellowish gs_reveal_fromRight">

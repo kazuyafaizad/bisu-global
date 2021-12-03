@@ -11,46 +11,49 @@ import Footer from '../components/Footer.astro';
   <body>
     <Nav contact="active" DIR=".."/>
 
-      <section class="relative ">
-            <h1 class=" absolute top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[2rem]">Contact Us</h1>
-             <img src="../assets/images/19.jpg" alt="Contact Us" class="object-cover lg:object-fill">
+      <section class="relative h-[28rem] overflow-hidden hero ">
+            <h1 class="text-center absolute top-3/4 left-1/2 w-4/5 lg:w-auto lg:top-1/2 lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[1.5rem] lg:text-[2rem]">Contact Us</h1>
+            <div class="bg" style="background-image:url('../assets/images/19.jpg');position:absolute;background-size:cover;background-position:center;z-index:-1;height:28rem;width:100%;background-repeat:no-repeat;"/>
+            <!--img src="../assets/images/19.jpg" alt="Contact Us" class="object-cover w-full h-[28rem]"-->
       </section>
 
-      <section class="flex p-20 justify-center border-b-2 border-golden">
+      <section class="flex lg:p-20 justify-center border-b-2 border-golden">
       <h3 class="block text-center ">Please fill out the form below and click “Confirm”. Fields marked with * are required.</h3>
       </section>
-      <form class="w-full max-w-4xl mt-24 mx-auto">
+      <form class="w-full max-w-4xl mt-10 lg:mt-24 mx-auto">
 
-    <div class="flex w-full px-3 mb-6 md:mb-0 items-center">
-      <label class="w-2/6 uppercase tracking-wide mb-2" for="grid-first-name">
-        Full Name
+    <div class="flex flex-col lg:flex-row w-full px-3 mb-6 md:mb-0 items-center">
+      <label class="w-full lg:w-2/6 uppercase tracking-wide mb-2" for="grid-first-name">
+        ＊Full Name
       </label>
-      <input class="w-4/6 appearance-none border border-black py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="">
+      <input class="w-full lg:w-4/6 appearance-none border border-black py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="">
     </div>
 
-    <div class="flex w-full px-3 mb-6 md:mb-0 items-center">
-      <label class="w-2/6 uppercase tracking-wide mb-2" for="grid-email">
-        Email
+    <div class="flex flex-col lg:flex-row w-full px-3 mb-6 md:mb-0 items-center">
+      <label class="w-full lg:w-2/6 uppercase tracking-wide mb-2" for="grid-email">
+        ＊Email
       </label>
-      <input class="w-4/6 appearance-none border border-black py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-email" type="email" placeholder="">
+      <input class="w-full lg:w-4/6 appearance-none border border-black py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-email" type="email" placeholder="">
     </div>
 
-    <div class="flex w-full px-3 mb-6 md:mb-0 items-center">
-      <label class="w-2/6 uppercase tracking-wide mb-2" for="message">
-        Message
+    <div class="flex flex-col lg:flex-row w-full px-3  mb-0 items-center">
+      <label class="w-full lg:w-2/6 uppercase tracking-wide mb-2" for="message">
+        ＊Message
       </label>
-      <textarea class="w-4/6 no-resize appearance-none block w-full  border border-black py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none" id="message"></textarea>
+      <textarea class="w-full lg:w-4/6 no-resize appearance-none block w-full  border border-black py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-48 resize-none" id="message"></textarea>
     </div>
 
-    <div class="flex w-full px-3 mb-6 md:mb-0 items-center">
-      <label class="w-2/6 uppercase tracking-wide mb-2" for="message">
+    <div class="flex flex-col lg:flex-row w-full px-3 mb-6 md:mb-0 items-center">
+      <label class="w-full lg:w-2/6 uppercase tracking-wide mb-2" for="message">
       </label>
-      <p class="w-4/6  block w-full  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 resize-none" >※Please note that it may take a few days for us to reply to you depending on the contents ofyour inquiry. If you do not receive a reply within a few days, please call us. <br>In addition, if you do not receive a reply within a few days, please call us for confirmation.</p>
+      <p class="w-full lg:w-4/6  block w-full  py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 resize-none" >※Please note that it may take a few days for us to reply to you depending on the contents ofyour inquiry. If you do not receive a reply within a few days, please call us. <br>In addition, if you do not receive a reply within a few days, please call us for confirmation.</p>
     </div>
 
      <div class="flex w-full px-3 mb-6 md:mb-0 items-center">
       <p class="w-full uppercase tracking-wide mb-2" >*I agree to the protection of my personal information.
+      <input type="checkbox" class="form-checkbox" checked />
       </p>
+      </label>
     </div>
 
     <div class="flex w-full px-3 mb-2 md:mb-0 items-center">
@@ -58,12 +61,14 @@ import Footer from '../components/Footer.astro';
       </p>
     </div>
 
-  <div class="md:flex md:items-center justify-center mt-12 mb-10">
-      <button class="md:w-1/2 shadow bg-dark-golden hover:bg-teal-400 focus:shadow-outline focus:outline-none text-white py-2 px-4 block" type="button">
+  <div class="flex items-center justify-center mt-12 mb-10">
+      <button class="w-3/4 lg:w-1/2 shadow bg-dark-golden hover:bg-golden focus:shadow-outline focus:outline-none text-white py-2 px-4 block text-3xl" type="button">
         Send
       </button>
   </div>
 </form>
     <Footer />
+     <script src="../app.js" type = "text/javascript">
+    </script>
   </body>
 </html>

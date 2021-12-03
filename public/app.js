@@ -42,12 +42,16 @@ function hide(elem) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  ScrollTrigger.defaults({ scroller: "body" });
+
   gsap.utils.toArray(".gs_reveal_fromLeft").forEach(function (elem) {
     hide(elem); // assure that the element is hidden when scrolled into view
 
     ScrollTrigger.create({
       trigger: elem,
+      toggleActions: "play complete restart reverse",
       toggleClass: "active",
+      start: "top bottom",
       onEnter: function () {
         animateLeft(elem);
       },
@@ -66,6 +70,8 @@ document.addEventListener("DOMContentLoaded", function () {
     ScrollTrigger.create({
       trigger: elem,
       toggleClass: "active",
+      toggleActions: "play complete restart reverse",
+      start: "top bottom",
       onEnter: function () {
         animateRight(elem);
       },
@@ -78,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
   gsap.set(".gs_reveal", { y: 100 });
+
   ScrollTrigger.batch(".gs_reveal", {
     //interval: 0.1, // time window (in seconds) for batching to occur.
     //batchMax: 3,   // maximum batch size (targets)
@@ -85,6 +92,27 @@ document.addEventListener("DOMContentLoaded", function () {
     onLeave: (batch) => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
     onEnterBack: (batch) => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
     onLeaveBack: (batch) => gsap.set(batch, { opacity: 0, y: 100, overwrite: true }),
+    start: "top bottom",
     // you can also define things like start, end, etc.
   });
+
+  gsap.registerPlugin(ScrollTrigger);
+  section = document.querySelector(".hero");
+  if (section) {
+    section.bg = section.querySelector(".bg");
+    var verticalPosition = document.body.scrollTop + window.innerHeight / 2 - $(section.bg).height();
+
+    section.bg.style.backgroundPosition = `50% 50%`;
+
+    gsap.to(section.bg, {
+      backgroundPosition: `50% ${50 / 2}%`,
+      ease: "none",
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+    });
+  }
 });
