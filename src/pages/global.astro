@@ -10,16 +10,39 @@ import Footer from '../components/Footer.astro';
     <script src="../assets/js/point-map.js" crossorigin></script>
 
 </BaseHead>
-  <body>
+<style>
+        .canvas {
+            padding: 50px 0;
+            box-sizing: content-box;
+            width: 100%;
+            height: 100%;
+        }
+
+        .tips {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 5px 10px;
+            background: transparent;
+            color: #fff;
+            border-radius: 4px;
+            width:5rem;
+        }
+</style>
+  <body class="relative">
+  <div class="flex flex-col h-screen justify-between">
     <Nav global="active" DIR=".."/>
 
-      <section >
+      <section class="relative">
+      <div class="tips"></div>
         <div id="map"></div>
-        <h1 class="text-3xl my-10 block text-center">Deliver the value to the world</h1>
+        <h1 class="text-3xl mb-10 block text-center">Deliver the value to the world</h1>
       </section>
 
 
     <Footer />
+    </div>
      <script type="text/javascript">
 
       // Create an instance
@@ -33,21 +56,39 @@ import Footer from '../components/Footer.astro';
 
      map.addEvents([{
         name: 'Singapore',
-        coordinate: [103.8198, 1.3521 ]
+        coordinate: [-70.8198, 1.3521 ],
+        pointer : "../assets/maps/sg.png"
     }, {
         name: 'Japan',
-        coordinate: [130.4017, 33.5902 ]
+        coordinate: [-40.5902 ,130.4017],
+        pointer : "../assets/maps/jpn.png"
     },{
         name: 'USA',
-        coordinate: [77.0369, 38.9072 ]
+        coordinate: [77.0369, 38.9072 ],
+        pointer : "../assets/maps/usa.png"
     },{
         name: 'China',
-        coordinate: [116.4074, 39.9042 ]
+        coordinate: [-70.9042 ,116.4074],
+        pointer : "../assets/maps/ch.png"
     }]);
-
+const tips = document.querySelector('.tips');
       // regiest events
-      map.on('mousemove', function(e, data) {
-        console.log(data);
+      map.on('click', function(e, data) {
+        if (data) {
+            tips.style.top = `${e.pageY - 158 }px`;
+            tips.style.left = `${e.pageX - 38 }px`;
+            tips.style.display = 'block';
+            //tips.innerText = data.map(d => d.name).join('\n');
+            var el = tips.querySelector('img');
+            if(el) el.remove(); // Removes the div with the 'div-02' id
+            img = document.createElement("img");
+            img.src = data.map(d => d.pointer).join('\n');
+            tips.appendChild(img);
+            console.log(e.pageY,e.pageX)
+        } else {
+            tips.style.display = 'none';
+        }
+
       })
     </script>
   </body>

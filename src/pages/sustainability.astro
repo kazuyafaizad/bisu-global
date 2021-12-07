@@ -7,13 +7,10 @@ import Footer from '../components/Footer.astro';
 ---
 <html lang="en">
   <BaseHead title="Bi-Su Official Global Website | Sustainability" description="Bi-Su Official Global Website―company,brands,sustainability,birdnest">
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
-/>
-
-      <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
   </BaseHead>
+
   <style>
 .swiper {
   width: 75%;
@@ -22,8 +19,9 @@ import Footer from '../components/Footer.astro';
   </style>
 
   <body>
+  <div class="flex flex-col h-screen justify-between">
     <Nav sustain="active" DIR=".."/>
-
+    <main>
       <section class="relative h-[28rem] overflow-hidden hero">
        <h1 class="text-center absolute top-3/4 left-1/2 w-4/5 lg:w-auto lg:top-1/2 lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[1.5rem] lg:text-[2rem]">Live With Nature</h1>
        <div class="bg" style="background-image:url('../assets/images/16.jpg');position:absolute;background-size:cover;background-position:center;z-index:-1;height:28rem;width:100%;background-repeat:no-repeat;"/>
@@ -40,14 +38,12 @@ import Footer from '../components/Footer.astro';
             <div class="swiper-wrapper">
               <!-- Slides -->
               <div class="swiper-slide"><img src="../assets/images/Image 40.png" class=""></div>
-              <div class="swiper-slide"><img src="../assets/images/Image 40.png" class=""></div>
+              <div class="swiper-slide"><img src="../assets/images/Image 41.png" class=""></div>
               <div class="swiper-slide"><img src="../assets/images/Image 42.png" class=""></div>
               ...
             </div>
             <!-- If we need pagination -->
             <div class="swiper-pagination"></div>
-            <!-- If we need scrollbar -->
-            <div class="swiper-scrollbar"></div>
           </div>
 
           <div class=" lg:flex items-center justify-center hidden">
@@ -100,24 +96,22 @@ import Footer from '../components/Footer.astro';
         </article>
         <img src="../assets/images/Image 52.png" alt="" class="object-cover h-auto lg:h-[550px] w-full object-top gs_reveal">
       </section>
-
+    </main>
     <Footer />
-     <script src="../app.js" type = "text/javascript">
+    </div>
+     <script src="../app.js" type = "text/javascript"></script>
       <script>
-        const swiper = new Swiper('.swiper', {
-        direction: 'horizontal',
-        loop: true,
+            const swiper = new Swiper('.swiper', {
+                    direction: 'horizontal',
+                    loop: true,
 
-        // If we need pagination
-        pagination: {
-          el: '.swiper-pagination',
-        },
+                    // If we need pagination
+                    pagination: {
+                      el: '.swiper-pagination', clickable: true
+                    },
+                  });
 
-        // And if we need scrollbar
-        scrollbar: {
-          el: '.swiper-scrollbar',
-        },
-      });
+
       </script>
   </body>
 </html>

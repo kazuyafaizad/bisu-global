@@ -100,12 +100,13 @@ document.addEventListener("DOMContentLoaded", function () {
   section = document.querySelector(".hero");
   if (section) {
     section.bg = section.querySelector(".bg");
-    var verticalPosition = document.body.scrollTop + window.innerHeight / 2 - $(section.bg).height();
 
+    var verticalPosition = document.body.scrollTop + window.innerHeight / 2 - $(section.bg).height();
+    scrollTop = $(window).scrollTop();
     section.bg.style.backgroundPosition = `50% 50%`;
 
     gsap.to(section.bg, {
-      backgroundPosition: `50% ${50 / 2}%`,
+      backgroundPosition: `50% ${-scrollTop * 0.8}%`,
       ease: "none",
       scrollTrigger: {
         trigger: section,
@@ -116,3 +117,41 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+function parallax() {
+  scrollTop = $window.scrollTop();
+  var parallaxT = $banner.offset().top - scrollTop;
+  var parallaxH = $banner.height();
+
+  if (windowHeight * 0.9 > parallaxT) {
+    if ($(".banner").hasClass("banner_low")) {
+      gsap.to($(".banner.banner_low img"), 0.4, { marginTop: (parallaxT - parallaxH) * 0.125, ease: Cubic.easeOut });
+    } else {
+      gsap.to($(".banner img"), 0.4, { marginTop: ((parallaxT - parallaxH) * 0.15) / 2.5, ease: Cubic.easeOut });
+    }
+  } else {
+    return;
+  }
+}
+
+$(window).on("resize", function () {
+  parallaxResize();
+});
+
+function parallaxResize() {
+  // �⑤윺�됱뒪 諛곌꼍�� �덈낫�닿쾶 �대�吏� �덈퉬媛� 議곗젙(0907 �뚮�)
+  windowWd = $(window).width();
+  if (windowWd >= 1500) {
+    $(".banner .bg img").css({ width: "100%" });
+  } else if (windowWd < 1500 && windowWd >= 1330) {
+    $(".banner .bg img").css({ maxWidth: "none", width: "115%", transition: "width 0.5s ease" });
+  } else if (windowWd < 1330 && windowWd >= 1160) {
+    $(".banner .bg img").css({ maxWidth: "none", width: "130%" });
+  } else if (windowWd < 1160 && windowWd >= 1023) {
+    $(".banner .bg img").css({ maxWidth: "none", width: "155%" });
+  } else if (windowWd < 1023 && windowWd >= 768) {
+    $(".banner .bg img").css({ maxWidth: "none", width: "120%" });
+  } else {
+    $(".banner .bg img").css({ maxWidth: "none", width: "140%" });
+  }
+}
