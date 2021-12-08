@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     ScrollTrigger.create({
       trigger: elem,
-      toggleActions: "play complete restart reverse",
+      // toggleActions: "play complete restart reverse",
       toggleClass: "active",
       start: "top bottom",
       onEnter: function () {
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ScrollTrigger.create({
       trigger: elem,
       toggleClass: "active",
-      toggleActions: "play complete restart reverse",
+      // toggleActions: "play complete restart reverse",
       start: "top bottom",
       onEnter: function () {
         animateRight(elem);

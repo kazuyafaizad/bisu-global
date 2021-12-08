@@ -29,8 +29,9 @@ h6 {
   font-weight: normal;
 }
 p {
-  margin: 10px;
-  // font-size: clamp(16px, 4vw, 22px);
+  font-size: 1.125rem;
+  margin: 1rem 0;
+  // font-size: clamp(12px, 4vw, 14px);
 }
 footer {
   > div {
@@ -54,6 +55,18 @@ li.active {
   }
 }
 
+body {
+  // scroll-snap-align: start;
+  // scroll-snap-type: mandatory;
+  // scroll-snap-points-y: repeat(100vh);
+  // scroll-snap-type: y mandatory;
+
+  scroll-snap-type: y proximity;
+}
+
+section {
+  scroll-snap-align: start;
+}
 .link {
   position: absolute;
   top: 0;
