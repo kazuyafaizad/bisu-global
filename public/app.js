@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //creating parralax effect
-  section = document.querySelector(".hero");
+  let section = document.querySelector(".hero");
 
   if (section) {
     // section.bg = section.querySelector(".bg");
@@ -90,12 +90,27 @@ document.addEventListener("DOMContentLoaded", function () {
     //   },
     // });
   }
-  scrolldiv = document.createElement("div");
+  let supportPageOffset = window.pageXOffset !== undefined;
+  let isCSS1Compat = (document.compatMode || "") === "CSS1Compat";
+
+  let scrollLeft = supportPageOffset
+    ? window.pageXOffset
+    : isCSS1Compat
+    ? document.documentElement.scrollLeft
+    : document.body.scrollLeft;
+  let scrollTop = supportPageOffset
+    ? window.pageYOffset
+    : isCSS1Compat
+    ? document.documentElement.scrollTop
+    : document.body.scrollTop;
+
+  let scrolldiv = document.createElement("div");
   scrolldiv.classList.add("scrolldown");
   scrolldiv.innerHTML = "SCROLL";
   document.querySelector("main").prepend(scrolldiv);
-  window.scroll(function () {
-    if (document.querySelector(document).scrollTop > 100) {
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 100) {
       gsap.to(".scrolldown", { autoAlpha: 0 });
     } else {
       gsap.to(".scrolldown", { autoAlpha: 1 });
