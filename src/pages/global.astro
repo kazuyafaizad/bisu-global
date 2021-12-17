@@ -6,11 +6,11 @@ import Footer from '../components/Footer.astro';
 
 ---
 <html lang="en">
+<head>
   <BaseHead title="Bi-Su Official Global Website | Global" description="Bi-Su Official Global Website―company,brands,sustainability,birdnest">
-    <script src="../assets/js/point-map.js?2"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-
+    <script src="../assets/js/point-map.js?2" defer></script>
 </BaseHead>
+</head>
 <style lang="scss">
 $medium : 768px;
         canvas {
@@ -21,31 +21,43 @@ $medium : 768px;
 
         }
 
-        .tips,.tips2 {
-            display: none;
+        .tips-wrap{
+            display: flex;
             position: absolute;
             top: 0;
             left: 0;
             padding: 5px 10px;
-            background: transparent;
-            color: #fff;
-            border-radius: 4px;
-            width:5rem;
+            width:4rem;
+            justify-content: center;
+            align-items: center;
         }
-
+        .tips-wrap img{
+          transform: translate(-63%,-100%);
+        }
+        .tips{
+          height:2rem;
+        }
         .tips2{
+          /*
           background:#fff;
           padding:7px;
           border-radius:5px;
           border:1px solid gray;
+          */
+        }
+        embed{
+          pointer-events:none;
+        }
+        .marker:hover{
+          cursor:pointer;
         }
          #map{
            position:relative;
                 & canvas{
-                 // position:absolute; top:0; left:0; z-index:0
+                  position:absolute; top:0; left:0; z-index:0
                 }
                 @media screen and (max-width: $medium) {
-                  width:1000px;
+                  width:1080px;
                   overflow:scroll;
                 }
               }
@@ -54,37 +66,55 @@ $medium : 768px;
   <div class="flex flex-col h-screen justify-between">
     <Nav global="active" DIR=".."/>
       <main>
-      <section>
-      <div class="overflow-scroll">
-        <div id="map">
-        <div class="tips"></div>
-        <div class="tips2">
-          <div class="flex items-center justify-center gap-2">
-            <a class="instagram">
-              <svg class="instagram-logo" id="Layer_1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 551.034 551.034" style="enable-background:new 0 0 551.034 551.034;background:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);" xml:space="preserve">
-                <path class="logo" id="XMLID_17_" fill="#fff" d="M386.878,0H164.156C73.64,0,0,73.64,0,164.156v222.722 c0,90.516,73.64,164.156,164.156,164.156h222.722c90.516,0,164.156-73.64,164.156-164.156V164.156 C551.033,73.64,477.393,0,386.878,0z M495.6,386.878c0,60.045-48.677,108.722-108.722,108.722H164.156 c-60.045,0-108.722-48.677-108.722-108.722V164.156c0-60.046,48.677-108.722,108.722-108.722h222.722 c60.045,0,108.722,48.676,108.722,108.722L495.6,386.878L495.6,386.878z"/>
-                <path id="XMLID_81_" fill="#fff" d="M275.517,133C196.933,133,133,196.933,133,275.516 s63.933,142.517,142.517,142.517S418.034,354.1,418.034,275.516S354.101,133,275.517,133z M275.517,362.6 c-48.095,0-87.083-38.988-87.083-87.083s38.989-87.083,87.083-87.083c48.095,0,87.083,38.988,87.083,87.083 C362.6,323.611,323.611,362.6,275.517,362.6z"/>
-                <circle id="XMLID_83_" fill="#fff" cx="418.306" cy="134.072" r="34.149"/>
-              </svg>
-            </a>
 
-            <a class="facebook">
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" x="0px" y="0px" width="20" height="20" viewBox="0 0 50 50" style="fill:#3b5998" class="icon icons8-Facebook-Filled" >    <path d="M40,0H10C4.486,0,0,4.486,0,10v30c0,5.514,4.486,10,10,10h30c5.514,0,10-4.486,10-10V10C50,4.486,45.514,0,40,0z M39,17h-3 c-2.145,0-3,0.504-3,2v3h6l-1,6h-5v20h-7V28h-3v-6h3v-3c0-4.677,1.581-8,7-8c2.902,0,6,1,6,1V17z"></path></svg>
-            </a>
+
+
+      <section>
+        <h1 class="text-3xl my-10 block text-center">Deliver the value to the world</h1>
+      <div id="map-wrapper" class="overflow-scroll">
+        <div id="map">
+          <div class="tips-wrap">
+            <img class="marker"/>
+
           </div>
-        </div></div>
         </div>
-        <h1 class="text-3xl mb-10 block text-center">Deliver the value to the world</h1>
+        </div>
       </section>
+
+      <div class="absolute inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50" id="modal">
+        <div class="w-full max-w-sm p-6 bg-white divide-y divide-gray-500">
+            <div class="flex items-center justify-between">
+                <h3 class="text-2xl" id="modal-title"></h3>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 close hover:cursor-pointer" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+
+            </div>
+            <div class="pt-4 tips2">
+            <a class="instagram hidden flex">
+             <embed src="../assets/icons8-instagram.svg" class="h-8"/>
+             Instagram
+            </a>
+            <a class="facebook hidden flex">
+              <embed src="../assets/icons8-facebook.svg" class="h-8"/>
+              Facebook
+              </a>
+               <a class="weibo hidden flex">
+              <embed src="../assets/sina-weibo.svg" class="h-8"/>
+              </a>
+            </div>
+        </div>
+    </div>
+
 
   </main>
     <Footer />
     </div>
      <script type="text/javascript">
-      const getScrollPosition = (e = window) => ({
-      left: e.pageX - $(document).scrollLeft() - $('#map').offset().left,
-      top : e.pageY - $(document).scrollTop() - $('#map').offset().top
-    });
+
+document.addEventListener("DOMContentLoaded", function () {
 
       // Create an instance
       let map = new PointMap('map');
@@ -118,43 +148,70 @@ $medium : 768px;
         coordinate: [-70.9042 ,116.4074],
         pointer : "../assets/maps/ch.png",
          instagram:"http://www.instagram.com",
-        facebook:"http://www.facebook.com"
+        weibo:"http://www.weibo.com"
     }]);
-const tips = document.querySelector('.tips');
+const tips = document.querySelector('.tips-wrap');
+const marker = document.querySelector('.marker');
 const tips2 = document.querySelector('.tips2');
-      // regiest events
-      map.on('click', function(e, data) {
-        if (data) {
-            tips.style.top = `${getScrollPosition(e).top  - 54 }px`;
-            tips.style.left = `${getScrollPosition(e).left - 41 }px`;
+const modalTitle = document.querySelector('#modal-title');
 
-            tips2.style.top = `${getScrollPosition(e).top - 38 }px`;
-            tips2.style.left = `${getScrollPosition(e).left + 22 }px`;
+let infoBox = function(e,data){
+  if (data) {
 
-            tips.style.display = 'block';
-            //tips.innerText = data.map(d => d.name).join('\n');
+            let container = document.querySelector("#map-wrapper");
+            let rect = container.getBoundingClientRect();
+            let x = e.clientX + container.scrollLeft - rect.left;
+            let y = e.clientY + container.scrollTop - rect.top;
 
+            tips.style.left = `${x}px`;
+            tips.style.top = `${y }px`;
+
+            tips.style.display = 'flex';
+
+            modalTitle.innerText= data.map(d => d.name);
+
+            marker.src = data.map(d => d.pointer);
+            modalInfo(e,data);
+
+
+        } else {
+            //tips.style.display = 'none';
+        }
+  }
+
+        let modalInfo = function(e,data){
             const fb = tips2.querySelector(".facebook");
             const ig = tips2.querySelector(".instagram");
+            const weibo = tips2.querySelector(".weibo");
 
-            ig.href = data.map(d => d.instagram).join('\n');
-            fb.href = data.map(d => d.facebook).join('\n');
-
-            //tips2.innerText = data.map(d => d.instagram).join('\n');
-            //tips2.innerText = data.map(d => d.facebook).join('\n');
-            tips2.style.display = 'block';
-
-            var el = tips.querySelector('img');
-            if(el) el.remove();
-            img = document.createElement("img");
-            img.src = data.map(d => d.pointer).join('\n');
-            tips.appendChild(img);
-            console.log(getScrollPosition(e).left,getScrollPosition(e).top)
-        } else {
-            tips.style.display = 'none';
+            ig.href = data.map(d => {d.instagram;d.instagram ? ig.classList.remove("hidden") : ig.classList.add("hidden") });
+            fb.href = data.map(d => {d.facebook;d.facebook ? fb.classList.remove("hidden") : fb.classList.add("hidden")});
+            weibo.href = data.map(d => {d.weibo;d.weibo ? weibo.classList.remove("hidden") : weibo.classList.add("hidden")});
         }
 
-      })
+       document.querySelector(".marker").addEventListener('click', function(e, data) {
+          gsap.to("#modal",{y:0})
+          modalInfo(e,data);
+      });
+      document.querySelector(".close").addEventListener('click', function(e, data) {
+          gsap.to("#modal",{y:"-100%"})
+      });
+
+      map.on("mousemove", (e,data) => {
+         infoBox(e,data);
+      });
+
+      var tl = gsap.timeline();
+      gsap.set("#map",{scaleX:1,scaleY:1,x:-50});
+      gsap.set("#modal",{y:"-100%"})
+
+      tl.to("#map",{x:0,duration:1});
+      if(window.screen.width <= 769 ){
+            //tl.to("#map", {scaleX: 1.2,scaleY:1.2, duration: 1});
+            tl.to("#map",{ scrollTo: 500})
+      }
+
+      });
     </script>
   </body>
 </html>

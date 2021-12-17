@@ -8,77 +8,78 @@ import Footer from '../components/Footer.astro';
 ---
 
 <html lang="en">
+<head>
   <BaseHead title="Bi-Su Official Global Website" description="Bi-Su Official Global Website―company,brands,sustainability,birdnest"/>
-
+  </head>
   <body>
   <div class="flex flex-col h-screen justify-between">
     <Nav DIR="."/>
-    <main>
-    <section class="relative">
-      <!--h1 class=" absolute top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[2rem]">The Secret of Health and Beauty</h1-->
-      <!--img src="./assets/images/1.jpg" alt="Koyuki-san" class="min-h-screen object-cover lg:object-fill"-->
 
-                        <video width="100%" poster="./koyuki/img/mod/BI-SU-KOYUKI-cover-img.jpg"  playsinline autoplay muted loop>
+    <main>
+    <section class="relative h-screen">
+                        <video class="h-[calc(100vh-5rem)] object-cover" width="100%" poster=""  playsinline autoplay muted loop>
                             <source src="./assets/movie/BI-SU-KOYUKI.mp4">
                         Your browser does not support the video tag.
                         </video>
+
+
     </section>
     <section class="gs_reveal">
-      <div class="my-20 block mx-auto w-2/4">
-        <h1 class="text-3xl text-center py-5 border-t border-b block border-golden">About Bird Nest</h1>
+      <div class="mt-12 mb-5 block mx-auto w-5/6 lg:w-2/4">
+        <h1 class="text-4xl text-center py-5 border-t border-b block border-golden">About Bird Nest</h1>
       </div>
 
        <div class="h-max overflow-hidden relative">
       <picture>
           <source media="(max-width:480px)" srcset="">
-          <img src="./assets/images/2.jpg" alt="About Bird Nest" class="max-h-[480px] min-w-full object-cover ">
+          <img src="./assets/images/2.jpg" alt="About Bird Nest" class=" min-w-full object-cover h-96 lg:h-auto">
       </picture>
       <a href="./about-bird-nest" class="link">
-        <span class="linkInner">Learn More</span>
+        <span class="linkInner text-3xl">Learn More</span>
       </a>
       </div>
     </section>
     <section class="gs_reveal">
-      <div class="my-20 block mx-auto w-2/4">
-        <h1 class="text-3xl text-center py-5 border-t border-b block border-golden">Brand</h1>
+      <div class="mt-12 mb-5  block mx-auto w-5/6 lg:w-2/4">
+        <h1 class="text-4xl text-center py-5 border-t border-b block border-golden">Brand</h1>
       </div>
        <div class="h-max overflow-hidden relative">
       <picture>
             <source media="(max-width:480px)" srcset="">
-            <img src="./assets/images/3.jpg" alt="Brand" class="max-h-[480px] min-w-full object-cover ">
+            <img src="./assets/images/3.jpg" alt="Brand" class=" min-w-full object-cover h-96 lg:h-auto">
       </picture>
       <a href="./brand" class="link">
-        <span class="linkInner">Learn More</span>
+        <span class="linkInner text-3xl">Learn More</span>
       </a>
       </div>
     </section>
 
     <section class="gs_reveal">
-      <div class="my-20 block mx-auto w-2/4">
-        <h1 class="text-3xl text-center py-5 border-t border-b block border-golden">Sustainability</h1>
+      <div class="mt-12 mb-5  block mx-auto w-5/6 lg:w-2/4">
+        <h1 class="text-4xl text-center py-5 border-t border-b block border-golden">Sustainability</h1>
       </div>
       <div class="h-max overflow-hidden relative">
       <picture>
             <source media="(max-width:480px)" srcset="">
-            <img src="./assets/images/4.jpg" alt="Sustainability" class="max-h-[480px] min-w-full object-cover ">
+            <img src="./assets/images/4.jpg" alt="Sustainability" class=" min-w-full object-cover h-96 lg:h-auto">
       </picture>
        <a href="./sustainability" class="link">
-        <span class="linkInner">Learn More</span>
+        <span class="linkInner text-3xl">Learn More</span>
        </a>
       </div>
     </section>
 
     <section class="gs_reveal">
-      <div class="my-20 block mx-auto w-2/4">
-        <h1 class="text-3xl text-center py-5 border-t border-b block border-golden">Global</h1>
+      <div class="mt-12 mb-5  block mx-auto w-5/6 lg:w-2/4">
+        <h1 class="text-4xl text-center py-5 border-t border-b block border-golden">Global</h1>
       </div>
        <div class="h-max overflow-hidden relative">
       <picture>
             <source media="(max-width:480px)" srcset="">
-            <img src="./assets/images/5.jpg" alt="Global" class="max-h-[480px] min-w-full object-cover ">
+            <img src="./assets/images/5.jpg" alt="Global" class=" min-w-full object-cover h-96 lg:h-auto">
       </picture>
        <a href="./global" class="link">
-       <span class="linkInner">Learn More</span>
+       <span class="linkInner text-3xl">Learn More</span>
        </a>
       </div>
     </section>

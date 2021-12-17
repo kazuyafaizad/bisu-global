@@ -104,6 +104,7 @@
                 mapActiveBgColor: "#87BCE1",
                 eventPointColor: "#fefefe",
                 activePointColor: "#3bc705",
+                enlarge: 1,
               },
               n || {}
             )),
@@ -179,7 +180,7 @@
                       t.events[n] &&
                       t.events[n][a] &&
                       ((t.customerEvents && t.customerEvents.click) || []).forEach(function (i) {
-                        return i(e, t.events[n][a]);
+                        return i(e, t.events[n * t.config.enlarge][a * t.config.enlarge]);
                       }),
                       (t.needRedraw = !0);
                   });
@@ -236,11 +237,14 @@
                             else {
                               var s = o * t.scale,
                                 r = n * t.scale;
-                              e.beginPath(),
-                                (e.fillStyle = t.config.eventPointColor),
-                                e.moveTo(s, r),
-                                e.arc(s, r, i, 0, 2 * Math.PI),
-                                e.fill();
+
+                              e.beginPath(), (e.fillStyle = t.config.eventPointColor), e.moveTo(s, r);
+                              e.arc(s, r, i * t.config.enlarge, 0, 2 * Math.PI), e.fill();
+                              // var img = new Image();
+                              // img.onload = function () {
+                              //   e.drawImage(this, s, r, 100, 100);
+                              // };
+                              // img.src = "https://www.bi-su.jp/img/common/sp/bi-su_logo-sp.png";
                             }
                           });
                       }),

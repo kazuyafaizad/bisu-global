@@ -4,9 +4,7 @@
 }
 html {
   font-family: "Yu Mincho";
-  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   line-height: 2;
 }
 h1 {
@@ -31,6 +29,7 @@ h6 {
 p {
   font-size: 1.125rem;
   margin: 1rem 0;
+  line-height: inherit;
   // font-size: clamp(12px, 4vw, 14px);
 }
 footer {
@@ -54,19 +53,7 @@ li.active {
     background-color: #b8a273;
   }
 }
-
-body {
-  // scroll-snap-align: start;
-  // scroll-snap-type: mandatory;
-  // scroll-snap-points-y: repeat(100vh);
-  // scroll-snap-type: y mandatory;
-
-  scroll-snap-type: y proximity;
-}
-
-section {
-  scroll-snap-align: start;
-}
+$medium: 768px;
 .link {
   position: absolute;
   top: 0;
@@ -84,20 +71,44 @@ section {
   text-transform: uppercase;
   transition: opacity 150ms linear;
 
-  &:focus,
-  &:hover {
-    opacity: 1;
+  // &:focus,
+  // &:hover {
+  //   opacity: 1;
 
-    .linkInner {
-      transform: translateY(0);
-      border-color: rgba(255, 255, 255, 0.625);
-    }
+  .linkInner {
+    //     transform: translateY(0);
+    border-color: rgba(255, 255, 255, 0.625);
   }
+  // }
 }
 
 .linkInner {
   padding: 0.375em 1em;
   border: 2px solid rgba(255, 255, 255, 0);
-  transition: transform 300ms cubic-bezier(0, 0.4, 0.6, 1), border-color 1s linear;
-  transform: translateY(25%);
+  //   transition: transform 300ms cubic-bezier(0, 0.4, 0.6, 1), border-color 1s linear;
+  //   transform: translateY(25%);
+}
+
+.scrolldown::after {
+  animation: bounce 1s ease infinite;
+  bottom: 0;
+  color: #fff;
+  content: "╲╱";
+  font-size: 2rem;
+  height: 4rem;
+  left: 50%;
+  letter-spacing: -1px;
+  line-height: 4rem;
+  margin-left: -3rem;
+  opacity: 0.8;
+  position: absolute;
+  text-align: center;
+  width: 6rem;
+  z-index: 99;
+}
+
+@keyframes bounce {
+  50% {
+    transform: translateY(-50%);
+  }
 }

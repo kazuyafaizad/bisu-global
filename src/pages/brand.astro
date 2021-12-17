@@ -6,24 +6,32 @@ import Footer from '../components/Footer.astro';
 
 ---
 <html lang="en">
+<head>
   <BaseHead title="Bi-Su Official Global Website | Brand" description="Bi-Su Official Global Website―company,brands,sustainability,birdnest">
+  </head>
   <style lang='scss'>
+  $max: calc(1200px + 19.6vw);
+
     .grid-1 {
       margin:auto;
-      width:95%;
       grid-template-columns: 20px 1fr 1fr 20px;
       grid-template-rows: 100px 1fr 100px 30px;
       grid-column-gap: 20px;
       grid-row-gap: 0px;
+      max-width:$max;
         div:nth-child(1) { grid-area: 3 / 1 / 4 / 5; }
         div:nth-child(2) { grid-area: 1 / 3 / 5 / 4; }
         div:nth-child(3) { grid-area: 2 / 2 / 4 / 3; }
+
       }
       .grid-2 {
         grid-template-columns: 1fr 0.25fr .5fr;
         grid-template-rows: 70px repeat(2, 1fr) 30px;
         grid-column-gap: 0px;
         grid-row-gap: 0px;
+        max-width:$max;
+        margin-left:auto;
+        margin-right:auto;
           div:nth-child(1) { grid-area: 2 / 1 / 5 / 3; }
           div:nth-child(2) { grid-area: 1 / 2 / 4 / 4; }
           div:nth-child(3) { grid-area: 2 / 1 / 4 / 2; }
@@ -33,6 +41,9 @@ import Footer from '../components/Footer.astro';
         grid-template-rows: 30px 1fr 30px;
         grid-column-gap: 0px;
         grid-row-gap: 0px;
+        max-width:$max;
+        margin-left:auto;
+        margin-right:auto;
         div:nth-child(1){ grid-area: 1 / 2 / 4 / 4; }
         div:nth-child(2){ grid-area: 2 / 1 / 3 / 3; }
         div:nth-child(3){ grid-area: 2 / 3 / 3 / 4; }
@@ -44,20 +55,21 @@ import Footer from '../components/Footer.astro';
   <div class="flex flex-col h-screen justify-between">
     <Nav brand="active" DIR=".."/>
     <main>
-      <section class="relative h-[28rem] overflow-hidden hero">
-            <h1 class="text-center absolute top-3/4 left-1/2 w-4/5 lg:w-auto lg:top-1/2 lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[1.5rem] lg:text-[2rem]">No. 1 Genuine Best Nest Brand from Japan</h1>
-            <div class="bg" style="background-image:url('../assets/images/11.jpg');position:absolute;background-size:cover;background-position:center;z-index:-1;height:28rem;width:100%;background-repeat:no-repeat;"/>
+      <section class="relative h-[calc(100vh-5rem)] lg:h-[28rem] overflow-hidden hero">
+            <h1 class="text-center absolute left-1/2 w-4/5 lg:w-auto top-1/2 lg:left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-[1.5rem] lg:text-[2rem]">No. 1 Genuine Best Nest Brand from Japan</h1>
+            <div class="bg h-full lg:h-[28rem]" style="background-image:url('../assets/images/11.jpg');position:absolute;background-size:cover;background-position:center;z-index:-1;width:100%;background-repeat:no-repeat;"/>
              <!--img src="../assets/images/11.jpg" alt="Swallow nest" class="object-cover w-full h-[28rem]"-->
       </section>
 
-      <h1 class="px-5 lg:px-20 my-10 block text-center text-2xl lg:text-4xl gs_reveal">Message from Owner</h1>
+      <h1 class="px-5 lg:px-20 mt-24 mb-10 block text-center text-2xl lg:text-4xl gs_reveal">Message from Owner</h1>
 
       <section class="flex flex-col-reverse lg:grid grid-1 lg:px-20 justify-evenly gs_reveal ">
         <div class="bg-black w-full" />
-        <div class="bg-yellowish p-5 lg:p-10 gs_reveal">
+        <div class="bg-yellowish p-5 lg:p-10 ">
+
             <h2 class="block text-center gs_reveal">Inatomi’s Message</h2>
-            <div class="gs_reveal_fromRight">
-            <article class="text-justify pb-5">
+            <div class=" flex justify-between flex-col h-full pb-5">
+            <article class="leading-none lg:leading-loose lg:text-justify pb-10 gs_reveal_fromRight">
                 <p>“During my first encounter with the swiftlet's nests in the wild, I was moved by its beauty and its potential benefits. Among these already rare nests, Malaysian wild swiftlet nests are considered to be the world’s finest. As such, we have named it "Beautiful Nest" or "BI-SU" in Japanese. It is a brand that seeks to deliver this genuine product and its miraculous benefits to all. </p>
                 <p>“However, as we receive this blessing from the swiftlets, we must also preserve their jungle home in our pursuit. We will only achieve our goal when BI-SU's approach is acknowledged by the world, in where the relationship between humanity and nature becomes a "circulating relationship" that compensates for each other. This is how we give back to the swiftlets, whose grace they share with us. </p>
                 <p>“Their nests are a priceless gem given to us by Nature, and we endeavor to deliver this gem straight into your hands.”</p>
@@ -71,8 +83,8 @@ import Footer from '../components/Footer.astro';
             </div>
         </div>
 
-        <div class="bg-yellowish lg:bg-transparent p-5 lg:p-0">
-            <img src="../assets/images/12.jpg" alt="" class="lg:h-full lg:object-cover gs_reveal">
+        <div class="bg-yellowish lg:bg-transparent p-5 lg:p-0 flex justify-center items-center">
+            <img src="../assets/images/12.jpg" alt="" class="h-72 lg:h-full object-top w-full object-cover gs_reveal">
         </div>
 
       </section>
@@ -85,7 +97,7 @@ import Footer from '../components/Footer.astro';
              <img src="../assets/images/13.jpg" alt="" class="gs_reveal w-4/5 lg:w-full mx-auto lg:mx-0 pt-5 lg:pt-0">
         </div>
 
-        <div class="px-5 lg:px-8 pt-5 lg:pt-10 text-justify gs_reveal_fromLeft">
+        <div class="px-5 lg:px-8 pt-5 lg:pt-10 leading-none lg:leading-loose lg:text-justify gs_reveal_fromLeft">
             <h2 class="text-center">Encounter</h2>
             <p>Mr. Inatomi's first experience with a swiftlet's nest was in 2009, at a dinner in Malaysia. He was surprised to learn that locals in Malaysia consumed the nests as both a defense against and a remedy for serious illness, and was fascinated by the accounts of the various other benefits of this wild product.</p>
             <p>"Don't swiftlets' nests originate from China? Why is it consumed here as a preventative and a cure? Numerous questions emerged in his mind and he thought, Isn't this what I want to devote myself to... for the rest of my life?" </p>
@@ -100,7 +112,7 @@ import Footer from '../components/Footer.astro';
             <img src="../assets/images/14.jpg" alt="" class="gs_reveal w-4/5 lg:w-full mx-auto lg:mx-0 pt-5 lg:pt-0">
           </div>
 
-           <div class="px-5 lg:px-10 py-5 lg:pt-10 text-justify gs_reveal_fromRight">
+           <div class="px-5 lg:px-10 py-5 lg:pt-10 leading-none lg:leading-loose lg:text-justify gs_reveal_fromRight">
             <h2 class="text-center">Determination</h2>
             <p>Immediately after returning to Japan, Mr. Inatomi poured himself into research, learning of bird’s nests’ reputation as a healing substance, as well as the untapped depth of its potential. Both tradition and science knew of its ability to heal, rejuvenate and maintain beautiful skin and a strong body. But he also learned of a troubling trend. The incredible value of the nests sparked the mass production of counterfeits nests, unsanitary swiftlet farms and the over-hunting of wild nests. He concluded that genuine, carefully collected bird’s nests were the only safe and ethically-acquired nests one could get. And so, with this in mind, Mr. Inatomi headed back to Malaysia, declaring to himself that "My mission is to spread the word of the importance of genuine bird’s nests to all!"</p>
            </div>
@@ -108,12 +120,12 @@ import Footer from '../components/Footer.astro';
       </section>
 
       <section class="mt-5 lg:mt-20 lg:bg-yellowish ">
-      <div class="text-justify py-5 px-5 lg:py-10 lg:px-20 gs_reveal">
+      <div class="leading-none lg:leading-loose lg:text-justify py-5 px-5 lg:py-10 lg:px-20 gs_reveal max-w-maxscr mx-auto">
           <h2 class="text-center">Promises</h2>
           <p>Very few entrepreneurs will risk danger to inspect a product, let alone harvesting it themselves. But Mr. Inatomi does, and does so regularly. Mr. Inatomi travels to Malaysia annually to harvest the nests with his own hands. This is a dangerous endeavor, as crevices where the swiftlet’s build their nests in the limestone caves of Borneo are hundreds of feet high. But Mr. Inatomi perseveres. He must acquire and see the genuine nests for himself. It is also a pilgrimage - a ritual homage to give thanks and pay his respects to the swiftlets themselves, whose gift are so treasured and so beneficial to humankind. "I want to deliver this wonderful creation to the world". This alone, this simple, earnest ideal is the foundation of BI-SU.</h2>
       </div>
         <div>
-           <img src="../assets/images/15.jpg" alt="" class="gs_reveal">
+           <img src="../assets/images/15.jpg" alt="" class="gs_reveal w-full">
         </div>
       </section>
 
