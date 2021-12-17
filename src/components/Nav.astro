@@ -60,7 +60,7 @@ const { DIR = '.'} = Astro.props;
 						menu.reversed() ? menu.play() : menu.reverse();
 				}
 
-				$('#nav').click(function(){
+				document.querySelector('#nav').addEventListener("click",function(){
 					menuIn();
 
 				})

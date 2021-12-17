@@ -90,52 +90,15 @@ document.addEventListener("DOMContentLoaded", function () {
     //   },
     // });
   }
-
-  gsap.utils.toArray(".link").forEach((link) => {
-    let linkInner = link.querySelector(".linkInner");
-    gsap.set(linkInner, { y: "25%" });
-
-    let linkHover = gsap.to(link, { opacity: 1, duration: 0.3, paused: true, ease: "power1.inOut" });
-
-    let innerHover = gsap.to(linkInner, { y: 0, duration: 0.3, paused: true, ease: "power1.inOut" });
-
-    link.addEventListener("mouseenter", () => {
-      linkHover.play();
-      innerHover.play();
-    });
-    link.addEventListener("mouseleave", () => {
-      linkHover.reverse(0);
-      innerHover.reverse();
-    });
-
-    ScrollTrigger.create({
-      trigger: link,
-      start: "top bottom",
-      end: "top top",
-      onEnter: function () {
-        linkHover.play();
-      },
-      onEnterBack: function () {
-        linkHover.play();
-      },
-      onLeave: function () {
-        linkHover.reverse(0);
-      },
-      onLeaveBack: function () {
-        linkHover.reverse(0);
-      },
-    });
-  });
-  var windowsize = $(window).width();
-
-  const scrolldown = $("main").prepend('<div class="scrolldown"></div>');
-
-  windowsize = $(window).width();
-  $(window).scroll(function () {
-    if ($(document).scrollTop() > 100) {
-      $(".scrolldown").addClass("hidden");
+  scrolldiv = document.createElement("div");
+  scrolldiv.classList.add("scrolldown");
+  scrolldiv.innerHTML = "SCROLL";
+  document.querySelector("main").prepend(scrolldiv);
+  window.scroll(function () {
+    if (document.querySelector(document).scrollTop > 100) {
+      gsap.to(".scrolldown", { autoAlpha: 0 });
     } else {
-      $(".scrolldown").removeClass("hidden");
+      gsap.to(".scrolldown", { autoAlpha: 1 });
     }
   });
 });

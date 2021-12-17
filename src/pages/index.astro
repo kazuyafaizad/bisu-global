@@ -24,7 +24,7 @@ import Footer from '../components/Footer.astro';
 
 
     </section>
-    <section class="gs_reveal">
+    <section class="h-screen">
       <div class="mt-12 mb-5 block mx-auto w-5/6 lg:w-2/4">
         <h1 class="text-4xl text-center py-5 border-t border-b block border-golden">About Bird Nest</h1>
       </div>
@@ -32,21 +32,21 @@ import Footer from '../components/Footer.astro';
        <div class="h-max overflow-hidden relative">
       <picture>
           <source media="(max-width:480px)" srcset="">
-          <img src="./assets/images/2.jpg" alt="About Bird Nest" class=" min-w-full object-cover h-96 lg:h-auto">
+          <img src="./assets/images/2.jpg" alt="About Bird Nest" class=" min-w-full object-cover h-[calc(100vh-6rem)]">
       </picture>
       <a href="./about-bird-nest" class="link">
         <span class="linkInner text-3xl">Learn More</span>
       </a>
       </div>
     </section>
-    <section class="gs_reveal">
+    <section class="h-screen">
       <div class="mt-12 mb-5  block mx-auto w-5/6 lg:w-2/4">
         <h1 class="text-4xl text-center py-5 border-t border-b block border-golden">Brand</h1>
       </div>
        <div class="h-max overflow-hidden relative">
       <picture>
             <source media="(max-width:480px)" srcset="">
-            <img src="./assets/images/3.jpg" alt="Brand" class=" min-w-full object-cover h-96 lg:h-auto">
+            <img src="./assets/images/3.jpg" alt="Brand" class=" min-w-full object-cover h-[calc(100vh-6rem)]">
       </picture>
       <a href="./brand" class="link">
         <span class="linkInner text-3xl">Learn More</span>
@@ -54,14 +54,14 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <section class="gs_reveal">
+    <section class="h-screen">
       <div class="mt-12 mb-5  block mx-auto w-5/6 lg:w-2/4">
         <h1 class="text-4xl text-center py-5 border-t border-b block border-golden">Sustainability</h1>
       </div>
       <div class="h-max overflow-hidden relative">
       <picture>
             <source media="(max-width:480px)" srcset="">
-            <img src="./assets/images/4.jpg" alt="Sustainability" class=" min-w-full object-cover h-96 lg:h-auto">
+            <img src="./assets/images/4.jpg" alt="Sustainability" class=" min-w-full object-cover h-[calc(100vh-6rem)]">
       </picture>
        <a href="./sustainability" class="link">
         <span class="linkInner text-3xl">Learn More</span>
@@ -69,14 +69,14 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <section class="gs_reveal">
+    <section class="h-screen">
       <div class="mt-12 mb-5  block mx-auto w-5/6 lg:w-2/4">
         <h1 class="text-4xl text-center py-5 border-t border-b block border-golden">Global</h1>
       </div>
        <div class="h-max overflow-hidden relative">
       <picture>
             <source media="(max-width:480px)" srcset="">
-            <img src="./assets/images/5.jpg" alt="Global" class=" min-w-full object-cover h-96 lg:h-auto">
+            <img src="./assets/images/5.jpg" alt="Global" class=" min-w-full object-cover h-[calc(100vh-6rem)]">
       </picture>
        <a href="./global" class="link">
        <span class="linkInner text-3xl">Learn More</span>
@@ -89,5 +89,99 @@ import Footer from '../components/Footer.astro';
     </div>
      <script src="./app.js" type = "text/javascript">
     </script>
+
+<script>
+  gsap.utils.toArray(".link").forEach((link) => {
+    let linkInner = link.querySelector(".linkInner");
+    gsap.set(linkInner, { y: "25%" });
+
+    let linkHover = gsap.to(link, { opacity: 1, duration: 0.3, paused: true, ease: "power1.inOut" });
+
+    let innerHover = gsap.to(linkInner, { y: 0, duration: 0.3, paused: true, ease: "power1.inOut" });
+
+    link.addEventListener("mouseenter", () => {
+      linkHover.play();
+      innerHover.play();
+    });
+    link.addEventListener("mouseleave", () => {
+      linkHover.reverse(0);
+      innerHover.reverse();
+    });
+
+    ScrollTrigger.create({
+      trigger: link,
+      start: "top bottom",
+      end: "top top",
+      onEnter: function () {
+        linkHover.play();
+      },
+      onEnterBack: function () {
+        linkHover.play();
+      },
+      onLeave: function () {
+        linkHover.reverse(0);
+      },
+      onLeaveBack: function () {
+        linkHover.reverse(0);
+      },
+    });
+  });
+
+
+
+
+  const sections = document.querySelectorAll("section:not(:first-child)");
+
+// this scrolling object just allows us to conveniently call scrolling.enable(), scrolling.disable(), and check if scrolling.enabled is true.
+// some browsers (like iOS Safari) handle scrolling on a separate thread and can cause things to get out of sync (jitter/jumpy), so when we're animating the scroll position, force an update of GSAP tweens when there's a scroll event in order to maintain synchronization)
+const scrolling = {
+    enabled: true,
+    events: "scroll,wheel,touchmove,pointermove".split(","),
+    prevent: e => e.preventDefault(),
+    disable() {
+      if (scrolling.enabled) {
+        scrolling.enabled = false;
+        window.addEventListener("scroll", gsap.ticker.tick, {passive: true});
+        scrolling.events.forEach((e, i) => (i ? document : window).addEventListener(e, scrolling.prevent, {passive: false}));
+      }
+    },
+    enable() {
+      if (!scrolling.enabled) {
+        scrolling.enabled = true;
+        window.removeEventListener("scroll", gsap.ticker.tick);
+        scrolling.events.forEach((e, i) => (i ? document : window).removeEventListener(e, scrolling.prevent));
+      }
+    }
+  };
+
+
+function goToSection(section, anim, i) {
+  if (scrolling.enabled) { // skip if a scroll tween is in progress
+    scrolling.disable();
+    gsap.to(window, {
+      scrollTo: {y: section, autoKill: false},
+      onComplete: scrolling.enable,
+      duration: 1
+    });
+
+    anim && anim.restart();
+  }
+}
+
+sections.forEach((section, i) => {
+  const intoAnim = gsap.from(section.querySelector("section picture"), {yPercent: 50, duration: 1, paused: true});
+
+  ScrollTrigger.create({
+    trigger: section,
+    start: "top bottom-=1",
+    end: "bottom top+=1",
+    onEnter: () => goToSection(section, intoAnim),
+    onEnterBack: () => goToSection(section)
+  });
+
+});
+
+
+  </script>
   </body>
 </html>
