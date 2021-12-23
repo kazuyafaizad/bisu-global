@@ -10,9 +10,12 @@ module.exports = {
         lighten: "#f4f3ef",
         yellowish: "#F5F3E6",
       },
-      maxWidth:{
-        maxscr : "calc(1200px + 19.6vw)"
-      }
+      maxWidth: {
+        maxscr: "calc(1200px + 19.6vw)",
+      },
+      height: {
+        hero: "calc(100vh - 4rem)",
+      },
     },
   },
 };

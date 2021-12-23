@@ -6,14 +6,14 @@ const { DIR = '.'} = Astro.props;
 
 ---
 <!-- Navbar goes here -->
-		<nav class="bg-lighten shadow-lg z-20 top-0 h-20 w-full sticky">
-			<div class="max-w-7xl mx-auto px-4 ">
+		<nav class="bg-lighten shadow-lg z-20 top-0 h-12 lg:h-20 w-full sticky py-2 ">
+			<div class="max-w-7xl mx-auto px-4">
 
 					<div class="flex justify-between items-center">
 						<div>
 							<!-- Website Logo -->
-							<a href="${DIR}" class="flex items-center py-4 px-2">
-                     <img class="block h-9 lg:h-12 w-auto mr-2" src="${DIR}/assets/images/logo.png" alt="Logo bi-su">
+							<a href="${DIR}" class="flex items-center px-2">
+                     <img class="block h-7 lg:h-12 w-auto mr-2" src="${DIR}/assets/images/logo.png" alt="Logo bi-su">
 							</a>
 						</div>
 						<!-- Primary Navbar items -->
@@ -27,11 +27,11 @@ const { DIR = '.'} = Astro.props;
 
             	<!-- Mobile menu button -->
 					<div class="md:hidden flex items-center justify-center flex-col">
-						<svg version="1.1" id="nav" class=" w-6 h-6 text-black hover:text-golden" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="85.387 0 671.116 595.281" enable-background="new 85.387 0 671.116 595.281" xml:space="preserve">
-						<rect id="burger1" x="85.387" y="0" fill="#A5977D" width="671.116" height="119.459"/>
-						<rect id="burger2" x="85.387" y="236.233" fill="#A5977D" width="671.116" height="119.459"/>
-						<rect id="burger3" x="85.387" y="475.822" fill="#A5977D" width="671.116" height="119.459"/>
-						<span class="text-dark-golden">Menu</span>
+						<svg version="1.1" id="nav" class=" w-6 h-6 text-black hover:text-golden" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="85.387 0 871.116 595.281" enable-background="new 85.387 0 871.116 595.281" xml:space="preserve">
+						<rect id="burger1" x="85.387" y="0" fill="#A5977D" width="871.116" height="70"/>
+						<rect id="burger2" x="85.387" y="236.233" fill="#A5977D" width="871.116" height="70"/>
+						<rect id="burger3" x="85.387" y="475.822" fill="#A5977D" width="871.116" height="70"/>
+						<span class="text-dark-golden leading-none text-xs">Menu</span>
 						</svg>
 
 					</div>
@@ -40,21 +40,23 @@ const { DIR = '.'} = Astro.props;
 
 			</div>
 			<!-- mobile menu -->
-				<ul class=" mobile-menu bg-white w-full h-screen overflow-hidden">
-					<li class="${about}"><a href="${DIR}/about-bird-nest" class="flex border-b  px-2 py-4 hover:bg-golden transition duration-300">About Bird Nest</a></li>
-					<li class="${brand}"><a href="${DIR}/brand" class="flex border-b  px-2 py-4 hover:bg-golden transition duration-300">Brand</a></li>
-					<li class="${sustain}"><a href="${DIR}/sustainability" class="flex border-b  px-2 py-4 hover:bg-golden transition duration-300">Sustainability</a></li>
-					<li class="${global}"><a href="${DIR}/global" class="flex border-b  px-2 py-4 hover:bg-golden transition duration-300">Global</a></li>
-          			<li class="${contact}"><a href="${DIR}/contact-us" class="flex border-b  px-2 py-4 hover:bg-golden transition duration-300">Contact</a></li>
+				<ul class=" mobile-menu bg-white w-full h-screen overflow-hidden mt-1">
+					<li class="${about}"><a href="${DIR}/about-bird-nest" class="flex border-b  px-2 py-2 hover:bg-golden transition duration-300">About Bird Nest</a></li>
+					<li class="${brand}"><a href="${DIR}/brand" class="flex border-b  px-2 py-2 hover:bg-golden transition duration-300">Brand</a></li>
+					<li class="${sustain}"><a href="${DIR}/sustainability" class="flex border-b  px-2 py-2 hover:bg-golden transition duration-300">Sustainability</a></li>
+					<li class="${global}"><a href="${DIR}/global" class="flex border-b  px-2 py-2 hover:bg-golden transition duration-300">Global</a></li>
+          			<li class="${contact}"><a href="${DIR}/contact-us" class="flex border-b  px-2 py-2 hover:bg-golden transition duration-300">Contact</a></li>
 				</ul>
-			<script>
+		</nav>
+
+		<script>
 				var menu = new TimelineMax({paused:true, reversed:true})
 
 				menu
-				.to("#burger1", .2, {rotation: 45, transformOrigin: "left 50%", ease:Power2.easeInOut}, "cross")
+				.to("#burger1", .2, {rotation: 45, transformOrigin: "15% 15%", ease:Power2.easeInOut}, "cross")
 				.to("#burger2", .2, {autoAlpha: 0}, "cross")
-				.to("#burger3", .2, {rotation: -45, transformOrigin: "left 50%", ease:Power2.easeInOut}, "cross")
-				.from(".mobile-menu", 0.6, {height: "0%", ease:Power2.easeInOut})
+				.to("#burger3", .2, {rotation: -45, transformOrigin: "15% 15%", ease:Power2.easeInOut}, "cross")
+				.from(".mobile-menu", 0.6, {height: "0%",display:"none", ease:Power2.easeInOut})
 
 				function menuIn() {
 						menu.reversed() ? menu.play() : menu.reverse();
@@ -66,4 +68,3 @@ const { DIR = '.'} = Astro.props;
 				})
 
 			</script>
-		</nav>

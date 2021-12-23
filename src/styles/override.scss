@@ -1,9 +1,10 @@
 :root {
-  --main-font-jp: "游明朝", "游明朝体", "Yu Mincho", YuMincho, serif;
+  // --main-font-jp: "游明朝", "游明朝体", "Yu Mincho", YuMincho, serif;
+  --main-font-jp: inter, -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, sans-serif;
   --main-font-latin: "Lora", serif;
 }
 html {
-  font-family: "Yu Mincho";
+  font-family: var(--main-font-jp);
   -webkit-font-smoothing: antialiased;
   line-height: 2;
 }
@@ -96,22 +97,29 @@ $medium: 768px;
   width: 50px;
   height: 90px;
   color: white;
-  bottom: 7rem;
+  bottom: 2rem;
   font-size: 0.8rem;
   transform: translateX(-50%);
   opacity: 0.8;
   &::before {
     content: "";
     width: 0.15rem;
-    height: 5rem;
+    height: 2rem;
     position: absolute;
-    top: 99px;
+    top: 3rem;
     left: 50%;
     transform: translateX(-50%);
     background-color: white;
     opacity: 1;
     animation: drop 2s linear infinite;
     -webkit-animation: drop 2s linear infinite;
+    @media screen and (max-width: $medium) {
+      height: 2rem;
+      top: 5rem;
+    }
+  }
+  @media screen and (max-width: $medium) {
+    bottom: 1rem;
   }
 }
 
@@ -123,7 +131,7 @@ $medium: 768px;
     transform: translateY(0);
   }
   60% {
-    transform: translateY(0);
+    transform: translateY(40%);
   }
   to {
     transform: translateY(100%);
@@ -137,7 +145,7 @@ $medium: 768px;
     transform: translateY(0);
   }
   60% {
-    transform: translateY(0);
+    transform: translateY(40%);
   }
   to {
     transform: translateY(100%);
