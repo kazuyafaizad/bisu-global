@@ -71,7 +71,7 @@ import Footer from '../components/Footer.astro';
 
       <section class="flex lg:flex-row flex-col-reverse p-5 lg:p-20 justify-evenly bg-yellowish items-center gs_reveal_fromLeft max-w-maxscr mx-auto">
         <div class="lg:w-1/2">
-            <h2 class="block text-center gs_reveal">Sustainable Harvesting Methods</h2>
+            <h2 class="block lg:text-center gs_reveal">Sustainable Harvesting Methods</h2>
             <article class="leading-none lg:leading-loose lg:text-justify gs_reveal">
                 <p>Swiftlets will never use the same nest twice after raising their chicks. Therefore, the nest is a sustainable resource and with proper care, it’s harvesting does not jeopardize the birds themselves or their environment. </p>
                 <p>Proper harvesting is mutually beneficial to both humans and swiftlets. Allowing the swiftlets to raise their young before harvesting their nests ensures the future of their species, and the future of bird’s nests as a resource.</p>
@@ -85,28 +85,37 @@ import Footer from '../components/Footer.astro';
       </section>
 
       <section class="p-5 ">
-        <h2 class="mt-12 block text-center gs_reveal">Animal Friendly</h2>
-        <article class="lg:w-3/4 mx-auto gs_reveal leading-none lg:leading-loose lg:text-justify max-w-maxscr">
+        <div class="lg:w-3/4 mx-auto">
+        <h2 class="mt-12 lg:text-center block gs_reveal">Animal Friendly</h2>
+        <article class=" gs_reveal leading-none lg:leading-loose lg:text-justify max-w-maxscr">
         <p>Therefore, BI-SU only harvests nests from caves controlled by the Malaysian government, where harvesting is only allowed for a certain period of time and only nests confirmed to have been left by swiftlet hatchlings are harvested. </p>
         <p>We received the certification and award from Malaysian Government to be approved that all BI-SU products materials are from legal harvested bird nest.</p>
         </article>
+        </div>
+
         <div class="flex justify-center">
           <div class="lg:w-1/6 lg:mx-8">
-            <img src="../assets/images/Image 48.png" alt="" class="gs_reveal">
+            <small class="mb-2">Certificate of Appreciation</small>
+            <img src="../assets/images/Image 49.png" alt="" class="gs_reveal">
           </div>
           <div class="lg:w-1/6 lg:mx-8">
-           <img src="../assets/images/Image 49.png" alt="" class="gs_reveal">
-        </div>
+            <small class="mb-2">Certificate of Authenticity</small>
+           <img src="../assets/images/Image 48.png" alt="" class="gs_reveal">
+          </div>
         </div>
       </section>
 
        <section class="bg-yellowish pt-12 mt-12 ">
-        <h2 class="block text-center gs_reveal">Protecting the Environment</h2>
-        <article class="lg:w-3/4 mx-auto lg:pb-22 gs_reveal px-5 leading-none lg:leading-loose lg:text-justify max-w-maxscr">
+        <div class="w-11/12 lg:w-3/4 mx-auto max-w-maxscr lg:pb-22 ">
+        <h2 class="block lg:text-center gs_reveal">Protecting the Environment</h2>
+        <article class="gs_reveal leading-none lg:leading-loose lg:text-justify ">
         <p>As a rule, humankind must return what we take from the environment. Since BI-SU began, we have taken efforts to consistently donate a portion of our sales to protect Borneo’s wildlife. In recognition of this, we are honored to have received a letter of appreciation from the Malaysian government and a Certificate of Authenticity for our harvesting activities. </p>
         <p>Moving forward, we strive ever further to help protect the environment, holding donation drives for the preservation of Bornean forests every year. As we take, so to do we give back. This is our goal. This is our creed.</p>
         </article>
-        <img src="../assets/images/Image 52.png" alt="" class="object-cover h-auto lg:h-[550px] w-full object-top gs_reveal">
+        </div>
+        <div class="gs_reveal">
+        <img src="../assets/images/Image 52.png" alt="" class="object-cover h-auto lg:h-[550px] w-full   object-top ">
+        </div>
       </section>
     </main>
     <Footer />

@@ -3,6 +3,14 @@
   --main-font-jp: inter, -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, sans-serif;
   --main-font-latin: "Lora", serif;
 }
+
+// breakpoint
+$breakpoint-pc: 1400px; // PC
+$breakpoint-tablet: 1000px; // タブレット
+$breakpoint-sp-horizontal: 600px; // SP横
+$breakpoint-sp-vertical: 440px; // SP縦
+$medium: 768px;
+
 html {
   font-family: var(--main-font-jp);
   -webkit-font-smoothing: antialiased;
@@ -30,8 +38,11 @@ h6 {
 p {
   font-size: 1.125rem;
   margin: 1rem 0;
-  line-height: inherit;
-  // font-size: clamp(12px, 4vw, 14px);
+  line-height: 1.5;
+  @media screen and (max-width: $medium) {
+    font-size: 0.86rem;
+    line-height: 1.6rem;
+  }
 }
 footer {
   > div {
@@ -54,7 +65,7 @@ li.active {
     background-color: #b8a273;
   }
 }
-$medium: 768px;
+
 .link {
   position: absolute;
   top: 0;
