@@ -245,6 +245,12 @@
                               //   e.drawImage(this, s, r, 100, 100);
                               // };
                               // img.src = "https://www.bi-su.jp/img/common/sp/bi-su_logo-sp.png";
+
+                              e.beginPath(),
+                                (e.strokeStyle = t.config.eventPointColor),
+                                e.moveTo(466.6666666666667, 150);
+                              // e.lineTo(s, r);
+                              e.arcTo(s, r, 466.6666666666667, 150, 50), e.stroke();
                             }
                           });
                       }),

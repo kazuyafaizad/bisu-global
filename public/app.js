@@ -73,23 +73,18 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //creating parralax effect
-  let section = document.querySelector(".hero");
+  let section = document.querySelector(".hero .bg");
 
   if (section) {
-    // section.bg = section.querySelector(".bg");
-    // var verticalPosition = document.body.scrollTop + window.innerHeight / 2 - $(section.bg).height();
-    // scrollTop = $(window).scrollTop();
-    // section.bg.style.backgroundPosition = `50% 50%`;
-    // gsap.to(section.bg, {
-    //   backgroundPosition: `50% ${-scrollTop * 0.8}%`,
-    //   ease: "none",
-    //   scrollTrigger: {
-    //     trigger: section,
-    //     start: "top top",
-    //     end: "bottom top"
-    //   },
-    // });
+    gsap.to(section, {
+      scrollTrigger: section, // start the animation when ".box" enters the viewport (once)
+      scale: 1.2,
+      duration: 15,
+      yoyo: true,
+      repeat: -1,
+    });
   }
+
   let supportPageOffset = window.pageXOffset !== undefined;
   let isCSS1Compat = (document.compatMode || "") === "CSS1Compat";
 

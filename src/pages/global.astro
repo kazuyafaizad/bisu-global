@@ -57,33 +57,21 @@ $medium : 768px;
                   position:absolute; top:0; left:0; z-index:0
                 }
                 @media screen and (max-width: $medium) {
-                  width:1080px;
+                  //height:1080px;
+                  width:1920px;
                   overflow:scroll;
                 }
-              }
+          }
+          #modal{
+            opacity:0;
+          }
 </style>
   <body>
   <div class="flex flex-col h-screen justify-between">
     <Nav global="active" DIR=".."/>
       <main>
 
-
-
-      <section>
-        <h1 class="text-3xl my-10 block text-center">Deliver the value to the world</h1>
-      <div id="map-wrapper" class="overflow-scroll">
-        <div id="map">
-
-      <!--img src="https://cart.bi-su.jp/user_data/packages/raku2pc/img/common/favicon.ico" style="width: 20px;height: 20px;left: 29.5%;top: 17%;position: absolute;" id="test-jp"-->
-          <div class="tips-wrap">
-            <img class="marker"/>
-
-          </div>
-        </div>
-        </div>
-      </section>
-
-      <div class="absolute inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50" id="modal">
+<div class="absolute inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50 z-10 h-screen" id="modal">
         <div class="w-full max-w-sm p-6 bg-white divide-y divide-gray-500">
             <div class="flex items-center justify-between">
                 <h3 class="text-2xl" id="modal-title"></h3>
@@ -97,19 +85,39 @@ $medium : 768px;
             <div class="pt-4 tips2">
             <a class="instagram hidden flex">
              <embed src="../assets/icons8-instagram.svg" class="h-8"/>
-             Instagram
+              Instagram
             </a>
             <a class="facebook hidden flex">
               <embed src="../assets/icons8-facebook.svg" class="h-8"/>
-              Facebook
-              </a>
-               <a class="weibo hidden flex">
+               Facebook
+            </a>
+            <a class="weibo hidden flex">
               <embed src="../assets/sina-weibo.svg" class="h-8"/>
-              Weibo
-              </a>
+               Weibo
+            </a>
+            <a class="twitter hidden flex">
+              <embed src="../assets/icons8-twitter.svg" class="h-8"/>
+               Twitter
+            </a>
+            <a class="xhs hidden flex">
+              <embed src="../assets/xiaohongshu-chinese-logo.png" class="h-8"/>
+               Xiaohongshu
+            </a>
             </div>
         </div>
-    </div>
+</div>
+
+      <section>
+        <h1 class="text-3xl my-10 block text-center">Deliver the value to the world</h1>
+      <div id="map-wrapper" class="overflow-scroll">
+        <div id="map" class="h-96">
+          <!--img src="https://cart.bi-su.jp/user_data/packages/raku2pc/img/common/favicon.ico" style="width: 20px;height: 20px;left: 29.5%;top: 17%;position: absolute;" id="test-jp"-->
+          <div class="tips-wrap">
+            <img class="marker"/>
+          </div>
+        </div>
+      </div>
+      </section>
 
 
   </main>
@@ -131,28 +139,34 @@ document.addEventListener("DOMContentLoaded", function () {
      map.addEvents([{
         name: 'Singapore',
         coordinate: [-70.8198, 1.3521 ],
+        start:[-40.5902 ,130.4017],
         pointer : "../assets/maps/sg.png",
         instagram:"https://www.instagram.com/bi_su_official_sg/",
         facebook:"https://www.facebook.com/bisu.official.sg"
     }, {
         name: 'Japan',
         coordinate: [-40.5902 ,130.4017],
+        start:[-40.5902 ,130.4017],
         pointer : "../assets/maps/jpn.png",
-         instagram:"http://www.instagram.com",
-        facebook:"http://www.facebook.com"
+         instagram:"https://www.instagram.com/bi_su_official/",
+        facebook:"https://www.facebook.com/www.bisu.jp/",
+        twitter:"https://twitter.com/bi_su_official"
     },{
         name: 'USA',
         coordinate: [77.0369, 38.9072 ],
+        start:[-40.5902 ,130.4017],
         pointer : "../assets/maps/usa.png",
          instagram:"https://www.instagram.com/bi_su_official_us/",
         facebook:"https://www.facebook.com/en.bisu.jp"
     },{
         name: 'China',
         coordinate: [-70.9042 ,116.4074],
+        start:[-40.5902 ,130.4017],
         pointer : "../assets/maps/ch.png",
         xiaohongshu:"https://www.xiaohongshu.com/user/profile/6162aee4000000000201b1cb?xhsshare=CopyLink&appuid=6042323100000000010063b4&apptime=1640144826",
         weibo:"https://weibo.com/u/7727981722?refer_flag=0000015010_&from=feed&loc=nickname&is_all=1"
     }]);
+
 const tips = document.querySelector('.tips-wrap');
 const marker = document.querySelector('.marker');
 const tips2 = document.querySelector('.tips2');
@@ -160,45 +174,42 @@ const modalTitle = document.querySelector('#modal-title');
 
 let infoBox = function(e,data){
   if (data) {
-
-            let container = document.querySelector("#map-wrapper");
-            let rect = container.getBoundingClientRect();
-            let x = e.clientX + container.scrollLeft - rect.left;
-            let y = e.clientY + container.scrollTop - rect.top;
-
-            tips.style.left = `${x}px`;
-            tips.style.top = `${y }px`;
-
-            tips.style.display = 'flex';
-
-
-            marker.src = data.map(d => d.pointer);
-            modalInfo(e,data);
-
-
-        } else {
-            //tips.style.display = 'none';
+        let container = document.querySelector("#map-wrapper");
+        let rect = container.getBoundingClientRect();
+        let x = e.clientX + container.scrollLeft - rect.left;
+        let y = e.clientY + container.scrollTop - rect.top;
+        tips.style.left = `${x}px`;
+        tips.style.top = `${y }px`;
+        tips.style.display = 'flex';
+        marker.src = data.map(d => d.pointer);
+        modalInfo(e,data);
         }
+    }
+
+let modalInfo = function(e,data){
+  if(data){
+    const fb = tips2.querySelector(".facebook");
+    const ig = tips2.querySelector(".instagram");
+    const weibo = tips2.querySelector(".weibo");
+    const twitter = tips2.querySelector(".twitter");
+    const xhs = tips2.querySelector(".xhs");
+
+    data.map(d => {ig.href = d.instagram;d.instagram ? ig.classList.remove("hidden") : ig.classList.add("hidden") });
+    data.map(d => {fb.href = d.facebook;d.facebook ? fb.classList.remove("hidden") : fb.classList.add("hidden")});
+    ata.map(d => {weibo.href = dd.weibo;d.weibo ? weibo.classList.remove("hidden") : weibo.classList.add("hidden")});
+    data.map(d => {twitter.href = d.twitter;d.twitter ? twitter.classList.remove("hidden") : twitter.classList.add("hidden")});
+    data.map(d => {xhs.href = d.xiaohongshu;d.xiaohongshu ? xhs.classList.remove("hidden") : xhs.classList.add("hidden")});
+
+    modalTitle.innerText = data.map(d => d.name).join("\n");
+
   }
-
-        let modalInfo = function(e,data){
-
-            modalTitle.innerText= data.map(d => d.name);
-            const fb = tips2.querySelector(".facebook");
-            const ig = tips2.querySelector(".instagram");
-            const weibo = tips2.querySelector(".weibo");
-
-            ig.href = data.map(d => {d.instagram;d.instagram ? ig.classList.remove("hidden") : ig.classList.add("hidden") });
-            fb.href = data.map(d => {d.facebook;d.facebook ? fb.classList.remove("hidden") : fb.classList.add("hidden")});
-            weibo.href = data.map(d => {d.weibo;d.weibo ? weibo.classList.remove("hidden") : weibo.classList.add("hidden")});
-        }
+}
 
        document.querySelector(".marker").addEventListener('click', function(e, data) {
-          gsap.to("#modal",{y:0})
-          modalInfo(e,data);
+          gsap.to("#modal",{opacity:1,y:0});
       });
       document.querySelector(".close").addEventListener('click', function(e, data) {
-          gsap.to("#modal",{y:"-100%"})
+          gsap.to("#modal",{opacity:0,y:"-100%"})
       });
 
 
@@ -206,29 +217,29 @@ let infoBox = function(e,data){
       //    gsap.to("#modal",{y:0})
       //});
 
+      gsap.registerPlugin(ScrollToPlugin);
+
+      gsap.set("#map",{scaleX:1,scaleY:1,x:-50});
+      gsap.set("#modal",{y:"-100%"});
+
+      let tl = gsap.timeline();
+      tl.to("#map",{x:0,duration:1});
+
       if(window.screen.width <= 769){
 
-            map.on("click", (e,data) => {
-                    gsap.to("#modal",{y:0})
-                    modalInfo(e,data);
-                  });
-      } else{
+        map.on("click", (e,data) => {
+                gsap.to("#modal",{y:0,opacity:1})
+                modalInfo(e,data);
+              });
+        gsap.to("#map", {scale: 2, transformOrigin:"top",duration: 1});
+        gsap.to("#map-wrapper",{ scrollTo:{x:380,y:190, duration: 1} })
+
+        } else{
          map.on("mousemove", (e,data) => {
          infoBox(e,data);
       });
       }
 
-
-
-      var tl = gsap.timeline();
-      gsap.set("#map",{scaleX:1,scaleY:1,x:-50});
-      gsap.set("#modal",{y:"-100%"})
-
-      tl.to("#map",{x:0,duration:1});
-      if(window.screen.width <= 769 ){
-            //tl.to("#map", {scaleX: 1.2,scaleY:1.2, duration: 1});
-            tl.to("#map",{ scrollTo: 500})
-      }
 
       });
     </script>
