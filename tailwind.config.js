@@ -14,7 +14,7 @@ module.exports = {
         maxscr: "calc(1200px + 19.6vw)",
       },
       height: {
-        hero: "calc(100vh - 4rem)",
+        hero: "calc(100vh - 3rem)",
       },
     },
   },

@@ -57,9 +57,10 @@ $medium : 768px;
                   position:absolute; top:0; left:0; z-index:0
                 }
                 @media screen and (max-width: $medium) {
-                  //height:1080px;
+                  height:calc(100vh - 15rem);
                   width:1920px;
-                  overflow:scroll;
+                  overflow:auto;
+                  touch-action: pan-x pan-y !important;
                 }
           }
           #modal{
@@ -68,9 +69,9 @@ $medium : 768px;
 </style>
   <body>
   <div class="flex flex-col h-screen justify-between">
-    <Nav global="active" DIR=".."/>
-      <main>
 
+      <main>
+      <Nav global="active" DIR=".."/>
 <div class="absolute inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50 z-10 h-screen" id="modal">
         <div class="w-full max-w-sm p-6 bg-white divide-y divide-gray-500">
             <div class="flex items-center justify-between">
@@ -108,7 +109,7 @@ $medium : 768px;
 </div>
 
       <section>
-        <h1 class="text-3xl my-10 block text-center">Deliver the value to the world</h1>
+        <h1 class="text-3xl my-10 block text-center hahaha">Deliver the value to the world</h1>
       <div id="map-wrapper" class="overflow-scroll">
         <div id="map" class="h-96">
           <!--img src="https://cart.bi-su.jp/user_data/packages/raku2pc/img/common/favicon.ico" style="width: 20px;height: 20px;left: 29.5%;top: 17%;position: absolute;" id="test-jp"-->
@@ -123,6 +124,7 @@ $medium : 768px;
   </main>
     <Footer />
     </div>
+    <script src="../assets/js/hammer.min.js"></script>
      <script type="text/javascript">
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -196,7 +198,7 @@ let modalInfo = function(e,data){
 
     data.map(d => {ig.href = d.instagram;d.instagram ? ig.classList.remove("hidden") : ig.classList.add("hidden") });
     data.map(d => {fb.href = d.facebook;d.facebook ? fb.classList.remove("hidden") : fb.classList.add("hidden")});
-    ata.map(d => {weibo.href = dd.weibo;d.weibo ? weibo.classList.remove("hidden") : weibo.classList.add("hidden")});
+    data.map(d => {weibo.href = d.weibo;d.weibo ? weibo.classList.remove("hidden") : weibo.classList.add("hidden")});
     data.map(d => {twitter.href = d.twitter;d.twitter ? twitter.classList.remove("hidden") : twitter.classList.add("hidden")});
     data.map(d => {xhs.href = d.xiaohongshu;d.xiaohongshu ? xhs.classList.remove("hidden") : xhs.classList.add("hidden")});
 
@@ -205,7 +207,7 @@ let modalInfo = function(e,data){
   }
 }
 
-       document.querySelector(".marker").addEventListener('click', function(e, data) {
+      document.querySelector(".marker").addEventListener('click', function(e, data) {
           gsap.to("#modal",{opacity:1,y:0});
       });
       document.querySelector(".close").addEventListener('click', function(e, data) {
@@ -239,6 +241,13 @@ let modalInfo = function(e,data){
          infoBox(e,data);
       });
       }
+var myElement = document.getElementById('map');
+
+      var hammertime = new Hammer(myElement);
+      hammertime.get('pinch').set({ enable: true });
+      hammertime.on('pinch', function(ev) {
+        gsap.to("#map", {scale: ev.scale, transformOrigin:"top",duration: 1});
+      });
 
 
       });

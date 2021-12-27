@@ -13,74 +13,73 @@ import Footer from '../components/Footer.astro';
   </head>
   <body>
   <div class="flex flex-col h-screen justify-between">
-    <Nav DIR="."/>
+
 
     <main>
-    <section class="relative h-screen">
-                        <video class="h-hero object-cover" width="100%" poster=""  playsinline autoplay muted loop>
-                            <source src="./assets/movie/PC.mp4">
+    <Nav DIR="."/>
+    <section class="relative h-hero">
+                        <video class="h-full object-cover" width="100%" poster=""  playsinline autoplay muted loop>
+                            <source src="./assets/movie/BI-SU_movie.mp4">
                         Your browser does not support the video tag.
                         </video>
     </section>
-    <section class="h-screen scroll-screen">
-      <div class="pt-11 mb-5  block mx-auto w-5/6 lg:w-2/4">
+    <section class="h-hero scroll-screen mt-5 lg:mt-11">
+      <div class="mb-5 block mx-auto w-5/6 lg:w-2/4">
         <h1 class="text-3xl text-center py-5 border-t border-b block border-golden">About Bird Nest</h1>
       </div>
-       <div class="h-max overflow-hidden relative">
-      <picture>
-          <source media="(max-width:480px)" srcset="">
-          <img src="./assets/images/2.jpg" alt="About Bird Nest" class=" min-w-full object-cover h-[calc(100vh-9.2rem)]">
-      </picture>
-      <a href="./about-bird-nest" class="link">
-        <span class="linkInner text-xl">Learn More</span>
-      </a>
+       <div class="overflow-hidden relative ">
+        <picture>
+            <img src="./assets/images/2.jpg" alt="About Bird Nest" class=" min-w-full object-cover h-[calc(100vh-10rem)] lg:h-[calc(100vh-12rem)]">
+        </picture>
+        <a href="./about-bird-nest" class="link">
+          <span class="linkInner text-xl">Learn More</span>
+        </a>
       </div>
     </section>
 
-    <section class="h-screen scroll-screen">
-      <div class="pt-11 mb-5  block mx-auto w-5/6 lg:w-2/4">
+     <section class="h-hero scroll-screen mt-5 lg:mt-11">
+      <div class="mb-5 block mx-auto w-5/6 lg:w-2/4">
         <h1 class="text-3xl text-center py-5 border-t border-b block border-golden">Brand</h1>
       </div>
-       <div class="h-max overflow-hidden relative">
-      <picture>
-            <source media="(max-width:480px)" srcset="">
-            <img src="./assets/images/3.jpg" alt="Brand" class=" min-w-full object-cover h-[calc(100vh-9.2rem)]">
-      </picture>
-      <a href="./brand" class="link">
-        <span class="linkInner text-xl">Learn More</span>
-      </a>
+       <div class="overflow-hidden relative ">
+        <picture>
+            <img src="./assets/images/3.jpg" alt="Brand" class=" min-w-full object-cover h-[calc(100vh-10rem)] lg:h-[calc(100vh-12rem)]">
+        </picture>
+        <a href="./brand" class="link">
+          <span class="linkInner text-xl">Learn More</span>
+        </a>
       </div>
     </section>
 
-    <section class="h-screen scroll-screen">
-      <div class="pt-11 mb-5  block mx-auto w-5/6 lg:w-2/4">
+      <section class="h-hero scroll-screen mt-5 lg:mt-11">
+      <div class="mb-5 block mx-auto w-5/6 lg:w-2/4">
         <h1 class="text-3xl text-center py-5 border-t border-b block border-golden">Sustainability</h1>
       </div>
-      <div class="h-max overflow-hidden relative">
-      <picture>
-            <source media="(max-width:480px)" srcset="">
-            <img src="./assets/images/4.jpg" alt="Sustainability" class=" min-w-full object-cover h-[calc(100vh-9.2rem)]">
-      </picture>
-       <a href="./sustainability" class="link">
-        <span class="linkInner text-xl">Learn More</span>
-       </a>
+       <div class="overflow-hidden relative ">
+        <picture>
+            <img src="./assets/images/4.jpg" alt="Sustainability" class=" min-w-full object-cover h-[calc(100vh-10rem)] lg:h-[calc(100vh-12rem)]">
+        </picture>
+        <a href="./sustainability" class="link">
+          <span class="linkInner text-xl">Learn More</span>
+        </a>
       </div>
     </section>
 
-    <section class="h-screen scroll-screen">
-      <div class="pt-11 mb-5  block mx-auto w-5/6 lg:w-2/4">
+     <section class="h-hero scroll-screen mt-5 lg:mt-11">
+      <div class="mb-5 block mx-auto w-5/6 lg:w-2/4">
         <h1 class="text-3xl text-center py-5 border-t border-b block border-golden">Global</h1>
       </div>
-       <div class="h-max overflow-hidden relative">
-      <picture>
-            <source media="(max-width:480px)" srcset="">
-            <img src="./assets/images/5.jpg" alt="Global" class=" min-w-full object-cover h-[calc(100vh-9.2rem)]">
-      </picture>
-       <a href="./global" class="link">
-       <span class="linkInner text-xl">Learn More</span>
-       </a>
+       <div class="overflow-hidden relative ">
+        <picture>
+            <img src="./assets/images/5.jpg" alt="Global" class=" min-w-full object-cover h-[calc(100vh-10rem)] lg:h-[calc(100vh-12rem)]">
+        </picture>
+        <a href="./global" class="link">
+          <span class="linkInner text-xl">Learn More</span>
+        </a>
       </div>
     </section>
+
+
   <section class="relative">
     <ul class="sns flex p-10 mx-auto justify-center items-center w-1/2">
 
@@ -90,7 +89,7 @@ import Footer from '../components/Footer.astro';
 
     </ul>
 
-    <div id="sns-modal" class="absolute p-8 inset-x-0 mx-auto bottom-0 text-white bg-gray-700 bg-opacity-70 opacity-0 hidden z-10 h-72 w-1/2 ">
+    <div id="sns-modal" class="absolute p-8 inset-x-0 mx-auto bottom-0 text-white bg-gray-700 bg-opacity-70 opacity-0 hidden z-10 h-72 lg:w-1/2 ">
         <div class="flex justify-end">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 close hover:cursor-pointer" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
@@ -102,7 +101,7 @@ import Footer from '../components/Footer.astro';
         <div class="flex">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px"><radialGradient id="yOrnnhliCrdS2gy~4tD8ma" cx="19.38" cy="42.035" r="44.899" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFFFFF"/><stop offset=".328" stop-color="#FFFFFF"/><stop offset=".348" stop-color="#FFFFFF"/><stop offset=".504" stop-color="#FFFFFF"/><stop offset=".643" stop-color="#FFFFFF"/><stop offset=".761" stop-color="#FFFFFF"/><stop offset=".841" stop-color="#FFFFFF"/></radialGradient><path fill="#ffffff" d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20 c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20 C42.014,38.383,38.417,41.986,34.017,41.99z"/><stop offset="0" stop-color="#4168c9"/><stop offset=".999" stop-color="#4168c9" stop-opacity="0"/></radialGradient><path fill="url(#yOrnnhliCrdS2gy~4tD8mb)" d="M34.017,41.99l-20,0.019c-4.4,0.004-8.003-3.592-8.008-7.992l-0.019-20 c-0.004-4.4,3.592-8.003,7.992-8.008l20-0.019c4.4-0.004,8.003,3.592,8.008,7.992l0.019,20 C42.014,38.383,38.417,41.986,34.017,41.99z"/><path fill="#313131" d="M24,31c-3.859,0-7-3.14-7-7s3.141-7,7-7s7,3.14,7,7S27.859,31,24,31z M24,19c-2.757,0-5,2.243-5,5 s2.243,5,5,5s5-2.243,5-5S26.757,19,24,19z"/><circle cx="31.5" cy="16.5" r="1.5" fill="#313131"/><path fill="#313131" d="M30,37H18c-3.859,0-7-3.14-7-7V18c0-3.86,3.141-7,7-7h12c3.859,0,7,3.14,7,7v12 C37,33.86,33.859,37,30,37z M18,13c-2.757,0-5,2.243-5,5v12c0,2.757,2.243,5,5,5h12c2.757,0,5-2.243,5-5V18c0-2.757-2.243-5-5-5H18z"/></svg><p>Instagram</p>
         </div>
-        <ul class="flex">
+        <ul class="flex flex-col lg:flex-row">
           <li class="mx-5"><a href="https://www.instagram.com/bi_su_official/">Japan</a></li>
           <li class="mx-5"><a href="https://www.instagram.com/bi_su_official_sg/">Singapore</a></li>
           <li class="mx-5"><a href="https://www.instagram.com/bi_su_official_us/">United State</a></li>
@@ -113,7 +112,7 @@ import Footer from '../components/Footer.astro';
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px"><path fill="#fff" d="M24 5A19 19 0 1 0 24 43A19 19 0 1 0 24 5Z"/><path fill="#313131" d="M26.572,29.036h4.917l0.772-4.995h-5.69v-2.73c0-2.075,0.678-3.915,2.619-3.915h3.119v-4.359c-0.548-0.074-1.707-0.236-3.897-0.236c-4.573,0-7.254,2.415-7.254,7.917v3.323h-4.701v4.995h4.701v13.729C22.089,42.905,23.032,43,24,43c0.875,0,1.729-0.08,2.572-0.194V29.036z"/></svg>
         <p>Facebook</p>
         </div>
-        <ul class="flex">
+        <ul class="flex flex-col lg:flex-row">
           <li class="mx-5"><a href="https://www.facebook.com/www.bisu.jp/">Japan</a></li>
           <li class="mx-5"><a href="https://www.facebook.com/bisu.official.sg">Singapore</a></li>
           <li class="mx-5"><a href="https://www.facebook.com/en.bisu.jp">United State</a></li>
@@ -124,7 +123,7 @@ import Footer from '../components/Footer.astro';
         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 50.497 40.648"><path fill="#fff" d="M50.448 12.132c.217 2.814-.259 6.186-2.117 6.351-3.033.271-1.451-3.07-1.411-5.081.111-5.829-4.865-9.879-9.739-9.879-1.381 0-4.588.936-4.094-1.976.222-1.284 1.31-1.266 2.399-1.411 8.197-1.093 14.386 4.546 14.962 11.996z"/><path fill="#fff" d="M37.04 18.907c3.524 1.928 7.758 2.888 7.056 8.61-.168 1.371-.998 3.203-1.834 4.373-5.957 8.339-23.924 11.844-35.144 5.506C3.355 35.269-.539 32.159.062 25.962c.517-5.333 4.103-9.464 7.622-12.983 3.357-3.359 6.897-5.987 11.714-7.198 5.226-1.314 6.771 3.043 5.363 7.339 3.027-.203 9.442-3.582 12.279-.282 1.25 1.454.771 4.058 0 6.069zm-3.811 13.548c1.129-1.28 2.264-3.231 2.257-5.503-.015-7.014-8.851-9.605-15.806-9.033-3.804.312-6.363 1.115-9.033 2.682-2.179 1.279-4.729 3.36-5.363 6.491-1.427 7.041 6.231 10.35 11.855 10.726 6.498.437 13.002-1.857 16.09-5.363z"/><path fill="#fff" d="M43.531 12.132c.296 2.149-.319 4.011-1.552 4.093-2.056.137-1.287-1.408-1.412-3.246-.078-1.132-1.016-2.439-1.835-2.823-1.606-.752-4.093.548-4.093-1.693 0-1.664 1.443-1.491 2.259-1.553 3.574-.272 6.216 2.191 6.633 5.222z"/><path fill="#fff" d="M27.019 26.246c3.007 9.088-12.66 13.314-15.525 5.504-1.917-5.223 2.686-9.377 7.48-9.879 4.093-.429 7.144 1.658 8.045 4.375zm-7.198 1.553c.638 1.104 2.105.311 1.976-.564-.154-1.013-1.989-.863-1.976.564zm-2.541 4.799c2.634-.627 2.988-5.588-.988-4.658-3.34.78-2.694 5.533.988 4.658z"/></svg>
         <p>Weibo</p>
         </div>
-        <ul class="flex">
+        <ul class="flex flex-col lg:flex-row">
           <li class="mx-5"><a href="https://weibo.com/u/7727981722?refer_flag=0000015010_&from=feed&loc=nickname&is_all=1">China</a></li>
         <ul>
         </div>
@@ -203,11 +202,19 @@ const scrolling = {
 function goToSection(section, anim, i) {
   if (scrolling.enabled) { // skip if a scroll tween is in progress
     scrolling.disable();
+    if(window.screen.width <= 769){
     gsap.to(window, {
-      scrollTo: {y: section, autoKill: false},
+      scrollTo: {y: section, offsetY:65,autoKill: false},
       onComplete: scrolling.enable,
       duration: 1
     });
+    }else{
+      gsap.to(window, {
+      scrollTo: {y: section, offsetY:100,autoKill: false},
+      onComplete: scrolling.enable,
+      duration: 1
+    });
+    }
 
     anim && anim.restart();
   }
@@ -217,6 +224,7 @@ function goToSection(section, anim, i) {
   sections.forEach((section, i) => {
 
     ScrollTrigger.create({
+      marker:true,
       trigger: section,
       start: "top bottom-=1",
       end: "bottom top+=1",
@@ -226,16 +234,7 @@ function goToSection(section, anim, i) {
 
   });
 
-      if(window.screen.width <= 769){
-        let video = document.querySelector('video');
-        let source = document.querySelector('source');
 
-        source.setAttribute('src', './assets/movie/SP.mp4');
-
-        video.load();
-        video.play();
-
-      }
         let sns = document.querySelector('.sns');
         const fb = sns.querySelector(".facebook");
         const ig = sns.querySelector(".instagram");

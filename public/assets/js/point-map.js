@@ -263,6 +263,9 @@
                       e.moveTo(o, s),
                       e.arc(o, s, 1.382 * i, 0, 2 * Math.PI),
                       e.fill();
+                    e.beginPath(), (e.strokeStyle = t.config.eventPointColor), e.moveTo(466.6666666666667, 150);
+                    // e.lineTo(s, r);
+                    e.arcTo(o, s, 466.6666666666667, 150, 50), e.stroke();
                   }
                 }
               },
