@@ -122,7 +122,7 @@
                 var t = this;
                 requestAnimationFrame(function () {
                   t.ctx.clearRect(0, 0, t.canvas.width, t.canvas.height),
-                    ["drawBasicMap", "initIcon", "drawEventPointWave"].forEach(function (e) {
+                    ["drawBasicMap", "drawEventPointWave"].forEach(function (e) {
                       var n = t[e]();
                       n && t.ctx.drawImage(n, 0, 0, n.width / t.screenRatio, n.height / t.screenRatio);
                     }),
@@ -145,7 +145,7 @@
                   (this.dom.style.textAlign = "center"),
                   (this.screenRatio = window.devicePixelRatio),
                   (this.needRedraw = !0),
-                  ["canvas", "canvas-map", "canvas-wave", "canvas-icon"].forEach(function (n) {
+                  ["canvas", "canvas-map", "canvas-wave"].forEach(function (n) {
                     var a = (t[n] = document.createElement("canvas"));
                     (a.style.width = "".concat(t.canvasWidth, "px")),
                       (a.style.height = "".concat(t.canvasWidth * e, "px")),
@@ -181,7 +181,7 @@
                       t.events[n] &&
                       t.events[n][a] &&
                       ((t.customerEvents && t.customerEvents.click) || []).forEach(function (i) {
-                        return i(e, t.events[n][a]);
+                        return i(e, t.events[n * t.config.enlarge][a * t.config.enlarge]);
                       }),
                       (t.needRedraw = !0);
                   });
@@ -239,14 +239,19 @@
                               var s = o * t.scale,
                                 r = n * t.scale;
 
-                              // e.beginPath(), (e.fillStyle = t.config.eventPointColor), e.moveTo(s, r);
-                              // e.arc(s, r, i * t.config.enlarge, 0, 2 * Math.PI), e.fill();
+                              e.beginPath(), (e.fillStyle = t.config.eventPointColor), e.moveTo(s, r);
+                              e.arc(s, r, i * t.config.enlarge, 0, 2 * Math.PI), e.fill();
 
-                              // t.drawImageIcon(s, r);
+                              var img = new Image();
+                              img.onload = function () {
+                                e.drawImage(this, s - 50 * 0.5, r - 50 * 0.5, 50, 50);
+                              };
+                              img.src = "../assets/bi-su_icon.svg";
 
                               e.beginPath(),
                                 (e.strokeStyle = t.config.eventPointColor),
                                 e.moveTo(466.6666666666667, 150);
+                              // e.lineTo(s, r);
                               e.arcTo(s, r, 466.6666666666667, 150, 50), e.stroke();
                             }
                           });
@@ -258,13 +263,17 @@
                     e.beginPath(),
                       (e.fillStyle = this.config.activePointColor),
                       e.moveTo(o, s),
-                      // e.arc(o, s, 1.382 * i, 0, 2 * Math.PI),
+                      e.arc(o, s, 1.382 * i, 0, 2 * Math.PI),
                       e.fill();
-
-                    // t.drawImageIcon(o, s);
-
                     e.beginPath(), (e.strokeStyle = t.config.eventPointColor), e.moveTo(466.6666666666667, 150);
+                    // e.lineTo(s, r);
                     e.arcTo(o, s, 466.6666666666667, 150, 50), e.stroke();
+
+                    var img = new Image();
+                    img.onload = function () {
+                      e.drawImage(this, s - 50 * 0.5, r - 50 * 0.5, 50, 50);
+                    };
+                    img.src = "../assets/bi-su_icon.svg";
                   }
                 }
               },
@@ -288,7 +297,7 @@
                   (n.globalAlpha = 0.1),
                   Object.keys(a).forEach(function (e) {
                     Object.keys(a[e]).forEach(function (a) {
-                      n.strokeStyle = t.config.mapBgColor;
+                      n.strokeStyle = t.config.eventPointColor;
                       var i = e * t.scale,
                         o = a * t.scale;
                       n.moveTo(i + t._waveRadius, o), n.arc(i, o, t._waveRadius, 0, 2 * Math.PI);
@@ -297,7 +306,7 @@
                   (this._waveRadius += 0.1),
                   n.stroke(),
                   n.restore(),
-                  this._waveRadius > 45 && (this._waveRadius = 0),
+                  this._waveRadius > 15 && (this._waveRadius = 0),
                   e
                 );
               },
@@ -338,43 +347,6 @@
                   (this.customerEvents[t] = this.customerEvents[t] || []);
                 var n = this.customerEvents[t].indexOf(e);
                 -1 !== n && this.customerEvents[t].splice(n, 1);
-              },
-            },
-            {
-              key: "initIcon",
-              value: function () {
-                var t = this;
-                var e = this["canvas-icon"],
-                  n = this["ctx-canvas-icon"];
-                (n.globalCompositeOperation = "destination-out"),
-                  (n.fillStyle = "rgba(0, 0, 0, .08)"),
-                  n.fillRect(0, 0, n.canvas.width, n.canvas.height),
-                  (n.globalCompositeOperation = "source-over"),
-                  (n.lineWidth = 1);
-                var a = this.events || {};
-                return (
-                  n.save(),
-                  (n.globalAlpha = 0.1),
-                  Object.keys(a).forEach(function (e) {
-                    Object.keys(a[e]).forEach(function (a) {
-                      var i = e * t.scale,
-                        o = a * t.scale;
-                      t.drawImageIcon(i, o);
-                    });
-                  }),
-                  e
-                );
-              },
-            },
-            {
-              key: "drawImageIcon",
-              value: function (s, r) {
-                var img = new Image();
-                var e = this["ctx-canvas-icon"];
-                img.onload = function () {
-                  e.drawImage(this, s - 50 * 0.5, r - 50 * 0.5, 50, 50);
-                };
-                img.src = "../assets/bi-su_icon.svg";
               },
             },
           ]) && i(e.prototype, n),

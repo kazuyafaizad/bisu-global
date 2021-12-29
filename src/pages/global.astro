@@ -109,7 +109,7 @@ $medium : 768px;
 </div>
 
       <section>
-        <h1 class="text-3xl my-10 block text-center hahaha">Deliver the value to the world</h1>
+        <h1 class="text-3xl my-10 block text-center title">Deliver the value to the world</h1>
       <div id="map-wrapper" class="overflow-scroll">
         <div id="map" class="h-96">
           <!--img src="https://cart.bi-su.jp/user_data/packages/raku2pc/img/common/favicon.ico" style="width: 20px;height: 20px;left: 29.5%;top: 17%;position: absolute;" id="test-jp"-->
@@ -134,11 +134,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
       map.config.eventPointColor = "#333";
       map.config.mapBgColor = "#B8A273";
-      map.config.activePointColor = '#333';
+      map.config.activePointColor = '#231232';
       map.config.mapActiveBgColor ='#B8A273';
       // Add event points
 
-     map.addEvents([{
+    setTimeout(function(){
+        map.addEvents([{
         name: 'Singapore',
         coordinate: [-70.8198, 1.3521 ],
         start:[-40.5902 ,130.4017],
@@ -168,6 +169,8 @@ document.addEventListener("DOMContentLoaded", function () {
         xiaohongshu:"https://www.xiaohongshu.com/user/profile/6162aee4000000000201b1cb?xhsshare=CopyLink&appuid=6042323100000000010063b4&apptime=1640144826",
         weibo:"https://weibo.com/u/7727981722?refer_flag=0000015010_&from=feed&loc=nickname&is_all=1"
     }]);
+    },2000)
+
 
 const tips = document.querySelector('.tips-wrap');
 const marker = document.querySelector('.marker');
@@ -221,26 +224,28 @@ let modalInfo = function(e,data){
 
       gsap.registerPlugin(ScrollToPlugin);
 
-      gsap.set("#map",{scaleX:1,scaleY:1,x:-50});
+      gsap.set("#map",{scaleX:1,scaleY:1,x:-100});
       gsap.set("#modal",{y:"-100%"});
 
       let tl = gsap.timeline();
       tl.to("#map",{x:0,duration:1});
-
       if(window.screen.width <= 769){
 
         map.on("click", (e,data) => {
                 gsap.to("#modal",{y:0,opacity:1})
                 modalInfo(e,data);
               });
-        gsap.to("#map", {scale: 2, transformOrigin:"top",duration: 1});
-        gsap.to("#map-wrapper",{ scrollTo:{x:380,y:190, duration: 1} })
+        tl.to("#map-wrapper",{ scrollTo:{x:600,y:1000},duration:1});
+        tl.to("#map", {scale: 1.3, transformOrigin:"top center",duration: 1});
 
         } else{
+
          map.on("mousemove", (e,data) => {
          infoBox(e,data);
       });
       }
+      tl.from(".title",{autoAlpha:0,duration:1});
+
 var myElement = document.getElementById('map');
 
       var hammertime = new Hammer(myElement);
