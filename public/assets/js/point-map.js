@@ -105,6 +105,10 @@
                 eventPointColor: "#fefefe",
                 activePointColor: "#3bc705",
                 enlarge: 1,
+                start: [
+                  Math.round((-40.5902 + Math.abs(this.coordinate.bbox[0])) / this.coordinate.grid),
+                  Math.round((130.4017 - Math.abs(this.coordinate.bbox[3])) / this.coordinate.grid),
+                ],
               },
               n || {}
             )),
@@ -221,7 +225,8 @@
                   var e = this["ctx-canvas-map"],
                     n = this.events || {},
                     a = null,
-                    i = this.scale / 2;
+                    i = this.scale / 2,
+                    u = this.startp || {};
                   if (
                     (e.beginPath(),
                     Object.keys(n)
@@ -237,24 +242,25 @@
                             if (t.activePoint && t.activePoint[0] === o && t.activePoint[1] === n) a = [o, n];
                             else {
                               var s = o * t.scale,
-                                r = n * t.scale;
-
+                                r = n * t.scale,
+                                x = t.config.start[0] * t.scale,
+                                y = t.config.start[1] * t.scale;
                               // e.beginPath(), (e.fillStyle = t.config.eventPointColor), e.moveTo(s, r);
                               // e.arc(s, r, i * t.config.enlarge, 0, 2 * Math.PI), e.fill();
 
                               // t.drawImageIcon(s, r);
 
-                              e.beginPath(),
-                                (e.strokeStyle = t.config.eventPointColor),
-                                e.moveTo(466.6666666666667, 150);
-                              e.arcTo(s, r, 466.6666666666667, 150, 50), e.stroke();
+                              e.beginPath(), (e.strokeStyle = t.config.eventPointColor), e.moveTo(x, y);
+                              e.arcTo(s, r, x, y, 50), e.stroke();
                             }
                           });
                       }),
                     a)
                   ) {
                     var o = a[0] * this.scale,
-                      s = a[1] * this.scale;
+                      s = a[1] * this.scale,
+                      x = this.config.start[0] * this.scale,
+                      y = this.config.start[1] * this.scale;
                     e.beginPath(),
                       (e.fillStyle = this.config.activePointColor),
                       e.moveTo(o, s),
@@ -263,8 +269,8 @@
 
                     // t.drawImageIcon(o, s);
 
-                    e.beginPath(), (e.strokeStyle = t.config.eventPointColor), e.moveTo(466.6666666666667, 150);
-                    e.arcTo(o, s, 466.6666666666667, 150, 50), e.stroke();
+                    e.beginPath(), (e.strokeStyle = t.config.eventPointColor), e.moveTo(x, y);
+                    e.arcTo(o, s, x, y, 50), e.stroke();
                   }
                 }
               },

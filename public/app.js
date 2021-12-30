@@ -66,9 +66,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   ScrollTrigger.batch(".gs_reveal", {
-    onEnter: (batch) => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
+    onEnter: (batch) => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true, duration: 1.25 }),
     onLeave: (batch) => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
-    onEnterBack: (batch) => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
+    onEnterBack: (batch) => gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true, duration: 1.25 }),
     onLeaveBack: (batch) => gsap.set(batch, { opacity: 0, y: 100, overwrite: true }),
   });
 

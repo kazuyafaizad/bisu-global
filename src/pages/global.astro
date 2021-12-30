@@ -58,7 +58,7 @@ $medium : 768px;
                 }
                 @media screen and (max-width: $medium) {
                   height:calc(100vh - 15rem);
-                  width:1920px;
+                  width:calc(100vw + 20rem);
                   overflow:auto;
                   touch-action: pan-x pan-y !important;
                 }
@@ -124,7 +124,7 @@ $medium : 768px;
   </main>
     <Footer />
     </div>
-    <script src="../assets/js/hammer.min.js"></script>
+
      <script type="text/javascript">
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -224,29 +224,31 @@ let modalInfo = function(e,data){
 
       gsap.registerPlugin(ScrollToPlugin);
 
-      gsap.set("#map",{scaleX:1,scaleY:1,x:-100});
+
       gsap.set("#modal",{y:"-100%"});
 
       let tl = gsap.timeline();
-      tl.to("#map",{x:0,duration:1});
+
       if(window.screen.width <= 769){
 
         map.on("click", (e,data) => {
                 gsap.to("#modal",{y:0,opacity:1})
                 modalInfo(e,data);
               });
-        tl.to("#map-wrapper",{ scrollTo:{x:600,y:1000},duration:1});
-        tl.to("#map", {scale: 1.3, transformOrigin:"top center",duration: 1});
-
+        tl.to("#map-wrapper",{ scrollTo:{x:170,y:1000},duration:1});
+        tl.to("#map", {scale: 1.1, transformOrigin:"top center",duration: 1});
+        document.querySelector('#map-wrapper').style.overflow = "hidden";
         } else{
-
-         map.on("mousemove", (e,data) => {
-         infoBox(e,data);
-      });
+          gsap.set("#map",{scaleX:1,scaleY:1,x:-100});
+          tl.to("#map",{x:0,duration:1});
+          map.on("mousemove", (e,data) => {
+          infoBox(e,data);
+        });
       }
       tl.from(".title",{autoAlpha:0,duration:1});
 
-var myElement = document.getElementById('map');
+/*
+    var myElement = document.getElementById('map');
 
       var hammertime = new Hammer(myElement);
       hammertime.get('pinch').set({ enable: true });
@@ -255,6 +257,7 @@ var myElement = document.getElementById('map');
       });
 
 
+      */
       });
     </script>
   </body>
