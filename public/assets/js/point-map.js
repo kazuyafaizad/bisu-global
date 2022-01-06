@@ -207,7 +207,9 @@
                   e = this["canvas-map"];
                 if (this.needRedraw) {
                   var a = this["ctx-canvas-map"];
-                  a.clearRect(0, 0, e.width, e.height), a.save(), (a.fillStyle = this.config.mapBgColor);
+                  a.clearRect(0, 0, e.width, e.height),
+                    //a.save(),
+                    (a.fillStyle = this.config.mapBgColor);
                   var n = null,
                     i = 0.4 * this.scale;
                   this.globalRawData.forEach(function (e, o) {
@@ -337,38 +339,40 @@
               value: function () {
                 var t = this,
                   e = this["canvas-icon"],
-                  a = this["ctx-canvas-icon"];
-                (a.globalCompositeOperation = "destination-out"),
-                  (a.fillStyle = "rgba(0, 0, 0, 1)"),
-                  a.fillRect(0, 0, a.canvas.width, a.canvas.height),
-                  (a.globalCompositeOperation = "source-over"),
-                  (a.lineWidth = 1);
+                  a = this["ctx-canvas-icon"],
+                  q = this["canvas"],
+                  s = 45.4;
+                // (a.globalCompositeOperation = "destination-out"),
+                // (a.fillStyle = "rgba(0, 0, 0, 0)"),
+                //   a.fillRect(0, 0, a.canvas.width, a.canvas.height),
+                //   (a.globalCompositeOperation = "source-over"),
+                a.lineWidth = 1;
+
                 var n = this.events || {};
                 return (
                   a.save(),
-                  (a.globalAlpha = 0.1),
-                  Object.keys(n).forEach(function (e) {
-                    Object.keys(n[e]).forEach(function (a) {
-                      var n = e * t.scale,
-                        i = a * t.scale;
-                      t.drawImageIcon(n, i);
+                  Object.keys(n).forEach(function (i) {
+                    Object.keys(n[i]).forEach(function (n) {
+                      var x = i * t.scale,
+                        y = n * t.scale,
+                        m = new Image();
+                      m.src = "../assets/bi-su_icon.svg";
+                      m.onload = function () {
+                        (e.antialiased = false),
+                          // (a.mozImageSmoothingEnabled = false),
+                          // (a.webkitImageSmoothingEnabled = false),
+                          // (a.msImageSmoothingEnabled = false),
+                          // (a.imageSmoothingEnabled = false),
+                          (a.imageSmoothingQuality = "low"),
+                          a.drawImage(this, Math.round(x - 0.5 * s) + 0.5, Math.round(y - 0.5 * s) + 0.5, s, s);
+                      };
                     });
                   }),
+                  // a.scale(1, 1),
+                  q.classList.add("antialias"),
+                  a.restore(),
                   e
                 );
-              },
-            },
-            {
-              key: "drawImageIcon",
-              value: function (t, e) {
-                var a = new Image(),
-                  n = this["ctx-canvas-icon"],
-                  i = this;
-                (a.onload = function () {
-                  var a = 5 * i.scale;
-                  n.drawImage(this, t - 0.5 * a, e - 0.5 * a, a, a);
-                }),
-                  (a.src = "../assets/bi-su_icon.svg");
               },
             },
           ]) && i(e.prototype, a),

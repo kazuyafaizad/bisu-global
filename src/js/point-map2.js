@@ -9,39 +9,39 @@
 })(window, function () {
   return (function (t) {
     var e = {};
-    function a(n) {
-      if (e[n]) return e[n].exports;
-      var i = (e[n] = { i: n, l: !1, exports: {} });
-      return t[n].call(i.exports, i, i.exports, a), (i.l = !0), i.exports;
+    function n(a) {
+      if (e[a]) return e[a].exports;
+      var i = (e[a] = { i: a, l: !1, exports: {} });
+      return t[a].call(i.exports, i, i.exports, n), (i.l = !0), i.exports;
     }
     return (
-      (a.m = t),
-      (a.c = e),
-      (a.d = function (t, e, n) {
-        a.o(t, e) || Object.defineProperty(t, e, { enumerable: !0, get: n });
+      (n.m = t),
+      (n.c = e),
+      (n.d = function (t, e, a) {
+        n.o(t, e) || Object.defineProperty(t, e, { enumerable: !0, get: a });
       }),
-      (a.r = function (t) {
+      (n.r = function (t) {
         "undefined" != typeof Symbol &&
           Symbol.toStringTag &&
           Object.defineProperty(t, Symbol.toStringTag, { value: "Module" }),
           Object.defineProperty(t, "__esModule", { value: !0 });
       }),
-      (a.t = function (t, e) {
-        if ((1 & e && (t = a(t)), 8 & e)) return t;
+      (n.t = function (t, e) {
+        if ((1 & e && (t = n(t)), 8 & e)) return t;
         if (4 & e && "object" == typeof t && t && t.__esModule) return t;
-        var n = Object.create(null);
-        if ((a.r(n), Object.defineProperty(n, "default", { enumerable: !0, value: t }), 2 & e && "string" != typeof t))
+        var a = Object.create(null);
+        if ((n.r(a), Object.defineProperty(a, "default", { enumerable: !0, value: t }), 2 & e && "string" != typeof t))
           for (var i in t)
-            a.d(
-              n,
+            n.d(
+              a,
               i,
               function (e) {
                 return t[e];
               }.bind(null, i)
             );
-        return n;
+        return a;
       }),
-      (a.n = function (t) {
+      (n.n = function (t) {
         var e =
           t && t.__esModule
             ? function () {
@@ -50,13 +50,13 @@
             : function () {
                 return t;
               };
-        return a.d(e, "a", e), e;
+        return n.d(e, "a", e), e;
       }),
-      (a.o = function (t, e) {
+      (n.o = function (t, e) {
         return Object.prototype.hasOwnProperty.call(t, e);
       }),
-      (a.p = ""),
-      a((a.s = 1))
+      (n.p = ""),
+      n((n.s = 1))
     );
   })([
     function (t) {
@@ -64,35 +64,35 @@
         "[[2,7],[7,[23,6]],[[22,8]],[11,[20,11]],[11,[16,2],[19,3],[23,8]],[10,[16,2],[19,12]],[[11,7],[19,12]],[[13,3],[18,10],30],[[12,4],[18,13]],[[8,2],[12,3],[18,13]],[8,[10,5],[18,16]],[[7,9],[20,16],[39,2]],[[6,4],[11,2],14,16,[20,24]],[2,[6,2],[11,5],[21,26]],[2,6,8,[10,8],[20,27]],[2,[6,4],[11,4],16,[20,27]],[[5,4],[10,8],[20,27]],[[6,9],17,[21,14],[37,2],[40,6]],[[6,8],[16,3],[21,12],[34,11]],[6,[8,6],[16,2],[20,2],[23,9],[33,8],42],[6,[8,6],[17,6],[26,14]],[[7,18],[27,7]],[[7,9],[17,11],[29,4],42],[[6,22],[29,3],[40,3]],[[6,8],[18,3],[22,5],[29,2],[38,3]],[[6,8],15,[18,4],[23,2],26],[[6,16],[23,3]],[[6,17],24],[[6,17]],[3,[6,17]],[[5,18]],[[5,19]],[[5,20]],[[5,22]],[[4,26]],[[4,24]],[[4,22]],[[4,21]],[[4,20]],[[4,20]],[[4,19],24],[[3,23],31],[[3,25],29,32],[3,[5,23],31,[33,2]],[[3,27],34],[[5,19],[27,2]],[[4,20],33],[[5,19],[32,2]],[[5,19],[31,3],[42,5]],[[4,13],[18,5],34,[41,6]],[[5,12],25,27,34,[41,6]],[[5,12],[27,2],[39,7]],[[5,12],18,[39,7]],[[5,11],34,[38,8]],[[5,11],19,33,[38,8]],[[4,6],[11,4],18,34,[38,9]],[[5,4],[17,2],[34,2],[40,8]],[[5,4],15,[34,3],[40,9]],[[5,4],35,[39,10],50],[[5,4],36,[41,7]],[[5,4],35,[42,5]],[[5,4],10,44],[[6,2],[10,2]],[[6,2],[9,2]],[[6,3]],[[6,3]],[[6,3],51],[[6,2],50],[6],[6,48],[40],[7],[0],[0],[0],[6,8],[6,8],[[5,5]],[[5,6]],[[5,5]],[[6,4]],[[5,4]],[[6,3]],[[6,3]],[[6,3]],[[6,3]],[[6,3]],[[6,3]],[[6,3]],[[6,3]],[[6,4]],[[6,6]],[[6,5]],[4,[6,6]],[[3,2],[6,7]],[4,[6,8]],[4,[6,12]],[[6,13]],[[6,13]],[[6,14]],[[5,15]],[5,[7,14]],[[3,17],21,23],[[5,18]],[3,[6,14],[21,3]],[4,[6,19]],[2,[6,20]],[[2,4],[7,19]],[[2,7],[10,12],[25,2]],[2,[6,2],[10,11],26],[[3,2],[6,2],[10,11],26],[[2,3],7,[10,11],[25,3]],[[4,4],[11,2],14,[16,5],[24,3]],[2,[4,4],[11,3],[15,6],27],[[2,4],[11,3],[15,6],[27,2]],[2,4,8,[13,9]],[2,[5,5],[11,9],29,[33,3]],[2,5,[7,12],24,[32,6]],[5,[7,10],[29,10]],[[5,3],[9,7],[29,11],[48,7]],[3,[6,2],[10,5],25,[29,11],[44,11]],[3,[6,2],[10,3],14,25,[29,24]],[[2,2],6,[9,6],[29,22]],[[2,2],[10,3],[29,21]],[[2,2],[11,2],[29,20]],[[2,2],12,[30,19]],[[2,2],13,[30,18]],[[2,3],13,[31,13],[45,2]],[[2,4],7,[31,16]],[[2,6],32,[34,11]],[[2,7],[33,12]],[[2,7],[34,9]],[[2,7],[34,8]],[[2,6],[34,8]],[[2,5],[34,7]],[[2,5],[35,3]],[[2,5],[35,2]],[[2,4]],[[2,4]],[[2,4]],[[2,3]],[[2,2]],[2],[7],[2,7]]"
       );
     },
-    function (t, e, a) {
+    function (t, e, n) {
       "use strict";
-      a.r(e);
-      var n = a(0);
+      n.r(e);
+      var a = n(0);
       function i(t, e) {
-        for (var a = 0; a < e.length; a++) {
-          var n = e[a];
-          (n.enumerable = n.enumerable || !1),
-            (n.configurable = !0),
-            "value" in n && (n.writable = !0),
-            Object.defineProperty(t, n.key, n);
+        for (var n = 0; n < e.length; n++) {
+          var a = e[n];
+          (a.enumerable = a.enumerable || !1),
+            (a.configurable = !0),
+            "value" in a && (a.writable = !0),
+            Object.defineProperty(t, a.key, a);
         }
       }
-      a.d(e, "PointMap", function () {
+      n.d(e, "PointMap", function () {
         return o;
       });
       var o = (function () {
-        function t(e, a) {
+        function t(e, n) {
           var i;
           !(function (t, e) {
             if (!(t instanceof e)) throw new TypeError("Cannot call a class as a function");
           })(this, t),
             (this.globalRawData =
               ((i = []),
-              n.forEach(function (t, e) {
+              a.forEach(function (t, e) {
                 (i[e] = i[e] || []),
                   t.forEach(function (t) {
                     if ("number" == typeof t) i[e].push(t);
-                    else for (var a = 0; a < t[1]; a++) i[e].push(t[0] + a);
+                    else for (var n = 0; n < t[1]; n++) i[e].push(t[0] + n);
                   });
               }),
               i)),
@@ -110,16 +110,16 @@
                   Math.round((130.4017 - Math.abs(this.coordinate.bbox[3])) / this.coordinate.grid),
                 ],
               },
-              a || {}
+              n || {}
             )),
             this.initCanvas(),
             this.initEvents(),
             this.animation();
         }
-        var e, a;
+        var e, n, o;
         return (
           (e = t),
-          (a = [
+          (n = [
             {
               key: "animation",
               value: function () {
@@ -127,8 +127,8 @@
                 requestAnimationFrame(function () {
                   t.ctx.clearRect(0, 0, t.canvas.width, t.canvas.height),
                     ["drawBasicMap", "initIcon", "drawEventPointWave"].forEach(function (e) {
-                      var a = t[e]();
-                      a && t.ctx.drawImage(a, 0, 0, a.width / t.screenRatio, a.height / t.screenRatio);
+                      var n = t[e]();
+                      n && t.ctx.drawImage(n, 0, 0, n.width / t.screenRatio, n.height / t.screenRatio);
                     }),
                     (t.needRedraw = !1),
                     t.animation();
@@ -149,13 +149,13 @@
                   (this.dom.style.textAlign = "center"),
                   (this.screenRatio = window.devicePixelRatio),
                   (this.needRedraw = !0),
-                  ["canvas", "canvas-map", "canvas-wave", "canvas-icon"].forEach(function (a) {
-                    var n = (t[a] = document.createElement("canvas"));
-                    (n.style.width = "".concat(t.canvasWidth, "px")),
-                      (n.style.height = "".concat(t.canvasWidth * e, "px")),
-                      (n.width = "".concat(t.canvasWidth * t.screenRatio)),
-                      (n.height = "".concat(t.canvasWidth * e * t.screenRatio)),
-                      (t["ctx-".concat(a)] = n.getContext("2d")).scale(t.screenRatio, t.screenRatio);
+                  ["canvas", "canvas-map", "canvas-wave", "canvas-icon"].forEach(function (n) {
+                    var a = (t[n] = document.createElement("canvas"));
+                    (a.style.width = "".concat(t.canvasWidth, "px")),
+                      (a.style.height = "".concat(t.canvasWidth * e, "px")),
+                      (a.width = "".concat(t.canvasWidth * t.screenRatio)),
+                      (a.height = "".concat(t.canvasWidth * e * t.screenRatio)),
+                      (t["ctx-".concat(n)] = a.getContext("2d")).scale(t.screenRatio, t.screenRatio);
                   }),
                   (this.canvas.style.margin = "0 auto"),
                   (this.ctx = this.canvas.getContext("2d")),
@@ -165,38 +165,47 @@
             {
               key: "initEvents",
               value: function () {
-                var t,
-                  e = this;
-                this.canvas.addEventListener("mousemove", function (t) {
-                  var a = Math.round(t.offsetX / e.scale),
-                    n = Math.round(t.offsetY / e.scale);
-                  e.activePoint = [a, n];
-                  var i = e.events && e.events[a] && e.events[a][n];
-                  (e.canvas.style.cursor = i ? "pointer" : "default"),
-                    ((e.customerEvents && e.customerEvents.mousemove) || []).forEach(function (e) {
-                      return e(t, i);
+                var t = this;
+                var pos;
+                function isIntersect(point, circle) {
+                  return Math.sqrt((point.x - Number(circle.x)) ** 2 + (point.y - Number(circle.y)) ** 2) < 5;
+                }
+
+                this.canvas.addEventListener("mousemove", function (e) {
+                  var n = Math.round(e.offsetX / t.scale),
+                    a = Math.round(e.offsetY / t.scale);
+                  t.activePoint = [n, a];
+                  var i = t.events && t.events[n] && t.events[n][a];
+
+                  (t.canvas.style.cursor = i ? "pointer" : "default"),
+                    ((t.customerEvents && t.customerEvents.mousemove) || []).forEach(function (t) {
+                      return t(e, i);
                     }),
-                    (e.needRedraw = !0);
+                    (t.needRedraw = !0);
                 }),
-                  this.canvas.addEventListener("click", function (a) {
-                    var n = Math.round(a.offsetX / e.scale),
-                      i = Math.round(a.offsetY / e.scale);
-                    ((e.customerEvents && e.customerEvents.click) || []).forEach(function (o) {
-                      var s = [];
-                      Object.keys(e.events).forEach(function (t) {
-                        Object.keys(e.events[t]).forEach((a) => s.push({ x: t, y: a, data: e.events[t][a] }));
+                  this.canvas.addEventListener("click", function (e) {
+                    var n = Math.round(e.offsetX / t.scale),
+                      a = Math.round(e.offsetY / t.scale);
+                    // t.events &&
+                    //   t.events[n] &&
+                    //   t.events[n][a] &&
+                    ((t.customerEvents && t.customerEvents.click) || []).forEach(function (i) {
+                      // return i(e, t.events[n][a]);
+                      var xy = [];
+                      Object.keys(t.events).forEach(function (e) {
+                        Object.keys(t.events[e]).forEach((v) => xy.push({ x: e, y: v, data: t.events[e][v] }));
                       }),
-                        (t = { x: n, y: i }),
-                        s.forEach((e) => {
-                          if (
-                            (function (t, e) {
-                              return Math.sqrt((t.x - Number(e.x)) ** 2 + (t.y - Number(e.y)) ** 2) < 5;
-                            })(t, e)
-                          )
-                            return o(a, e.data);
+                        (pos = {
+                          x: n,
+                          y: a,
+                        }),
+                        xy.forEach((circle) => {
+                          if (isIntersect(pos, circle)) {
+                            return i(e, circle.data);
+                          }
                         });
                     }),
-                      (e.needRedraw = !0);
+                      (t.needRedraw = !0);
                   });
               },
             },
@@ -206,23 +215,21 @@
                 var t = this,
                   e = this["canvas-map"];
                 if (this.needRedraw) {
-                  var a = this["ctx-canvas-map"];
-                  a.clearRect(0, 0, e.width, e.height),
-                    //a.save(),
-                    (a.fillStyle = this.config.mapBgColor);
-                  var n = null,
+                  var n = this["ctx-canvas-map"];
+                  n.clearRect(0, 0, e.width, e.height), n.save(), (n.fillStyle = this.config.mapBgColor);
+                  var a = null,
                     i = 0.4 * this.scale;
                   this.globalRawData.forEach(function (e, o) {
                     e.forEach(function (e) {
                       t.activePoint && t.activePoint[0] === o && t.activePoint[1] === e
-                        ? (n = [o, e])
-                        : a.fillRect(o * t.scale - i / 2, e * t.scale - i / 2, i, i);
+                        ? (a = [o, e])
+                        : n.fillRect(o * t.scale - i / 2, e * t.scale - i / 2, i, i);
                     });
                   }),
-                    (a.fillStyle = this.config.mapActiveBgColor),
+                    (n.fillStyle = this.config.mapActiveBgColor),
                     (i = 0.8 * this.scale),
-                    n && a.fillRect(n[0] * this.scale - i / 2, n[1] * this.scale - i / 2, i, i),
-                    a.restore(),
+                    a && n.fillRect(a[0] * this.scale - i / 2, a[1] * this.scale - i / 2, i, i),
+                    n.restore(),
                     this.drawEventPoint();
                 }
                 return e;
@@ -234,31 +241,50 @@
                 var t = this;
                 if (this.needRedraw) {
                   var e = this["ctx-canvas-map"],
-                    a = this.events || {},
-                    n = null;
-                  this.scale, this.startp;
+                    n = this.events || {},
+                    a = null,
+                    i = this.scale / 2,
+                    u = this.startp || {};
                   if (
                     (e.beginPath(),
-                    Object.keys(a)
+                    Object.keys(n)
                       .map(function (t) {
                         return Number(t);
                       })
-                      .forEach(function (e) {
-                        Object.keys(a[e])
+                      .forEach(function (o) {
+                        Object.keys(n[o])
                           .map(function (t) {
                             return Number(t);
                           })
-                          .forEach(function (a) {
-                            if (t.activePoint && t.activePoint[0] === e && t.activePoint[1] === a) n = [e, a];
-                            else t.scale, t.scale, t.config.start[0], t.scale, t.config.start[1], t.scale;
+                          .forEach(function (n) {
+                            if (t.activePoint && t.activePoint[0] === o && t.activePoint[1] === n) a = [o, n];
+                            else {
+                              var s = o * t.scale,
+                                r = n * t.scale,
+                                x = t.config.start[0] * t.scale,
+                                y = t.config.start[1] * t.scale;
+                              // e.beginPath(), (e.fillStyle = t.config.eventPointColor), e.moveTo(s, r);
+                              // e.arc(s, r, i * t.config.enlarge, 0, 2 * Math.PI), e.fill();
+
+                              //e.beginPath(), (e.strokeStyle = t.config.eventPointColor), e.moveTo(x, y);
+                              //e.arcTo(s, r, x, y, 50), e.stroke();
+                            }
                           });
                       }),
-                    n)
+                    a)
                   ) {
-                    var i = n[0] * this.scale,
-                      o = n[1] * this.scale;
-                    this.config.start[0], this.scale, this.config.start[1], this.scale;
-                    e.beginPath(), (e.fillStyle = this.config.activePointColor), e.moveTo(i, o), e.fill();
+                    var o = a[0] * this.scale,
+                      s = a[1] * this.scale,
+                      x = this.config.start[0] * this.scale,
+                      y = this.config.start[1] * this.scale;
+                    e.beginPath(),
+                      (e.fillStyle = this.config.activePointColor),
+                      e.moveTo(o, s),
+                      // e.arc(o, s, 1.382 * i, 0, 2 * Math.PI),
+                      e.fill();
+
+                    //e.beginPath(), (e.strokeStyle = t.config.eventPointColor), e.moveTo(x, y);
+                    //e.arcTo(o, s, x, y, 50), e.stroke();
                   }
                 }
               },
@@ -269,28 +295,28 @@
                 var t = this;
                 this._waveRadius = this._waveRadius || 0;
                 var e = this["canvas-wave"],
-                  a = this["ctx-canvas-wave"];
-                (a.globalCompositeOperation = "destination-out"),
-                  (a.fillStyle = "rgba(0, 0, 0, .08)"),
-                  a.fillRect(0, 0, a.canvas.width, a.canvas.height),
-                  (a.globalCompositeOperation = "lighter"),
-                  (a.lineWidth = 1);
-                var n = this.events || {};
+                  n = this["ctx-canvas-wave"];
+                (n.globalCompositeOperation = "destination-out"),
+                  (n.fillStyle = "rgba(0, 0, 0, .08)"),
+                  n.fillRect(0, 0, n.canvas.width, n.canvas.height),
+                  (n.globalCompositeOperation = "lighter"),
+                  (n.lineWidth = 1);
+                var a = this.events || {};
                 return (
-                  a.save(),
-                  a.beginPath(),
-                  (a.globalAlpha = 0.1),
-                  Object.keys(n).forEach(function (e) {
-                    Object.keys(n[e]).forEach(function (n) {
-                      a.strokeStyle = t.config.mapBgColor;
+                  n.save(),
+                  n.beginPath(),
+                  (n.globalAlpha = 0.1),
+                  Object.keys(a).forEach(function (e) {
+                    Object.keys(a[e]).forEach(function (a) {
+                      n.strokeStyle = t.config.mapBgColor;
                       var i = e * t.scale,
-                        o = n * t.scale;
-                      a.moveTo(i + t._waveRadius, o), a.arc(i, o, t._waveRadius, 0, 2 * Math.PI);
+                        o = a * t.scale;
+                      n.moveTo(i + t._waveRadius, o), n.arc(i, o, t._waveRadius, 0, 2 * Math.PI);
                     });
                   }),
                   (this._waveRadius += 0.1),
-                  a.stroke(),
-                  a.restore(),
+                  n.stroke(),
+                  n.restore(),
                   this._waveRadius > 45 && (this._waveRadius = 0),
                   e
                 );
@@ -300,11 +326,11 @@
               key: "addEvent",
               value: function (t) {
                 var e = Math.round((t.coordinate[0] + Math.abs(this.coordinate.bbox[0])) / this.coordinate.grid),
-                  a = Math.round(Math.abs(t.coordinate[1] - this.coordinate.bbox[3]) / this.coordinate.grid);
+                  n = Math.round(Math.abs(t.coordinate[1] - this.coordinate.bbox[3]) / this.coordinate.grid);
                 (this.events = this.events || {}),
                   (this.events[e] = this.events[e] || {}),
-                  (this.events[e][a] = this.events[e][a] || []),
-                  this.events[e][a].push(t),
+                  (this.events[e][n] = this.events[e][n] || []),
+                  this.events[e][n].push(t),
                   (this.needRedraw = !0);
               },
             },
@@ -330,52 +356,52 @@
               value: function (t, e) {
                 (this.customerEvents = this.customerEvents || {}),
                   (this.customerEvents[t] = this.customerEvents[t] || []);
-                var a = this.customerEvents[t].indexOf(e);
-                -1 !== a && this.customerEvents[t].splice(a, 1);
+                var n = this.customerEvents[t].indexOf(e);
+                -1 !== n && this.customerEvents[t].splice(n, 1);
               },
             },
             {
               key: "initIcon",
               value: function () {
-                var t = this,
-                  e = this["canvas-icon"],
-                  a = this["ctx-canvas-icon"],
-                  q = this["canvas"],
-                  s = 45.4;
-                // (a.globalCompositeOperation = "destination-out"),
-                // (a.fillStyle = "rgba(0, 0, 0, 0)"),
-                //   a.fillRect(0, 0, a.canvas.width, a.canvas.height),
-                //   (a.globalCompositeOperation = "source-over"),
-                a.lineWidth = 1;
-
-                var n = this.events || {};
+                var t = this;
+                var e = this["canvas-icon"],
+                  n = this["ctx-canvas-icon"];
+                (n.globalCompositeOperation = "destination-out"),
+                  (n.fillStyle = "rgba(0, 0, 0, .08)"),
+                  n.fillRect(0, 0, n.canvas.width, n.canvas.height),
+                  (n.globalCompositeOperation = "source-over"),
+                  (n.lineWidth = 1);
+                var a = this.events || {};
                 return (
-                  a.save(),
-                  Object.keys(n).forEach(function (i) {
-                    Object.keys(n[i]).forEach(function (n) {
-                      var x = i * t.scale,
-                        y = n * t.scale,
-                        m = new Image();
-                      m.src = "../assets/bi-su_icon.svg";
-                      m.onload = function () {
-                        (e.antialiased = false),
-                          // (a.mozImageSmoothingEnabled = false),
-                          // (a.webkitImageSmoothingEnabled = false),
-                          // (a.msImageSmoothingEnabled = false),
-                          // (a.imageSmoothingEnabled = false),
-                          (a.imageSmoothingQuality = "low"),
-                          a.drawImage(this, Math.round(x - 0.5 * s) + 0.5, Math.round(y - 0.5 * s) + 0.5, s, s);
-                      };
+                  n.save(),
+                  (n.globalAlpha = 0.1),
+                  Object.keys(a).forEach(function (e) {
+                    Object.keys(a[e]).forEach(function (a) {
+                      var i = e * t.scale,
+                        o = a * t.scale;
+                      t.drawImageIcon(i, o);
                     });
                   }),
-                  // a.scale(1, 1),
-                  q.classList.add("antialias"),
-                  a.restore(),
                   e
                 );
               },
             },
-          ]) && i(e.prototype, a),
+            {
+              key: "drawImageIcon",
+              value: function (s, r) {
+                var img = new Image();
+                var e = this["ctx-canvas-icon"],
+                  t = this;
+
+                img.onload = function () {
+                  var size = 5 * t.scale;
+                  e.drawImage(this, s - size * 0.5, r - size * 0.5, size, size);
+                };
+                img.src = "../assets/bi-su_icon.svg";
+              },
+            },
+          ]) && i(e.prototype, n),
+          o && i(e, o),
           t
         );
       })();
