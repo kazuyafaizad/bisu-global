@@ -98,29 +98,29 @@ document.addEventListener("DOMContentLoaded", function () {
   const ig = sns.querySelector(".instagram");
   const weibo = sns.querySelector(".weibo");
 
-  gsap.set("#sns-modal", { y: "200%", autoAlpha: 0 });
+  gsap.set("#sns-modal", { autoAlpha: 0 });
   ig.addEventListener("click", function () {
     document.querySelector(".fb-contents").style.display = "none";
     document.querySelector(".wb-contents").style.display = "none";
     document.querySelector(".ig-contents").style.display = "flex";
-    gsap.to("#sns-modal", { y: "0", autoAlpha: 1, display: "block" });
+    gsap.to("#sns-modal", { autoAlpha: 1, display: "block" });
   });
 
   fb.addEventListener("click", function () {
     document.querySelector(".fb-contents").style.display = "flex";
     document.querySelector(".wb-contents").style.display = "none";
     document.querySelector(".ig-contents").style.display = "none";
-    gsap.to("#sns-modal", { y: "0", autoAlpha: 1, display: "block" });
+    gsap.to("#sns-modal", { autoAlpha: 1, display: "block" });
   });
 
   weibo.addEventListener("click", function () {
     document.querySelector(".fb-contents").style.display = "none";
     document.querySelector(".wb-contents").style.display = "flex";
     document.querySelector(".ig-contents").style.display = "none";
-    gsap.to("#sns-modal", { y: "0", autoAlpha: 1, display: "block" });
+    gsap.to("#sns-modal", { autoAlpha: 1, display: "block" });
   });
 
   document.querySelector(".close").addEventListener("click", function () {
-    gsap.to("#sns-modal", { autoAlpha: 0, y: "200%", display: "none" });
+    gsap.to("#sns-modal", { autoAlpha: 0, display: "none" });
   });
 });
