@@ -1,3 +1,4 @@
+import PointMap from "../js/point-map.js";
 document.addEventListener("DOMContentLoaded", function () {
   // Create an instance
   let map = new PointMap("map");

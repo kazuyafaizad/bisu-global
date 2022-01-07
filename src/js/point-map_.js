@@ -68,10 +68,19 @@
       "use strict";
       a.r(e);
       var n = a(0);
+      function i(t, e) {
+        for (var a = 0; a < e.length; a++) {
+          var n = e[a];
+          (n.enumerable = n.enumerable || !1),
+            (n.configurable = !0),
+            "value" in n && (n.writable = !0),
+            Object.defineProperty(t, n.key, n);
+        }
+      }
       a.d(e, "PointMap", function () {
-        return i;
+        return o;
       });
-      var i = (function () {
+      var o = (function () {
         function t(e, a) {
           var i;
           !(function (t, e) {
@@ -107,9 +116,10 @@
             this.initEvents(),
             this.animation();
         }
-        var e;
+        var e, a;
         return (
-          (e = [
+          (e = t),
+          (a = [
             {
               key: "animation",
               value: function () {
@@ -236,7 +246,7 @@
                             return Number(t);
                           })
                           .forEach(function (a) {
-                            t.activePoint && t.activePoint[0] === e && t.activePoint[1] === a && (n = [e, a]);
+                            if (t.activePoint && t.activePoint[0] === e && t.activePoint[1] === a) n = [e, a];
                           });
                       }),
                     n)
@@ -322,44 +332,83 @@
             {
               key: "initIcon",
               value: function () {
-                var t = this["ctx-canvas-icon"],
+                // debugger;
+                // var t = this,
+                //   e = this["canvas-icon"],
+                //   a = this["ctx-canvas-icon"],
+                //   q = this["canvas"],
+                //   s = 5.03 * this.scale,
+                //   n = this.events || {};
+                // (a.globalCompositeOperation = "destination-over"),
+                //   //   (a.fillStyle = "rgba(0, 0, 0, 0)"),
+                //   //   a.fillRect(0, 0, a.canvas.width, a.canvas.height),
+                //   // (a.globalCompositeOperation = "source-out"),
+                //   // (a.mozImageSmoothingEnabled = false),
+                //   // (a.webkitImageSmoothingEnabled = false),
+                //   // (a.msImageSmoothingEnabled = false),
+                //   // (a.imageSmoothingEnabled = false),
+                //   // (a.lineWidth = 1);
+                //   a.clearRect(0, 0, e.width, e.height),
+                // a.save(),
+                //   (a.globalAlpha = 0.5),
+                //   Object.keys(n).forEach(function (i) {
+                //     Object.keys(n[i]).forEach(function (j) {
+                //       var x = i * t.scale,
+                //         y = j * t.scale,
+                //         m = new Image(s, s);
+                //       m.src = "../assets/bi-su_icon.svg";
+                //       m.onload = function () {
+                //         // (e.width = this.naturalWidth * 10), (e.height = this.naturalHeight * 10);
+                //         a.drawImage(this, Math.round(x - s / 2) + 0.5, Math.round(y - s / 2) + 0.5, s, s);
+                //         // a.drawImage(this, 100, 0, this.width, this.height);
+                //         // a.drawImage(this, Math.round(x - s / 2) + 0.5, Math.round(y - s / 2) + 0.5);
+                //       };
+                //     });
+                //   }),
+                //   a.restore(),
+                //   q.classList.add("antialias");
+                // return e;
+                // var t = this;
+                // t.ctx.clearRect(0, 0, t.canvas.width, t.canvas.height),
+                //   ["drawBasicMap", "drawEventPointWave"].forEach(function (e) {
+                //     var a = t[e]();
+                //     a && t.ctx.drawImage(a, 0, 0, a.width / t.screenRatio, a.height / t.screenRatio);
+                //   });
+
+                var a = this["ctx-canvas-icon"],
                   e = this["canvas-icon"],
-                  a = this.events || {},
-                  n = 8 * this.scale,
-                  i = this;
-                return (
-                  this.needRedraw &&
-                    (t.save(),
-                    (t.globalAlpha = 0.1),
-                    Object.keys(a).forEach(function (o) {
-                      Object.keys(a[o]).forEach(function (a) {
-                        var s = o * i.scale,
-                          r = a * i.scale,
-                          c = new Image(n, n);
-                        (c.src = "../assets/bi-su_icon.svg"),
-                          (c.onload = function () {
-                            (t.imageSmoothingQuality = "medium"),
-                              (e.imageRendering = "optimizeQuality"),
-                              t.drawImage(this, s - n / 2, r - n / 2, n, n);
-                          });
-                      });
-                    })),
-                  t.restore(),
-                  e.classList.add("antialias"),
-                  e
-                );
+                  n = this.events || {},
+                  s = 8 * this.scale,
+                  t = this;
+                if (this.needRedraw) {
+                  a.save(), (a.globalAlpha = 0.1);
+                  Object.keys(n).forEach(function (i) {
+                    Object.keys(n[i]).forEach(function (j) {
+                      var x = i * t.scale,
+                        y = j * t.scale,
+                        m = new Image(s, s);
+                      m.src = "../assets/bi-su_icon.svg";
+                      m.onload = function () {
+                        // (e.width = this.naturalWidth * 10), (e.height = this.naturalHeight * 10);
+                        // (a.mozImageSmoothingEnabled = false),
+                        // (a.webkitImageSmoothingEnabled = false),
+                        // (a.msImageSmoothingEnabled = false),
+                        // (a.imageSmoothingEnabled = false),
+                        a.imageSmoothingQuality = "medium";
+                        e.imageRendering = "optimizeQuality";
+                        a.drawImage(this, x - s / 2, y - s / 2, s, s);
+                        // a.drawImage(this, x, y, this.width, this.height);
+                      };
+                    });
+                  });
+                  // t.ctx.drawImage(e, 0, 0, e.width / t.screenRatio, e.height / t.screenRatio);
+                }
+                a.restore();
+                e.classList.add("antialias");
+                return e;
               },
             },
-          ]) &&
-            (function (t, e) {
-              for (var a = 0; a < e.length; a++) {
-                var n = e[a];
-                (n.enumerable = n.enumerable || !1),
-                  (n.configurable = !0),
-                  "value" in n && (n.writable = !0),
-                  Object.defineProperty(t, n.key, n);
-              }
-            })(t.prototype, e),
+          ]) && i(e.prototype, a),
           t
         );
       })();
