@@ -207,9 +207,7 @@
                   e = this["canvas-map"];
                 if (this.needRedraw) {
                   var a = this["ctx-canvas-map"];
-                  a.clearRect(0, 0, e.width, e.height),
-                    //a.save(),
-                    (a.fillStyle = this.config.mapBgColor);
+                  a.clearRect(0, 0, e.width, e.height), a.save(), (a.fillStyle = this.config.mapBgColor);
                   var n = null,
                     i = 0.4 * this.scale;
                   this.globalRawData.forEach(function (e, o) {
@@ -236,7 +234,6 @@
                   var e = this["ctx-canvas-map"],
                     a = this.events || {},
                     n = null;
-                  this.scale, this.startp;
                   if (
                     (e.beginPath(),
                     Object.keys(a)
@@ -250,14 +247,12 @@
                           })
                           .forEach(function (a) {
                             if (t.activePoint && t.activePoint[0] === e && t.activePoint[1] === a) n = [e, a];
-                            else t.scale, t.scale, t.config.start[0], t.scale, t.config.start[1], t.scale;
                           });
                       }),
                     n)
                   ) {
                     var i = n[0] * this.scale,
                       o = n[1] * this.scale;
-                    this.config.start[0], this.scale, this.config.start[1], this.scale;
                     e.beginPath(), (e.fillStyle = this.config.activePointColor), e.moveTo(i, o), e.fill();
                   }
                 }
@@ -337,42 +332,80 @@
             {
               key: "initIcon",
               value: function () {
-                var t = this,
-                  e = this["canvas-icon"],
-                  a = this["ctx-canvas-icon"],
-                  q = this["canvas"],
-                  s = 45.4;
-                // (a.globalCompositeOperation = "destination-out"),
-                // (a.fillStyle = "rgba(0, 0, 0, 0)"),
-                //   a.fillRect(0, 0, a.canvas.width, a.canvas.height),
-                //   (a.globalCompositeOperation = "source-over"),
-                a.lineWidth = 1;
+                // debugger;
+                // var t = this,
+                //   e = this["canvas-icon"],
+                //   a = this["ctx-canvas-icon"],
+                //   q = this["canvas"],
+                //   s = 5.03 * this.scale,
+                //   n = this.events || {};
+                // (a.globalCompositeOperation = "destination-over"),
+                //   //   (a.fillStyle = "rgba(0, 0, 0, 0)"),
+                //   //   a.fillRect(0, 0, a.canvas.width, a.canvas.height),
+                //   // (a.globalCompositeOperation = "source-out"),
+                //   // (a.mozImageSmoothingEnabled = false),
+                //   // (a.webkitImageSmoothingEnabled = false),
+                //   // (a.msImageSmoothingEnabled = false),
+                //   // (a.imageSmoothingEnabled = false),
+                //   // (a.lineWidth = 1);
+                //   a.clearRect(0, 0, e.width, e.height),
+                // a.save(),
+                //   (a.globalAlpha = 0.5),
+                //   Object.keys(n).forEach(function (i) {
+                //     Object.keys(n[i]).forEach(function (j) {
+                //       var x = i * t.scale,
+                //         y = j * t.scale,
+                //         m = new Image(s, s);
+                //       m.src = "../assets/bi-su_icon.svg";
+                //       m.onload = function () {
+                //         // (e.width = this.naturalWidth * 10), (e.height = this.naturalHeight * 10);
+                //         a.drawImage(this, Math.round(x - s / 2) + 0.5, Math.round(y - s / 2) + 0.5, s, s);
+                //         // a.drawImage(this, 100, 0, this.width, this.height);
+                //         // a.drawImage(this, Math.round(x - s / 2) + 0.5, Math.round(y - s / 2) + 0.5);
+                //       };
+                //     });
+                //   }),
+                //   a.restore(),
+                //   q.classList.add("antialias");
+                // return e;
+                // var t = this;
+                // t.ctx.clearRect(0, 0, t.canvas.width, t.canvas.height),
+                //   ["drawBasicMap", "drawEventPointWave"].forEach(function (e) {
+                //     var a = t[e]();
+                //     a && t.ctx.drawImage(a, 0, 0, a.width / t.screenRatio, a.height / t.screenRatio);
+                //   });
 
-                var n = this.events || {};
-                return (
-                  a.save(),
+                var a = this["ctx-canvas-icon"],
+                  e = this["canvas-icon"],
+                  n = this.events || {},
+                  s = 8 * this.scale,
+                  t = this;
+                if (this.needRedraw) {
+                  a.save(), (a.globalAlpha = 0.1);
                   Object.keys(n).forEach(function (i) {
-                    Object.keys(n[i]).forEach(function (n) {
+                    Object.keys(n[i]).forEach(function (j) {
                       var x = i * t.scale,
-                        y = n * t.scale,
-                        m = new Image();
+                        y = j * t.scale,
+                        m = new Image(s, s);
                       m.src = "../assets/bi-su_icon.svg";
                       m.onload = function () {
-                        (e.antialiased = false),
-                          // (a.mozImageSmoothingEnabled = false),
-                          // (a.webkitImageSmoothingEnabled = false),
-                          // (a.msImageSmoothingEnabled = false),
-                          // (a.imageSmoothingEnabled = false),
-                          (a.imageSmoothingQuality = "low"),
-                          a.drawImage(this, Math.round(x - 0.5 * s) + 0.5, Math.round(y - 0.5 * s) + 0.5, s, s);
+                        // (e.width = this.naturalWidth * 10), (e.height = this.naturalHeight * 10);
+                        // (a.mozImageSmoothingEnabled = false),
+                        // (a.webkitImageSmoothingEnabled = false),
+                        // (a.msImageSmoothingEnabled = false),
+                        // (a.imageSmoothingEnabled = false),
+                        a.imageSmoothingQuality = "medium";
+                        e.imageRendering = "optimizeQuality";
+                        a.drawImage(this, x - s / 2, y - s / 2, s, s);
+                        // a.drawImage(this, x, y, this.width, this.height);
                       };
                     });
-                  }),
-                  // a.scale(1, 1),
-                  q.classList.add("antialias"),
-                  a.restore(),
-                  e
-                );
+                  });
+                  // t.ctx.drawImage(e, 0, 0, e.width / t.screenRatio, e.height / t.screenRatio);
+                }
+                a.restore();
+                e.classList.add("antialias");
+                return e;
               },
             },
           ]) && i(e.prototype, a),

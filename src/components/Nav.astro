@@ -53,9 +53,9 @@ const { DIR = '.'} = Astro.props;
 				var menu = new TimelineMax({paused:true, reversed:true})
 
 				menu
-				.to("#burger1", .2, {rotation: 45, transformOrigin: "15% 15%", ease:Power2.easeInOut}, "cross")
+				.to("#burger1", .2, {rotation: 45, transformOrigin: "10% 10%", ease:Power2.easeInOut}, "cross")
 				.to("#burger2", .2, {autoAlpha: 0}, "cross")
-				.to("#burger3", .2, {rotation: -45, transformOrigin: "15% 15%", ease:Power2.easeInOut}, "cross")
+				.to("#burger3", .2, {rotation: -45, transformOrigin: "10% 10%", ease:Power2.easeInOut}, "cross")
 				.from(".mobile-menu", 0.6, {height: "0%",display:"none", ease:Power2.easeInOut})
 
 				function menuIn() {
