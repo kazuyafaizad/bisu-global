@@ -116,21 +116,21 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.set("#modal", { y: "-100%" });
 
   let tl = gsap.timeline();
+  map.on("click", (e, data) => {
+    gsap.to("#modal", { y: 0, opacity: 1 });
+    modalInfo(e, data);
+  });
 
   if (window.screen.width <= 769) {
-    map.on("click", (e, data) => {
-      gsap.to("#modal", { y: 0, opacity: 1 });
-      modalInfo(e, data);
-    });
     tl.to("#map-wrapper", { scrollTo: { x: 170, y: 1000 }, duration: 1 });
     tl.to("#map", { scale: 1.1, transformOrigin: "top center", duration: 1 });
     document.querySelector("#map-wrapper").style.overflow = "hidden";
   } else {
     gsap.set("#map", { scaleX: 1, scaleY: 1, x: -100 });
     tl.to("#map", { x: 0, duration: 1 });
-    map.on("mousemove", (e, data) => {
-      infoBox(e, data);
-    });
+    // map.on("mousemove", (e, data) => {
+    //   infoBox(e, data);
+    // });
   }
   tl.from(".title", { autoAlpha: 0, duration: 1 });
 });
