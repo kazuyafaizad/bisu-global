@@ -46,8 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
           overwrite: true,
           duration: 1.25,
         }),
-      onLeave: (batch) =>
-        gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
+      onLeave: (batch) => gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
       onEnterBack: (batch) =>
         gsap.to(batch, {
           opacity: 1,
@@ -56,8 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
           overwrite: true,
           duration: 1.25,
         }),
-      onLeaveBack: (batch) =>
-        gsap.set(batch, { opacity: 0, y: 100, overwrite: true }),
+      // onLeaveBack: (batch) => gsap.set(batch, { opacity: 0, y: 100, overwrite: true }),
     });
   }
 
@@ -83,7 +81,7 @@ let animateLeft = function (elem) {
     x: 0,
     y: 0,
     autoAlpha: 1,
-    ease: "expo",
+    ease: "Sine.ease-in",
     overwrite: "auto",
   });
 };
@@ -95,7 +93,7 @@ let animateRight = function (elem) {
     x: 0,
     y: 0,
     autoAlpha: 1,
-    ease: "expo",
+    ease: "Sine.ease-in",
     overwrite: "auto",
   });
 };

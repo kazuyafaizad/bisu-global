@@ -8,14 +8,14 @@ document.addEventListener("DOMContentLoaded", function () {
       opacity: 1,
       duration: 0.3,
       paused: true,
-      ease: "power1.inOut",
+      ease: "Sine.inOut",
     });
 
     let innerHover = gsap.to(linkInner, {
       y: 0,
       duration: 0.3,
       paused: true,
-      ease: "power1.inOut",
+      ease: "Sine.inOut",
     });
 
     link.addEventListener("mouseenter", () => {
@@ -67,9 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!scrolling.enabled) {
         scrolling.enabled = true;
         window.removeEventListener("scroll", gsap.ticker.tick);
-        scrolling.events.forEach((e, i) =>
-          (i ? document : window).removeEventListener(e, scrolling.prevent)
-        );
+        scrolling.events.forEach((e, i) => (i ? document : window).removeEventListener(e, scrolling.prevent));
       }
     },
   };

@@ -1,13 +1,13 @@
 var menu = new TimelineMax({ paused: true, reversed: true });
 
 menu
-  .to("#burger1", 0.2, { rotation: 35, ease: Power2.easeInOut }, "cross")
+  .to("#burger1", 0.2, { rotation: 35, ease: Sine.easeInOut }, "cross")
   .to("#burger2", 0.2, { scale: 0 }, "cross")
-  .to("#burger3", 0.2, { rotation: -35, ease: Power2.easeInOut }, "cross")
-  .from(".mobile-menu", 0.6, {
-    height: "0%",
-    display: "none",
-    ease: Power2.easeInOut,
+  .to("#burger3", 0.2, { rotation: -35, ease: Sine.easeInOut }, "cross")
+  .to(".mobile-menu", 0.6, {
+    height: "100vh",
+    display: "block",
+    ease: Sine.easeInOut,
   });
 
 function menuIn() {
