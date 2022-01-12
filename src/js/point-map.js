@@ -106,7 +106,6 @@ export default class PointMap {
       // events.forEach((fn) => fn(e, this.events[x][y]));
 
       events.forEach((fn) => {
-        console.log(fn);
         var coord = [];
         Object.keys(t.events).forEach(function (i) {
           Object.keys(t.events[i]).forEach((j) => coord.push({ x: i, y: j, data: t.events[i][j] }));
@@ -125,10 +124,10 @@ export default class PointMap {
   initIcon() {
     let ctx = this["ctx-canvas-icon"],
       canvas = this["canvas-icon"],
+      map = this["canvas"],
       events = this.events || {},
       scale = this.scale,
-      marker_size = 8 * scale;
-
+      marker_size = 7 * scale;
     if (this.needRedraw) {
       ctx.save();
       ctx.globalAlpha = 0.1;
@@ -136,13 +135,20 @@ export default class PointMap {
         Object.keys(events[i]).forEach(function (j) {
           var x = i * scale,
             y = j * scale,
-            image = new Image(marker_size, marker_size);
-          (image.src = "../assets/bi-su_icon.svg"),
-            (image.onload = function () {
-              (ctx.imageSmoothingQuality = "medium"),
-                (canvas.imageRendering = "optimizeQuality"),
-                ctx.drawImage(this, x - marker_size / 2, y - marker_size / 2, marker_size, marker_size);
-            });
+            image = new Image();
+          image.src = "../assets/bi-su_icon.svg";
+          image.width = marker_size;
+          image.height = marker_size;
+          //   canvas.width = map.width * window.devicePixelRatio;
+          //   canvas.height = map.height * window.devicePixelRatio;
+          //   canvas.style.width = "${`ctx.width`}px";
+          //   canvas.style.height = "${`ctx.height`}px";
+
+          image.onload = function () {
+            // ctx.imageSmoothingEnabled = false;
+            ctx.imageSmoothingQuality = "high";
+            ctx.drawImage(this, x - marker_size / 2, y - marker_size / 2, marker_size, marker_size);
+          };
         });
       });
       ctx.restore();
