@@ -31,7 +31,13 @@ export default class PointMap {
       ["drawBasicMap", "initIcon", "drawEventPointWave"].forEach((funcName) => {
         const canvas = this[funcName]();
         if (canvas) {
-          this.ctx.drawImage(canvas, 0, 0, canvas.width / this.screenRatio, canvas.height / this.screenRatio);
+          this.ctx.drawImage(
+            canvas,
+            0,
+            0,
+            canvas.width / this.screenRatio,
+            canvas.height / this.screenRatio
+          );
         }
       });
 
@@ -45,10 +51,14 @@ export default class PointMap {
     const coordinateRatio =
       (Math.abs(this.coordinate.bbox[1]) + Math.abs(this.coordinate.bbox[3])) /
       (Math.abs(this.coordinate.bbox[0]) + Math.abs(this.coordinate.bbox[2]));
-    this.canvasWidth = Math.min(parseInt(getComputedStyle(this.dom).width), 1200);
+    this.canvasWidth = Math.min(
+      parseInt(getComputedStyle(this.dom).width),
+      1200
+    );
     this.scale =
       this.canvasWidth /
-      ((Math.abs(this.coordinate.bbox[0]) + Math.abs(this.coordinate.bbox[2])) / this.coordinate.grid);
+      ((Math.abs(this.coordinate.bbox[0]) + Math.abs(this.coordinate.bbox[2])) /
+        this.coordinate.grid);
 
     this.dom.style.textAlign = "center";
     this.screenRatio = window.devicePixelRatio;
@@ -65,7 +75,9 @@ export default class PointMap {
       canvas.style.width = `${this.canvasWidth}px`;
       canvas.style.height = `${this.canvasWidth * coordinateRatio}px`;
       canvas.width = `${this.canvasWidth * this.screenRatio}`;
-      canvas.height = `${this.canvasWidth * coordinateRatio * this.screenRatio}`;
+      canvas.height = `${
+        this.canvasWidth * coordinateRatio * this.screenRatio
+      }`;
       const ctx = (this[`ctx-${cname}`] = canvas.getContext("2d"));
       ctx.scale(this.screenRatio, this.screenRatio);
     });
@@ -75,7 +87,11 @@ export default class PointMap {
     this.dom.appendChild(this.canvas);
   }
   isIntersect(point, circle) {
-    return Math.sqrt((point.x - Number(circle.x)) ** 2 + (point.y - Number(circle.y)) ** 2) < 5;
+    return (
+      Math.sqrt(
+        (point.x - Number(circle.x)) ** 2 + (point.y - Number(circle.y)) ** 2
+      ) < 5
+    );
   }
   initEvents() {
     this.canvas.addEventListener("mousemove", (e) => {
@@ -91,7 +107,8 @@ export default class PointMap {
         this.canvas.style.cursor = "default";
       }
 
-      const events = (this.customerEvents && this.customerEvents.mousemove) || [];
+      const events =
+        (this.customerEvents && this.customerEvents.mousemove) || [];
       events.forEach((fn) => fn(e, data));
 
       this.needRedraw = true;
@@ -108,7 +125,9 @@ export default class PointMap {
       events.forEach((fn) => {
         var coord = [];
         Object.keys(t.events).forEach(function (i) {
-          Object.keys(t.events[i]).forEach((j) => coord.push({ x: i, y: j, data: t.events[i][j] }));
+          Object.keys(t.events[i]).forEach((j) =>
+            coord.push({ x: i, y: j, data: t.events[i][j] })
+          );
         });
         coord.forEach((circle) => {
           if (t.isIntersect(pos, circle)) {
@@ -124,7 +143,6 @@ export default class PointMap {
   initIcon() {
     let ctx = this["ctx-canvas-icon"],
       canvas = this["canvas-icon"],
-      map = this["canvas"],
       events = this.events || {},
       scale = this.scale,
       marker_size = 7 * scale;
@@ -147,7 +165,13 @@ export default class PointMap {
           image.onload = function () {
             // ctx.imageSmoothingEnabled = false;
             ctx.imageSmoothingQuality = "high";
-            ctx.drawImage(this, x - marker_size / 2, y - marker_size / 2, marker_size, marker_size);
+            ctx.drawImage(
+              this,
+              x - marker_size / 2,
+              y - marker_size / 2,
+              marker_size,
+              marker_size
+            );
           };
         });
       });
@@ -167,11 +191,19 @@ export default class PointMap {
       let radius = this.scale * 0.4;
       this.globalRawData.forEach((row, x) => {
         row.forEach((y) => {
-          const isActive = this.activePoint && this.activePoint[0] === x && this.activePoint[1] === y;
+          const isActive =
+            this.activePoint &&
+            this.activePoint[0] === x &&
+            this.activePoint[1] === y;
           if (isActive) {
             activePoint = [x, y];
           } else {
-            ctx.fillRect(x * this.scale - radius / 2, y * this.scale - radius / 2, radius, radius);
+            ctx.fillRect(
+              x * this.scale - radius / 2,
+              y * this.scale - radius / 2,
+              radius,
+              radius
+            );
           }
         });
       });
@@ -197,7 +229,6 @@ export default class PointMap {
       const ctx = this["ctx-canvas-map"];
       const events = this.events || {};
       let activePoint = null;
-      let redius = this.scale / 2;
       ctx.beginPath();
       Object.keys(events)
         .map((x) => Number(x))
@@ -205,7 +236,10 @@ export default class PointMap {
           Object.keys(events[x])
             .map((y) => Number(y))
             .forEach((y) => {
-              const isActive = this.activePoint && this.activePoint[0] === x && this.activePoint[1] === y;
+              const isActive =
+                this.activePoint &&
+                this.activePoint[0] === x &&
+                this.activePoint[1] === y;
               if (isActive) {
                 activePoint = [x, y];
               } else {
@@ -267,8 +301,14 @@ export default class PointMap {
   }
 
   addEvent(data) {
-    const x = Math.round((data.coordinate[0] + Math.abs(this.coordinate.bbox[0])) / this.coordinate.grid);
-    const y = Math.round(Math.abs(data.coordinate[1] - this.coordinate.bbox[3]) / this.coordinate.grid);
+    const x = Math.round(
+      (data.coordinate[0] + Math.abs(this.coordinate.bbox[0])) /
+        this.coordinate.grid
+    );
+    const y = Math.round(
+      Math.abs(data.coordinate[1] - this.coordinate.bbox[3]) /
+        this.coordinate.grid
+    );
     this.events = this.events || {};
     this.events[x] = this.events[x] || {};
     this.events[x][y] = this.events[x][y] || [];

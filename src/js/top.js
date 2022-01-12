@@ -4,9 +4,19 @@ document.addEventListener("DOMContentLoaded", function () {
     let linkInner = link.querySelector(".linkInner");
     gsap.set(linkInner, { y: "25%" });
 
-    let linkHover = gsap.to(link, { opacity: 1, duration: 0.3, paused: true, ease: "power1.inOut" });
+    let linkHover = gsap.to(link, {
+      opacity: 1,
+      duration: 0.3,
+      paused: true,
+      ease: "power1.inOut",
+    });
 
-    let innerHover = gsap.to(linkInner, { y: 0, duration: 0.3, paused: true, ease: "power1.inOut" });
+    let innerHover = gsap.to(linkInner, {
+      y: 0,
+      duration: 0.3,
+      paused: true,
+      ease: "power1.inOut",
+    });
 
     link.addEventListener("mouseenter", () => {
       linkHover.play();
@@ -47,7 +57,9 @@ document.addEventListener("DOMContentLoaded", function () {
         scrolling.enabled = false;
         window.addEventListener("scroll", gsap.ticker.tick, { passive: true });
         scrolling.events.forEach((e, i) =>
-          (i ? document : window).addEventListener(e, scrolling.prevent, { passive: false })
+          (i ? document : window).addEventListener(e, scrolling.prevent, {
+            passive: false,
+          })
         );
       }
     },
@@ -55,12 +67,14 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!scrolling.enabled) {
         scrolling.enabled = true;
         window.removeEventListener("scroll", gsap.ticker.tick);
-        scrolling.events.forEach((e, i) => (i ? document : window).removeEventListener(e, scrolling.prevent));
+        scrolling.events.forEach((e, i) =>
+          (i ? document : window).removeEventListener(e, scrolling.prevent)
+        );
       }
     },
   };
 
-  function goToSection(section, anim, i) {
+  function goToSection(section, anim) {
     if (scrolling.enabled) {
       // skip if a scroll tween is in progress
       scrolling.disable();
@@ -83,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   const sections = document.querySelectorAll(".scroll-screen");
-  sections.forEach((section, i) => {
+  sections.forEach((section) => {
     ScrollTrigger.create({
       marker: true,
       trigger: section,
@@ -124,20 +138,6 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelector(".close").addEventListener("click", function () {
     gsap.to("#sns-modal", { autoAlpha: 0, display: "none" });
   });
-
-  let supportPageOffset = window.pageXOffset !== undefined;
-  let isCSS1Compat = (document.compatMode || "") === "CSS1Compat";
-
-  let scrollLeft = supportPageOffset
-    ? window.pageXOffset
-    : isCSS1Compat
-    ? document.documentElement.scrollLeft
-    : document.body.scrollLeft;
-  let scrollTop = supportPageOffset
-    ? window.pageYOffset
-    : isCSS1Compat
-    ? document.documentElement.scrollTop
-    : document.body.scrollTop;
 
   let scrolldiv = document.createElement("div");
   scrolldiv.classList.add("scrolldown");

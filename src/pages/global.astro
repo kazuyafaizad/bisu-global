@@ -1,129 +1,144 @@
 ---
 // Component Imports
-import Nav from '../components/Nav.astro';
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-
+import Nav from "../components/Nav.astro";
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
 ---
+
 <html lang="en">
-<head>
-  <BaseHead title="Bi-Su Official Global Website | Global" description="Bi-Su Official Global Website―company,brands,sustainability,birdnest">
-</BaseHead>
-</head>
-<style lang="scss">
-$medium : 768px;
-        canvas {
-            padding: 50px 0;
-            box-sizing: content-box;
-        }
-        .antialias{
-              image-rendering: pixelated;
-              image-rendering: optimizeSpeed;
-              image-rendering: -moz-crisp-edges;
-              image-rendering: -webkit-optimize-contrast;
-              image-rendering: optimize-contrast;
-              -ms-interpolation-mode: nearest-neighbor;
-            }
+  <head>
+    <BaseHead
+      title="Bi-Su Official Global Website | Global"
+      description="Bi-Su Official Global Website―company,brands,sustainability,birdnest"
+    />
+  </head>
+  <style lang="scss">
+    $medium: 768px;
+    canvas {
+      padding: 50px 0;
+      box-sizing: content-box;
+    }
+    .antialias {
+      image-rendering: pixelated;
+      image-rendering: optimizeSpeed;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: optimize-contrast;
+      -ms-interpolation-mode: nearest-neighbor;
+    }
 
-        .tips-wrap{
-            display: flex;
-            position: absolute;
-            top: 0;
-            left: 0;
-            padding: 5px 10px;
-            width:4rem;
-            justify-content: center;
-            align-items: center;
-        }
-        .tips-wrap img{
-          transform: translate(-63%,-100%);
-        }
-        .tips{
-          height:2rem;
-        }
-        embed{
-          pointer-events:none;
-        }
-        .marker:hover{
-          cursor:pointer;
-        }
+    .tips-wrap {
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 5px 10px;
+      width: 4rem;
+      justify-content: center;
+      align-items: center;
+    }
+    .tips-wrap img {
+      transform: translate(-63%, -100%);
+    }
+    .tips {
+      height: 2rem;
+    }
+    embed {
+      pointer-events: none;
+    }
+    .marker:hover {
+      cursor: pointer;
+    }
 
-         #map{
-           position:relative;
-                & canvas{
-                  position:absolute; top:0; left:0; z-index:0;
-                }
-                @media screen and (max-width: $medium) {
-                  height:calc(100vh - 15rem);
-                  width:calc(100vw + 20rem);
-                  overflow:auto;
-                  touch-action: pan-x pan-y !important;
-                }
-          }
-          #modal{
-            opacity:0;
-          }
-</style>
+    #map {
+      position: relative;
+      & canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+      }
+      @media screen and (max-width: $medium) {
+        height: calc(100vh - 15rem);
+        width: calc(100vw + 20rem);
+        overflow: auto;
+        touch-action: pan-x pan-y !important;
+      }
+    }
+    #modal {
+      opacity: 0;
+    }
+  </style>
   <body>
-  <div class="flex flex-col h-screen justify-between">
-
+    <div class="flex flex-col h-screen justify-between">
       <main>
-      <Nav global="active" DIR=".."/>
-<div class="absolute inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50 z-10 h-screen" id="modal">
-        <div class="w-full max-w-sm p-6 bg-white divide-y divide-gray-500">
+        <Nav global="active" DIR=".." />
+        <div
+          class="absolute inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50 z-10 h-screen"
+          id="modal"
+        >
+          <div class="w-full max-w-sm p-6 bg-white divide-y divide-gray-500">
             <div class="flex items-center justify-between">
-                <h3 class="text-2xl" id="modal-title"></h3>
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 close hover:cursor-pointer" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-
+              <h3 class="text-2xl" id="modal-title"></h3>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-6 h-6 close hover:cursor-pointer"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
             </div>
             <div class="pt-4 tips2">
-            <a class="instagram hidden flex">
-             <embed src="../assets/icons8-instagram.svg" class="h-8"/>
-              Instagram
-            </a>
-            <a class="facebook hidden flex">
-              <embed src="../assets/icons8-facebook.svg" class="h-8"/>
-               Facebook
-            </a>
-            <a class="weibo hidden flex">
-              <embed src="../assets/sina-weibo.svg" class="h-8"/>
-               Weibo
-            </a>
-            <a class="twitter hidden flex">
-              <embed src="../assets/icons8-twitter.svg" class="h-8"/>
-               Twitter
-            </a>
-            <a class="xhs hidden flex">
-              <embed src="../assets/xiaohongshu-chinese-logo.png" class="h-8"/>
-               Xiaohongshu
-            </a>
+              <a class="instagram hidden flex">
+                <embed src="../assets/icons8-instagram.svg" class="h-8" />
+                Instagram
+              </a>
+              <a class="facebook hidden flex">
+                <embed src="../assets/icons8-facebook.svg" class="h-8" />
+                Facebook
+              </a>
+              <a class="weibo hidden flex">
+                <embed src="../assets/sina-weibo.svg" class="h-8" />
+                Weibo
+              </a>
+              <a class="twitter hidden flex">
+                <embed src="../assets/icons8-twitter.svg" class="h-8" />
+                Twitter
+              </a>
+              <a class="xhs hidden flex">
+                <embed src="../assets/xiaohongshu-chinese-logo.png" class="h-8"
+                />
+                Xiaohongshu
+              </a>
             </div>
-        </div>
-</div>
-
-      <section>
-      <div class="hero">
-        <h1 class="text-3xl my-10 block text-center title">Deliver the value to the world</h1>
-        </div>
-      <div id="map-wrapper" class="overflow-scroll">
-        <div id="map" class="h-96">
-         <div class="tips-wrap">
-            <img class="marker"/>
           </div>
         </div>
 
-      </div>
-      </section>
-
-
-  </main>
-    <Footer />
+        <section>
+          <div class="hero">
+            <h1 class="text-3xl my-10 block text-center title">
+              Deliver the value to the world
+            </h1>
+          </div>
+          <div id="map-wrapper" class="overflow-scroll">
+            <div id="map" class="h-96">
+              <div class="tips-wrap">
+                <img class="marker" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
     </div>
 
-     <script src={Astro.resolve("../js/global.js")} type="module"/>
+    <script src={Astro.resolve("../js/global.js")} type="module"></script>
   </body>
 </html>

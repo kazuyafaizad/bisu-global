@@ -1,6 +1,7 @@
 :root {
   // --main-font-jp: "游明朝", "游明朝体", "Yu Mincho", YuMincho, serif;
-  --main-font-jp: inter, -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, sans-serif;
+  --main-font-jp: inter, -apple-system, BlinkMacSystemFont, segoe ui, Roboto,
+    helvetica neue, Arial, sans-serif;
   --main-font-latin: "Lora", serif;
 }
 
@@ -126,8 +127,8 @@ li.active {
     transform: translateX(-50%);
     background-color: white;
     opacity: 1;
-    animation: drop 2s linear infinite;
     -webkit-animation: drop 2s linear infinite;
+    animation: drop 2s linear infinite;
     @media screen and (max-width: $medium) {
       height: 2rem;
       top: 5rem;

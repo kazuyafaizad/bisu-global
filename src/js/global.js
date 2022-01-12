@@ -43,31 +43,32 @@ document.addEventListener("DOMContentLoaded", function () {
         pointer: "../assets/maps/ch.png",
         xiaohongshu:
           "https://www.xiaohongshu.com/user/profile/6162aee4000000000201b1cb?xhsshare=CopyLink&appuid=6042323100000000010063b4&apptime=1640144826",
-        weibo: "https://weibo.com/u/7727981722?refer_flag=0000015010_&from=feed&loc=nickname&is_all=1",
+        weibo:
+          "https://weibo.com/u/7727981722?refer_flag=0000015010_&from=feed&loc=nickname&is_all=1",
       },
     ]);
   }, 2000);
 
-  const tips = document.querySelector(".tips-wrap");
-  const marker = document.querySelector(".marker");
+  // const tips = document.querySelector(".tips-wrap");
+  // const marker = document.querySelector(".marker");
   const tips2 = document.querySelector(".tips2");
   const modalTitle = document.querySelector("#modal-title");
 
-  let infoBox = function (e, data) {
-    if (data) {
-      let container = document.querySelector("#map-wrapper");
-      let rect = container.getBoundingClientRect();
-      let x = e.clientX + container.scrollLeft - rect.left;
-      let y = e.clientY + container.scrollTop - rect.top;
-      tips.style.left = `${x}px`;
-      tips.style.top = `${y}px`;
-      tips.style.display = "flex";
-      marker.src = data.map((d) => d.pointer);
-      modalInfo(e, data);
-    }
-  };
+  // let infoBox = function (e, data) {
+  //   if (data) {
+  //     let container = document.querySelector("#map-wrapper");
+  //     let rect = container.getBoundingClientRect();
+  //     let x = e.clientX + container.scrollLeft - rect.left;
+  //     let y = e.clientY + container.scrollTop - rect.top;
+  //     tips.style.left = `${x}px`;
+  //     tips.style.top = `${y}px`;
+  //     tips.style.display = "flex";
+  //     marker.src = data.map((d) => d.pointer);
+  //     modalInfo(e, data);
+  //   }
+  // };
 
-  let modalInfo = function (e, data) {
+  let modalInfo = function (data) {
     if (data) {
       const fb = tips2.querySelector(".facebook");
       const ig = tips2.querySelector(".instagram");
@@ -77,7 +78,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
       data.map((d) => {
         ig.href = d.instagram;
-        d.instagram ? ig.classList.remove("hidden") : ig.classList.add("hidden");
+        d.instagram
+          ? ig.classList.remove("hidden")
+          : ig.classList.add("hidden");
       });
       data.map((d) => {
         fb.href = d.facebook;
@@ -85,25 +88,31 @@ document.addEventListener("DOMContentLoaded", function () {
       });
       data.map((d) => {
         weibo.href = d.weibo;
-        d.weibo ? weibo.classList.remove("hidden") : weibo.classList.add("hidden");
+        d.weibo
+          ? weibo.classList.remove("hidden")
+          : weibo.classList.add("hidden");
       });
       data.map((d) => {
         twitter.href = d.twitter;
-        d.twitter ? twitter.classList.remove("hidden") : twitter.classList.add("hidden");
+        d.twitter
+          ? twitter.classList.remove("hidden")
+          : twitter.classList.add("hidden");
       });
       data.map((d) => {
         xhs.href = d.xiaohongshu;
-        d.xiaohongshu ? xhs.classList.remove("hidden") : xhs.classList.add("hidden");
+        d.xiaohongshu
+          ? xhs.classList.remove("hidden")
+          : xhs.classList.add("hidden");
       });
 
       modalTitle.innerText = data.map((d) => d.name).join("\n");
     }
   };
 
-  document.querySelector(".marker").addEventListener("click", function (e, data) {
+  document.querySelector(".marker").addEventListener("click", function () {
     gsap.to("#modal", { opacity: 1, y: 0 });
   });
-  document.querySelector(".close").addEventListener("click", function (e, data) {
+  document.querySelector(".close").addEventListener("click", function () {
     gsap.to("#modal", { opacity: 0, y: "-100%" });
   });
 
