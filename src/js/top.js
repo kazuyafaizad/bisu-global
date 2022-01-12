@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  ScrollTrigger.defaults({ scroller: "body" });
   gsap.utils.toArray(".link").forEach((link) => {
     let linkInner = link.querySelector(".linkInner");
     gsap.set(linkInner, { y: "25%" });
@@ -122,5 +123,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.querySelector(".close").addEventListener("click", function () {
     gsap.to("#sns-modal", { autoAlpha: 0, display: "none" });
+  });
+
+  let supportPageOffset = window.pageXOffset !== undefined;
+  let isCSS1Compat = (document.compatMode || "") === "CSS1Compat";
+
+  let scrollLeft = supportPageOffset
+    ? window.pageXOffset
+    : isCSS1Compat
+    ? document.documentElement.scrollLeft
+    : document.body.scrollLeft;
+  let scrollTop = supportPageOffset
+    ? window.pageYOffset
+    : isCSS1Compat
+    ? document.documentElement.scrollTop
+    : document.body.scrollTop;
+
+  let scrolldiv = document.createElement("div");
+  scrolldiv.classList.add("scrolldown");
+  scrolldiv.innerHTML = "SCROLL";
+  document.querySelector("main").prepend(scrolldiv);
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 100) {
+      gsap.to(".scrolldown", { autoAlpha: 0 });
+    } else {
+      gsap.to(".scrolldown", { autoAlpha: 1 });
+    }
   });
 });
