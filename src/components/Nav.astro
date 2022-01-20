@@ -1,30 +1,18 @@
 ---
-const {
-  about = "",
-  brand = "",
-  sustain = "",
-  global = "",
-  contact = "",
-} = Astro.props;
+const { about = "", brand = "", sustain = "", global = "", contact = "" } = Astro.props;
 const URL = import.meta.env.PUBLIC_URL || ".";
 
 const { DIR = "." } = Astro.props;
 ---
 
 <!-- Navbar goes here -->
-<nav
-  class="bg-lighten shadow-lg z-20 top-0 h-12 md:h-20 w-full sticky py-2 block md:flex items-center"
->
+<nav class="bg-lighten shadow-lg z-20 top-0 h-12 md:h-20 w-full sticky py-2 block md:flex items-center">
   <div class="w-full max-w-7xl mx-auto px-4">
     <div class="flex justify-between items-center">
       <div>
         <!-- Website Logo -->
         <a href="${DIR}" class="flex items-center px-2">
-          <img
-            class="block h-7 lg:h-12 w-auto mr-2"
-            src="${DIR}/assets/images/logo.png"
-            alt="Logo bi-su"
-          />
+          <img class="block h-7 lg:h-12 w-auto mr-2" src="${DIR}/assets/images/logo.png" alt="Logo bi-su" />
         </a>
       </div>
       <!-- Primary Navbar items -->
@@ -67,31 +55,10 @@ const { DIR = "." } = Astro.props;
           viewBox="0 0 871.116 595.281"
           xml:space="preserve"
         >
-          <rect
-            id="burger1"
-            x="85.387"
-            y="0"
-            fill="#A5977D"
-            width="871.116"
-            height="30"></rect>
-          <rect
-            id="burger2"
-            x="85.387"
-            y="236.233"
-            fill="#A5977D"
-            width="871.116"
-            height="30"></rect>
-          <rect
-            id="burger3"
-            x="85.387"
-            y="475.822"
-            fill="#A5977D"
-            width="871.116"
-            height="30"></rect>
-          <span
-            class="text-dark-golden leading-none text-[.70rem] burgertxt ml-1"
-            >Menu</span
-          >
+          <rect id="burger1" x="85.387" y="0" fill="#A5977D" width="871.116" height="30"></rect>
+          <rect id="burger2" x="85.387" y="236.233" fill="#A5977D" width="871.116" height="30"></rect>
+          <rect id="burger3" x="85.387" y="475.822" fill="#A5977D" width="871.116" height="30"></rect>
+          <span class="text-dark-golden leading-none text-[.70rem] burgertxt ml-1">Menu</span>
         </svg>
       </div>
     </div>
@@ -110,29 +77,25 @@ const { DIR = "." } = Astro.props;
     <li class="${brand}">
       <a
         href="${DIR}/brand"
-        class="flex border-b border-black py-5 hover:bg-golden transition duration-300 justify-center"
-        >Brand</a
+        class="flex border-b border-black py-5 hover:bg-golden transition duration-300 justify-center">Brand</a
       >
     </li>
     <li class="${sustain}">
       <a
         href="${DIR}/sustainability"
-        class="flex border-b border-black py-5 hover:bg-golden transition duration-300 justify-center"
-        >Sustainability</a
+        class="flex border-b border-black py-5 hover:bg-golden transition duration-300 justify-center">Sustainability</a
       >
     </li>
     <li class="${global}">
       <a
         href="${DIR}/global"
-        class="flex border-b border-black py-5 hover:bg-golden transition duration-300 justify-center"
-        >Global</a
+        class="flex border-b border-black py-5 hover:bg-golden transition duration-300 justify-center">Global</a
       >
     </li>
     <li class="${contact}">
       <a
         href="${DIR}/contact-us"
-        class="flex border-b border-black py-5 hover:bg-golden transition duration-300 justify-center"
-        >Contact</a
+        class="flex border-b border-black py-5 hover:bg-golden transition duration-300 justify-center">Contact</a
       >
     </li>
   </ul>
