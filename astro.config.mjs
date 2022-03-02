@@ -11,7 +11,7 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
   // Enable the Preact renderer to support Preact JSX components.
   renderers: ["@astrojs/renderer-preact"],
   vite: {
-    plugins: [imagetools({ force: true })],
+    plugins: [imagetools()],
   },
   buildOptions: {
     sitemap: true,
