@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         coordinate: [-40.5902, 130.4017],
         start: [-40.5902, 130.4017],
         pointer: "../assets/maps/jpn.png",
+        official:"https://www.bi-su.jp/",
         instagram: "https://www.instagram.com/bi_su_official/",
         facebook: "https://www.facebook.com/www.bisu.jp/",
         twitter: "https://twitter.com/bi_su_official",
@@ -33,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         coordinate: [77.0369, 38.9072],
         start: [-40.5902, 130.4017],
         pointer: "../assets/maps/usa.png",
+        official:"www.bisu-us.com",
         instagram: "https://www.instagram.com/bi_su_official_us/",
         facebook: "https://www.facebook.com/en.bisu.jp",
       },
@@ -74,6 +76,12 @@ document.addEventListener("DOMContentLoaded", function () {
       const weibo = tips2.querySelector(".weibo");
       const twitter = tips2.querySelector(".twitter");
       const xhs = tips2.querySelector(".xhs");
+      const official = tips2.querySelector(".official");
+
+      data.map((d) => {
+        official.href = d.official;
+        d.official ? official.classList.remove("hidden") : official.classList.add("hidden");
+      });
 
       data.map((d) => {
         ig.href = d.instagram;

@@ -18,6 +18,7 @@ export default class PointMap {
     //
     this.initCanvas();
     this.initEvents();
+    this.initImage();
     //
     this.animation();
   }
@@ -59,6 +60,8 @@ export default class PointMap {
       this.canvasWidth /
       ((Math.abs(this.coordinate.bbox[0]) + Math.abs(this.coordinate.bbox[2])) /
         this.coordinate.grid);
+
+    this.marker_size = 7 * this.scale;
 
     this.dom.style.textAlign = "center";
     this.screenRatio = window.devicePixelRatio;
@@ -140,39 +143,42 @@ export default class PointMap {
     });
   }
 
+  initImage(){
+          this.image = new Image();
+          this.image.src = "../assets/bi-su_icon.svg";
+          this.image.width = this.marker_size;
+          this.image.height = this.marker_size;
+  }
+
   initIcon() {
     let ctx = this["ctx-canvas-icon"],
       canvas = this["canvas-icon"],
       events = this.events || {},
+      image = this.image,
       scale = this.scale,
-      marker_size = 7 * scale;
+      marker_size = this.marker_size;
+
     if (this.needRedraw) {
       ctx.save();
-      ctx.globalAlpha = 0.1;
       Object.keys(events).forEach(function (i) {
         Object.keys(events[i]).forEach(function (j) {
           var x = i * scale,
-            y = j * scale,
-            image = new Image();
-          image.src = "../assets/bi-su_icon.svg";
-          image.width = marker_size;
-          image.height = marker_size;
+            y = j * scale;
+
           //   canvas.width = map.width * window.devicePixelRatio;
           //   canvas.height = map.height * window.devicePixelRatio;
           //   canvas.style.width = "${`ctx.width`}px";
           //   canvas.style.height = "${`ctx.height`}px";
 
-          image.onload = function () {
-            // ctx.imageSmoothingEnabled = false;
+            ctx.imageSmoothingEnabled = false;
             ctx.imageSmoothingQuality = "high";
             ctx.drawImage(
-              this,
+              image,
               x - marker_size / 2,
               y - marker_size / 2,
               marker_size,
               marker_size
             );
-          };
         });
       });
       ctx.restore();
