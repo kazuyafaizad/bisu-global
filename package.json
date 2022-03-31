@@ -15,10 +15,11 @@
     "autoprefixer": "^10.4.0",
     "prettier": "^2.5.1",
     "prettier-plugin-astro": "^0.0.11",
-    "tailwindcss": "^2.2.19",
+    "tailwindcss": "^3.0.23",
     "vite-imagetools": "^4.0.3"
   },
   "dependencies": {
-    "gsap": "^3.8.0"
+    "gsap": "^3.8.0",
+    "postcss": "^8.4.12"
   }
 }
