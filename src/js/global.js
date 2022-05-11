@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         coordinate: [77.0369, 38.9072],
         start: [-40.5902, 130.4017],
         pointer: "../assets/maps/usa.png",
-        official:"https:www.bisu-us.com",
+        official:"https://bisu-us.com",
         instagram: "https://www.instagram.com/bi_su_official_us/",
         facebook: "https://www.facebook.com/en.bisu.jp",
       },
