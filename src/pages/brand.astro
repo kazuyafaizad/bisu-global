@@ -61,7 +61,7 @@ import Footer from '../components/Footer.astro';
             <div class="bg h-full lg:h-[50rem]" style="background-image:url('../assets/images/11.jpg');position:absolute;background-size:cover;background-position:center;z-index:-1;width:100%;background-repeat:no-repeat;"/>
       </section>
 
-      <h1 class="px-5 lg:px-20 my-12 lg:my-24 block text-center text-2xl lg:text-4xl gs_reveal">Message from Owner</h1>
+      <h1 class="px-5 lg:px-20 mt-12 mb-6 lg:mt-24 lg:mb-20 block text-center text-2xl lg:text-4xl gs_reveal">Message from Owner</h1>
 
       <section class="flex flex-col-reverse lg:grid grid-1 lg:px-20 justify-evenly gs_reveal ">
         <div class="bg-black w-full" />
@@ -83,7 +83,7 @@ import Footer from '../components/Footer.astro';
             </div>
         </div>
 
-        <div class="bg-yellowish lg:bg-transparent p-5 lg:p-0 flex justify-center items-center">
+        <div class="bg-yellowish lg:bg-transparent pt-5 lg:p-0 flex justify-center items-center">
             <img src="../assets/images/12.jpg" alt="" class="max-w-xs lg:max-w-full h-72 md:h-80 lg:h-full object-top w-full object-cover gs_reveal">
         </div>
 
@@ -97,7 +97,7 @@ import Footer from '../components/Footer.astro';
              <img src="../assets/images/6637829757140992_2n.jpg" alt="" class="gs_reveal w-4/5 lg:w-full mx-auto lg:mx-0 pt-5 lg:pt-0">
         </div>
 
-        <div class="px-5 lg:px-8 pt-5 lg:pt-10 leading-none lg:leading-loose lg:text-justify gs_reveal_fromLeft">
+        <div class="px-5 lg:px-8  py-5 lg:pt-10 leading-none lg:leading-loose lg:text-justify gs_reveal_fromLeft">
             <h2 class="lg:text-center">Encounter</h2>
             <p>Mr. Inatomi's first experience with a swiftlet's nest was in 2009, at a dinner in Malaysia. He was surprised to learn that locals in Malaysia consumed the nests as both a defense against and a remedy for serious illness, and was fascinated by the accounts of the various other benefits of this wild product.</p>
             <p>"Don't swiftlets' nests originate from China? Why is it consumed here as a preventative and a cure? Numerous questions emerged in his mind and he thought, Isn't this what I want to devote myself to... for the rest of my life?" </p>
@@ -121,11 +121,11 @@ import Footer from '../components/Footer.astro';
 
       <section class="mt-5 lg:mt-20 lg:bg-yellowish flex flex-col">
        <div class="lg:hidden px-5 lg:px-0 mx-auto pt-5 lg:w-full">
-        <img src="../assets/images/6637829757140992_n.jpg" alt="" class="mx-auto lg:h-[20rem] object-cover gs_reveal mb-2 lg:mb-0">
+        <img src="../assets/images/6637829757140992_n.jpg" alt="" class="mx-auto lg:h-[20rem] object-cover gs_reveal mb-5 lg:mb-0">
       </div>
 
       <div class="px-5 lg:w-10/12 lg:px-10 mx-auto">
-        <h2 class="block lg:text-center mb-5 lg:mt-5 lg:mt-10 gs_reveal">Promises</h2>
+        <h2 class="block lg:text-center  lg:mt-5 lg:mt-10 gs_reveal">Promises</h2>
         <article class="pb-5 leading-none lg:leading-loose lg:text-justify gs_reveal">
           <p>Very few entrepreneurs will risk danger to inspect a product, let alone harvesting it themselves. But Mr. Inatomi does, and does so regularly. Mr. Inatomi travels to Malaysia annually to harvest the nests with his own hands. This is a dangerous endeavor, as crevices where the swiftlet’s build their nests in the limestone caves of Borneo are hundreds of feet high. But Mr. Inatomi perseveres. He must acquire and see the genuine nests for himself. It is also a pilgrimage - a ritual homage to give thanks and pay his respects to the swiftlets themselves, whose gift are so treasured and so beneficial to humankind. "I want to deliver this wonderful creation to the world". This alone, this simple, earnest ideal is the foundation of BI-SU.</p>
         </article>
@@ -142,6 +142,8 @@ import Footer from '../components/Footer.astro';
 
     <Footer />
     </div>
-    <script src={Astro.resolve("../js/app.js")} type = "text/javascript"/>
+     <script>
+      import '$/js/app.js'
+    </script>
   </body>
 </html>

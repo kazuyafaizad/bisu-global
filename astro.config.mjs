@@ -1,22 +1,29 @@
-// Full Astro Configuration API Documentation:
-// https://docs.astro.build/reference/configuration-reference
-
-// @type-check enabled!
-// VSCode and other TypeScript-enabled text editors will provide auto-completion,
-// helpful tooltips, and warnings if your exported object is invalid.
-// You can disable this by removing "@ts-check" and `@type` comments below.
+// astro.config.mjs
+import { defineConfig } from "astro/config";
 import { imagetools } from "vite-imagetools";
-// @ts-check
-export default /** @type {import('astro').AstroUserConfig} */ ({
-  // Enable the Preact renderer to support Preact JSX components.
-  renderers: ["@astrojs/renderer-preact"],
+import tailwind from "@astrojs/tailwind";
+import partytown from "@astrojs/partytown";
+
+// https://astro.build/config
+export default defineConfig({
   vite: {
     plugins: [imagetools()],
+    ssr: {
+      external: ["svgo"],
+    },
+    server: {
+      host: "0.0.0.0",
+    },
   },
-  buildOptions: {
-    sitemap: true,
+  server: {
+    host: true,
   },
-  devOptions: {
-    hostname: "0.0.0.0",
-  },
+  integrations: [
+    tailwind({
+      // Example: Disable injecting a basic `base.css` import on every page.
+      // Useful if you need to define and/or import your own custom `base.css`.
+      config: { applyBaseStyles: false },
+    }),
+    partytown(),
+  ],
 });

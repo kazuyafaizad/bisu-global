@@ -101,3 +101,21 @@ let animateRight = function (elem) {
 let hide = function (elem) {
   gsap.set(elem, { autoAlpha: 0 });
 };
+
+const showAnim = gsap
+  .from(".navbar", {
+    yPercent: -100,
+    paused: true,
+    duration: 0.2,
+  })
+  .progress(1);
+
+if (window.screen.width >= 469) {
+  ScrollTrigger.create({
+    start: "top top",
+    end: 99999,
+    onUpdate: (self) => {
+      self.direction === -1 ? showAnim.play() : showAnim.reverse();
+    },
+  });
+}

@@ -11,15 +11,18 @@
     "prettier:check": "prettier --check --plugin-search-dir=. ."
   },
   "devDependencies": {
-    "astro": "^0.21.2",
-    "autoprefixer": "^10.4.0",
-    "prettier": "^2.5.1",
-    "prettier-plugin-astro": "^0.0.11",
-    "tailwindcss": "^3.0.23",
+    "@astrojs/partytown": "^0.1.2",
+    "@astrojs/tailwind": "^0.2.1",
+    "astro": "1.0.0-beta.27",
+    "autoprefixer": "^10.4.7",
+    "prettier": "^2.6.2",
+    "prettier-plugin-astro": "^0.0.12",
+    "sass": "^1.51.0",
+    "tailwindcss": "^3.0.24",
     "vite-imagetools": "^4.0.3"
   },
   "dependencies": {
-    "gsap": "^3.8.0",
-    "postcss": "^8.4.12"
+    "gsap": "^3.10.4",
+    "postcss": "^8.4.13"
   }
 }

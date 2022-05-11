@@ -1,3 +1,20 @@
 {
-  "moduleResolution": "node"
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "lib": [
+      "dom",
+      "es2018"
+    ],
+    "paths": {
+      "$/*": [
+        "src/*"
+      ],
+      "@/*": [
+        "public/assets/*"
+      ]
+    }
+  }
 }

@@ -14,8 +14,6 @@ const reduceMotion = !ssr && window.matchMedia('(prefers-reduced-motion: reduce)
   </head>
   <body>
   <div class="flex flex-col h-screen justify-between">
-
-
     <main>
     <Nav DIR="."/>
     <section class="relative h-hero">
@@ -33,7 +31,7 @@ const reduceMotion = !ssr && window.matchMedia('(prefers-reduced-motion: reduce)
             <img src="./assets/images/2.jpg" alt="About Bird Nest" class=" min-w-full object-cover h-[calc(100vh-10rem)] lg:h-[calc(100vh-12rem)]">
         </picture>
         <a href="./about-bird-nest" class="link">
-          <span class="linkInner text-xl">Learn More</span>
+          <span class="linkInner text-2xl font-thin">Learn More</span>
         </a>
       </div>
     </section>
@@ -47,7 +45,7 @@ const reduceMotion = !ssr && window.matchMedia('(prefers-reduced-motion: reduce)
             <img src="./assets/images/products-food.jpg" alt="Brand" class=" min-w-full object-cover h-[calc(100vh-10rem)] lg:h-[calc(100vh-12rem)]">
         </picture>
         <a href="./brand" class="link">
-          <span class="linkInner text-xl">Learn More</span>
+          <span class="linkInner text-2xl font-thin">Learn More</span>
         </a>
       </div>
     </section>
@@ -61,7 +59,7 @@ const reduceMotion = !ssr && window.matchMedia('(prefers-reduced-motion: reduce)
             <img src="./assets/images/4.jpg" alt="Sustainability" class=" min-w-full object-cover h-[calc(100vh-10rem)] lg:h-[calc(100vh-12rem)]">
         </picture>
         <a href="./sustainability" class="link">
-          <span class="linkInner text-xl">Learn More</span>
+          <span class="linkInner text-2xl font-thin">Learn More</span>
         </a>
       </div>
     </section>
@@ -75,7 +73,7 @@ const reduceMotion = !ssr && window.matchMedia('(prefers-reduced-motion: reduce)
             <img src="./assets/images/5.jpg" alt="Global" class=" min-w-full object-cover h-[calc(100vh-10rem)] lg:h-[calc(100vh-12rem)]">
         </picture>
         <a href="./global" class="link">
-          <span class="linkInner text-xl">Learn More</span>
+          <span class="linkInner text-2xl font-thin">Learn More</span>
         </a>
       </div>
     </section>
@@ -140,6 +138,9 @@ const reduceMotion = !ssr && window.matchMedia('(prefers-reduced-motion: reduce)
     </main>
     <Footer/>
     </div>
-    <script src={Astro.resolve("../js/top.js")} type = "text/javascript"/>
+
+<script >
+import '$/js/top.js';
+</script>
   </body>
 </html>

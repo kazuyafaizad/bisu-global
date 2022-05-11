@@ -4,9 +4,11 @@ const URL = import.meta.env.PUBLIC_URL || ".";
 
 const { DIR = "." } = Astro.props;
 ---
-
+<script>
+import '$/js/mobile-menu.js'
+</script>
 <!-- Navbar goes here -->
-<nav class="bg-lighten shadow-lg z-20 top-0 h-12 md:h-20 w-full sticky py-2 block md:flex items-center">
+<nav class="bg-lighten shadow-lg z-20 top-0 h-12 md:h-20 w-full sticky py-2 block md:flex items-center navbar">
   <div class="w-full max-w-7xl mx-auto px-4">
     <div class="flex justify-between items-center">
       <div>
@@ -19,27 +21,27 @@ const { DIR = "." } = Astro.props;
       <div class="hidden md:flex items-center space-x-1">
         <a
           href="${DIR}/about-bird-nest"
-          class="${about} my-4 px-2 text-black border-r border-black transition duration-300 hover:text-golden text-lg  leading-none px-3"
+          class="${about} my-4 px-2 text-black border-r border-black transition duration-300 hover:text-golden text-lg  leading-none px-3 font-thin"
           >About Bird Nest</a
         >
         <a
           href="${DIR}/brand"
-          class="${brand} my-4 px-2 text-black border-r border-black transition duration-300 hover:text-golden text-lg  leading-none px-3"
+          class="${brand} my-4 px-2 text-black border-r border-black transition duration-300 hover:text-golden text-lg  leading-none px-3 font-thin"
           >Brand</a
         >
         <a
           href="${DIR}/sustainability"
-          class="${sustain} my-4 px-2 text-black border-r border-black transition duration-300 hover:text-golden text-lg  leading-none px-3"
+          class="${sustain} my-4 px-2 text-black border-r border-black transition duration-300 hover:text-golden text-lg  leading-none px-3 font-thin"
           >Sustainability</a
         >
         <a
           href="${DIR}/global"
-          class="${global} my-4 px-2 text-black border-r border-black transition duration-300 hover:text-golden text-lg  leading-none px-3"
+          class="${global} my-4 px-2 text-black border-r border-black transition duration-300 hover:text-golden text-lg  leading-none px-3 font-thin"
           >Global</a
         >
         <a
           href="${DIR}/contact-us"
-          class="${contact} my-4 px-2 text-black border-r transition duration-300 hover:text-golden text-lg leading-none pl-3"
+          class="${contact} my-4 px-2 text-black transition duration-300 hover:text-golden text-lg leading-none pl-3 font-thin"
           >Contact</a
         >
       </div>

@@ -52,7 +52,7 @@ import Footer from "../components/Footer.astro";
         </section>
 
         <section>
-          <h1 class="px-5 lg:px-20 lg:mt-12 py-10 block text-center text-2xl lg:text-4xl gs_reveal">3 Promises</h1>
+          <h1 class="px-5 lg:px-20 lg:mt-12 py-5 lg:py-10 block text-center text-2xl lg:text-4xl gs_reveal">3 Promises</h1>
 
           <div class="grid-1 grid lg:hidden">
             <img src="../assets/images/Image 40.png" class="" />
@@ -102,9 +102,9 @@ import Footer from "../components/Footer.astro";
         </section>
 
         <section class="p-5 ">
-          <div class="lg:w-3/4 mx-auto">
-            <h2 class="mt-12 lg:text-center block gs_reveal">Animal Friendly</h2>
-            <article class=" gs_reveal leading-none lg:leading-loose lg:text-justify max-w-maxscr">
+          <div class="px-5 lg:px-0 lg:w-3/4 mx-auto max-w-maxscr lg:pb-22 ">
+            <h2 class="lg:mt-12 lg:text-center block gs_reveal ">Animal Friendly</h2>
+            <article class=" gs_reveal leading-none lg:leading-loose lg:text-justify ">
               <p>
                 Therefore, BI-SU only harvests nests from caves controlled by the Malaysian government, where harvesting
                 is only allowed for a certain period of time and only nests confirmed to have been left by swiftlet
@@ -117,7 +117,7 @@ import Footer from "../components/Footer.astro";
             </article>
           </div>
 
-          <div class="flex justify-center">
+          <div class="flex justify-center mt-3 lg:mt-12">
             <div class="mr-4 lg:w-1/6 lg:mx-8">
               <img src="../assets/images/Image 49.png" alt="" class="gs_reveal" />
               <small class="block text-[0.6rem] ml-3 lg:text-base leading-0 my-2">Certificate of Appreciation</small>
@@ -129,9 +129,9 @@ import Footer from "../components/Footer.astro";
           </div>
         </section>
 
-        <section class="bg-yellowish pt-12 mt-12 ">
+        <section class="bg-yellowish pt-5">
           <div class="px-5 lg:px-0 lg:w-3/4 mx-auto max-w-maxscr lg:pb-22 ">
-            <h2 class="block lg:text-center gs_reveal">Protecting the Environment</h2>
+            <h2 class="lg:mt-12 lg:text-center block gs_reveal">Protecting the Environment</h2>
             <article class="gs_reveal leading-none lg:leading-loose lg:text-justify ">
               <p>
                 As a rule, humankind must return what we take from the environment. Since BI-SU began, we have taken
@@ -157,6 +157,9 @@ import Footer from "../components/Footer.astro";
       </main>
       <Footer />
     </div>
-    <script src={Astro.resolve("../js/app.js")} type="text/javascript"></script>
+
+    <script>
+      import '$/js/app.js'
+    </script>
   </body>
 </html>

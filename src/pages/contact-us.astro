@@ -53,7 +53,6 @@ import Footer from '../components/Footer.astro';
       <p class="w-full tracking-wide mb-2 text-xs" >
       <input type="checkbox" class="form-checkbox" checked /> *I agree to the protection of my personal information.
       </p>
-      </label>
     </div>
 
     <div class="flex w-full px-3 mb-2 md:mb-0 items-center">
@@ -70,6 +69,8 @@ import Footer from '../components/Footer.astro';
 </main>
     <Footer />
     </div>
-     <script src={Astro.resolve("../js/app.js")} type = "text/javascript"/>
+     <script>
+      import '$/js/app.js'
+    </script>
   </body>
 </html>

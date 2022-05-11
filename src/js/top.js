@@ -76,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (scrolling.enabled) {
       // skip if a scroll tween is in progress
       scrolling.disable();
+
       if (window.screen.width <= 769) {
         gsap.to(window, {
           scrollTo: { y: section, offsetY: 65, autoKill: false },
@@ -84,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       } else {
         gsap.to(window, {
-          scrollTo: { y: section, offsetY: 100, autoKill: false },
+          scrollTo: { y: section, offsetY: 30, autoKill: false },
           onComplete: scrolling.enable,
           duration: 1,
         });
@@ -150,3 +151,21 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+const showAnim = gsap
+  .from(".navbar", {
+    yPercent: -100,
+    paused: true,
+    duration: 0.2,
+  })
+  .progress(1);
+
+if (window.screen.width >= 469) {
+  ScrollTrigger.create({
+    start: "top top",
+    end: 99999,
+    onUpdate: (self) => {
+      self.direction === -1 ? showAnim.play() : showAnim.reverse();
+    },
+  });
+}
